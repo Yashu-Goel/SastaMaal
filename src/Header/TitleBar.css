@@ -22,4 +22,20 @@
     background-color: #0a1c30;
     color: white;
     border: 2px solid white;
+    cursor: pointer;
+}
+.SearchBar{
+    border-radius: 5px;
+    width:28rem;
+    height:1.5rem;
+    padding:5px;
+    position: absolute;
+    left: 20%;
+}
+#earning{
+    text-decoration: none;
+    color: white;
+    position: absolute;
+    right:330px;
+    vertical-align: middle;
 }
