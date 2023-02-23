@@ -1,5 +1,5 @@
 import React from 'react'
-import './Offer.css'
+import './OfferCard.css'
 const Offer = (props) => {
   return (
     <div className='MainContainer'>

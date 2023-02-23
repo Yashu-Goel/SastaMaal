@@ -1,0 +1,39 @@
+.ProductCarousel
+{
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+}
+.ProductContainer
+{
+    padding: 0 10px;
+    display: flex;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+.PrevBtn, .NextBtn
+{
+    border: none;
+    width: 60px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0);
+}
+.NextBtn
+{
+    right: 0;
+}
+.NextBtn p, .PrevBtn p{
+    font-size: 50px;
+    background-color: rgba(255, 255, 255, 0.436);
+    box-shadow: 0 0 10px 1px black;
+    border-radius: 10px;
+    color: aliceblue;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+}
