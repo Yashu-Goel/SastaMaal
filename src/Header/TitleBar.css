@@ -8,6 +8,12 @@
     color: white;
     width: 100%;
 }
+.TitleContainer img
+{
+    height: 70px;
+    position: absolute;
+    left: 90px;
+}
 .Registration button
 {
     margin: 0px 10px;
