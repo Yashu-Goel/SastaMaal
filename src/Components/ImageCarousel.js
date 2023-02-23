@@ -1,84 +1,57 @@
 import React from 'react'
 import './ImageCarousel.css'
 import OfferCard from './OfferCard'
-
-let MockData=[
-    {
-      ProductImage: "https://rukminim1.flixcart.com/image/832/832/kziqvm80/t-shirt/r/l/a/xl-ausk0128-ausk-original-imagbgd7wvgj8yrh.jpeg?q=70",
-      BrandImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1200px-Amazon_logo.svg.png",
-      Discount: "50%",
-      Cashback: 200,
-    },
-    {
-      ProductImage: "https://m.media-amazon.com/images/G/31/selldot/Images/WebpImages/BannerImage-PopularcategoriestoSellOnline.webp",
-      BrandImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1200px-Amazon_logo.svg.png",
-      Discount: "20%",
-      Cashback: 250,
-    },
-    {
-      ProductImage: "https://m.media-amazon.com/images/G/31/selldot/Images/WebpImages/BannerImage-PopularcategoriestoSellOnline.webp",
-      BrandImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1200px-Amazon_logo.svg.png",
-      Discount: "20%",
-      Cashback: 250,
-    }
-  ]
+import Data from '../mock_data.json'
 
 
 const ImageCarousel = () => {
-    let Box= document.querySelector('.ProductContainer')
-    const PrevBtn = () =>
-    {
-        let Width=Box.clientWidth;
-        Box.scrollLeft=(Box.scrollLeft - Width);
-        console.log(Width);
-    }
-    const NextBtn = () =>
-    {
-        let Width=Box.clientWidth;
-        Box.scrollLeft=(Box.scrollLeft + Width);
-        console.log(Width);
-    }
+    
   return (
     <div className='ProductCarousel'>
 
-        <button className='PrevBtn' onClick={PrevBtn}><p>&lt;</p></button>
-        <button className='NextBtn' onClick={NextBtn}><p>&gt;</p></button>
+        <button className='PrevBtn' onClick={()=>{
+            let Box= document.querySelector('.ProductContainer')
+            let Width=Box.clientWidth;
+            Box.scrollLeft=(Box.scrollLeft - Width);
+        }}><p>&lt;</p></button>
+        <button className='NextBtn' onClick={()=>{
+            let Box= document.querySelector('.ProductContainer')
+            let Width=Box.clientWidth;
+            Box.scrollLeft=(Box.scrollLeft + Width);
+        }}><p>&gt;</p></button>
 
         <div className='ProductContainer'>
-        <OfferCard ProductImage={MockData[0].ProductImage} 
-        BrandImage={MockData[0].BrandImage} 
-        Discount = {MockData[0].Discount}
-        Cashback={MockData[0].Cashback}/>
+        <OfferCard ProductImage={Data[0].ProductImage} 
+        BrandImage={Data[0].BrandImage} 
+        Discount = {Data[0].Discount}
+        Cashback={Data[0].Cashback}/>
+        
+        <OfferCard ProductImage={Data[1].ProductImage} 
+        BrandImage={Data[1].BrandImage} 
+        Discount = {Data[1].Discount}
+        Cashback={Data[1].Cashback}/>
 
-        <OfferCard ProductImage={MockData[0].ProductImage} 
-        BrandImage={MockData[0].BrandImage} 
-        Discount = {MockData[0].Discount}
-        Cashback={MockData[0].Cashback}/>
+        <OfferCard ProductImage={Data[2].ProductImage} 
+        BrandImage={Data[2].BrandImage} 
+        Discount = {Data[2].Discount}
+        Cashback={Data[2].Cashback}/>
 
-        <OfferCard ProductImage={MockData[0].ProductImage} 
-        BrandImage={MockData[0].BrandImage} 
-        Discount = {MockData[0].Discount}
-        Cashback={MockData[0].Cashback}/>
+        <OfferCard ProductImage={Data[3].ProductImage} 
+        BrandImage={Data[3].BrandImage} 
+        Discount = {Data[3].Discount}
+        Cashback={Data[3].Cashback}/>
 
-        <OfferCard ProductImage={MockData[0].ProductImage} 
-        BrandImage={MockData[0].BrandImage} 
-        Discount = {MockData[0].Discount}
-        Cashback={MockData[0].Cashback}/>
+        <OfferCard ProductImage={Data[0].ProductImage} 
+        BrandImage={Data[0].BrandImage} 
+        Discount = {Data[0].Discount}
+        Cashback={Data[0].Cashback}/>
 
-        <OfferCard ProductImage={MockData[0].ProductImage} 
-        BrandImage={MockData[0].BrandImage} 
-        Discount = {MockData[0].Discount}
-        Cashback={MockData[0].Cashback}/>
+        <OfferCard ProductImage={Data[0].ProductImage} 
+        BrandImage={Data[0].BrandImage} 
+        Discount = {Data[0].Discount}
+        Cashback={Data[0].Cashback}/>
 
-        <OfferCard ProductImage={MockData[0].ProductImage} 
-        BrandImage={MockData[0].BrandImage} 
-        Discount = {MockData[0].Discount}
-        Cashback={MockData[0].Cashback}/>
-
-        <OfferCard ProductImage={MockData[0].ProductImage} 
-        BrandImage={MockData[0].BrandImage} 
-        Discount = {MockData[0].Discount}
-        Cashback={MockData[0].Cashback}/> 
+        
         </div>
     </div>
   )
