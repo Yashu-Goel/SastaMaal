@@ -1,8 +1,9 @@
 import React from 'react'
 import './OfferCard.css'
+import Data from '../mock_data.json'
 const Offer = (props) => {
   return (
-    <div className='MainContainer'>
+    <div className='MainContainer' style={{backgroundColor : props.Color}}>
         <div className='ImageConatiner'>
             <img src={props.ProductImage}></img>
         </div>
