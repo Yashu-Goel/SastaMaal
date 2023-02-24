@@ -1,18 +1,25 @@
-.ProductCarousel
+span
+{
+    font-size: 30px;
+    font-weight: 600;
+    margin-left: 30px;
+}
+.CategoryCarousel
 {
     position: relative;
     overflow: hidden;
     padding: 20px;
 }
-.ProductContainer
+.CategoryContainer
 {
+    display: flex;
     padding: 0 10px;
     display: flex;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    margin: 0 30px;
 }
-.ProductCarousel .PrevBtn, .ProductCarousel .NextBtn
-{
+.CategoryCarousel .PrevBtn, .CategoryCarousel .NextBtn{
     border: none;
     width: 60px;
     position: absolute;
@@ -20,23 +27,22 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0);
-    top: 97px;
     border-radius: 10px;
     transition: transform .2s;
 }
-.ProductCarousel .NextBtn:hover,.ProductCarousel .PrevBtn:hover
+.CategoryCarousel .NextBtn:hover,.CategoryCarousel .PrevBtn:hover
 {
     transform: scale(1.1);
 }
-.ProductCarousel .PrevBtn
+.CategoryCarousel .PrevBtn
 {
     left: 0;
 }
-.ProductCarousel .NextBtn
+.CategoryCarousel .NextBtn
 {
     right: 0;
 }
-.ProductCarousel .NextBtn p,.ProductCarousel .PrevBtn p{
+.CategoryCarousel .NextBtn p,.CategoryCarousel .PrevBtn p{
     font-size: 50px;
     background-color: rgba(255, 255, 255, 0.429);
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;

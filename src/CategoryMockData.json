@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "ImageSrc": "https://asset20.ckassets.com/resources/image/category/freebies-offer-4842-1674024281.png"
+    },
+    {
+        "id": 2,
+        "ImageSrc": "https://asset20.ckassets.com/resources/image/category/electronics-offers-4205-1674024311.png"
+    },
+    {
+        "id": 3,
+        "ImageSrc": "https://asset20.ckassets.com/resources/image/category/health-medicine-offers-4203-1674024384.png"
+    },
+    {
+        "id": 4,
+        "ImageSrc": "https://asset20.ckassets.com/resources/image/category/home-kitchen-offers-4209-1674024462.png"
+    },
+    {
+        "id": 5,
+        "ImageSrc": "https://asset20.ckassets.com/resources/image/category/education-offers-4445-1674024431.png"
+    },
+    {
+        "id": 6,
+        "ImageSrc": "https://asset20.ckassets.com/resources/image/category/food-and-grocery-4901-1674023940.png"
+    },
+    {
+        "id": 7,
+        "ImageSrc": "https://asset20.ckassets.com/resources/image/category/banking-finance-offers-4684-1674023915.png"
+    },
+    {
+        "id": 8,
+        "ImageSrc": "https://asset20.ckassets.com/resources/image/category/travel-offers-4207-1674023966.png"
+    },
+    {
+        "id": 9,
+        "ImageSrc": "https://asset20.ckassets.com/resources/image/category/fashion-offers-4199-1674024044.png"
+    },
+    {
+        "id": 10,
+        "ImageSrc": "https://asset20.ckassets.com/resources/image/category/mobiles-phones-offers-4200-1674024134.png"
+    }
+]

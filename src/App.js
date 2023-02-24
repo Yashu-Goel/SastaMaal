@@ -2,6 +2,7 @@ import './App.css';
 import Header from './Header/Header';
 
 import ImageCarousel from './Components/ImageCarousel';
+import TopCategories from './Components/TopCategories';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       {/* <Recommendations/> */}
 
         <ImageCarousel/>
+        <TopCategories/>
     </div>
   );
 }
