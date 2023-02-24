@@ -1,0 +1,54 @@
+.MainContainer1
+{
+    min-width: 280px;
+    max-height: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    margin: 10px 15px 10px 15px;
+    border-radius: 7px;
+    transition: transform .2s;
+    position: relative;
+
+}
+.CashbackContainer
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f07431;
+    color: white;
+    max-height: 35px;
+    padding: 0 5px;
+    border-radius: 5px;
+}
+.ImageContainer div
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-top: 25px solid transparent;
+	border-right: 50px solid #555;
+	border-bottom: 25px solid transparent;
+    width: 80px;
+}
+/* .ImageContainer img
+{
+    margin-top: 80px
+} */
+.CashbackContainer p{
+    font-size: 15px;
+}
+.TermsContainer p
+{
+    color: #349ff4;
+}
+.MainContainer1:hover{
+    transform: scale(1.02);
+}
+.TermsContainer p:hover,.CashbackContainer p:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}

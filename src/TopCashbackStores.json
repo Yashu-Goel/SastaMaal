@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "ImageSrc": "https://asset20.ckassets.com/resources/image/stores/puma-coupons-1660816104.jpg",
+        "Cashback": 5
+    },
+    {
+        "id": 2,
+        "ImageSrc": "https://asset20.ckassets.com/resources/image/stores/croma-test-1662970725.png",
+        "Cashback": 3
+    },
+    {
+        "id": 3,
+        "ImageSrc": "https://asset20.ckassets.com/resources/image/stores/amazon-1602658695.png",
+        "Cashback": 8
+    },
+    {
+        "id": 4,
+        "ImageSrc": "https://asset20.ckassets.com/resources/image/stores/ajio-coupons-1632200353.png",
+        "Cashback": 8
+    },
+    {
+        "id": 5,
+        "ImageSrc": "https://asset20.ckassets.com/resources/image/stores/dell-1667974468.png",
+        "Cashback": 6
+    },
+    {
+        "id": 6,
+        "ImageSrc": "https://asset20.ckassets.com/resources/image/stores/tatacliq-coupons-1632828732.png",
+        "Cashback": 3
+    },
+    {
+        "id": 7,
+        "ImageSrc": "https://asset20.ckassets.com/resources/image/stores/mama-earth-coupons-1668043816.png",
+        "Cashback": 15
+    },
+    {
+        "id": 8,
+        "ImageSrc": "https://asset20.ckassets.com/resources/image/stores/nykaa-test-1658416806.png",
+        "Cashback": 5
+    },
+    {
+        "id": 9,
+        "ImageSrc": "https://asset20.ckassets.com/resources/image/stores/mcaffeine-coupons-1632376924.png",
+        "Cashback": 17
+    },
+    {
+        "id": 10,
+        "ImageSrc": "https://asset20.ckassets.com/resources/image/stores/lakme-offers-1619520915.png",
+        "Cashback": 10
+    }
+]

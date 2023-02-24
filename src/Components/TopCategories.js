@@ -5,7 +5,7 @@ import Data from '../CategoryMockData.json';
 const TopCategories = () => {
   return (
     <div>
-      <span>Top Categories</span>
+      <span>TOP CATEGORIES</span>
       <div className="CategoryCarousel">
         <button
           className="PrevBtn"

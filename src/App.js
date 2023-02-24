@@ -3,6 +3,7 @@ import Header from './Header/Header';
 
 import ImageCarousel from './Components/ImageCarousel';
 import TopCategories from './Components/TopCategories';
+import TopCashbackStores from './Components/TopCashbackStores';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
 
         <ImageCarousel/>
         <TopCategories/>
+        <TopCashbackStores/>
     </div>
   );
 }
