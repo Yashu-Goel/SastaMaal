@@ -1,19 +1,19 @@
 import './App.css';
-import Header from './Header/Header';
-
-import ImageCarousel from './Components/ImageCarousel';
-import TopCategories from './Components/TopCategories';
-import TopCashbackStores from './Components/TopCashbackStores';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import Login from './Authentication/Login/Login';
+import Signup from './Authentication/Signup/Signup';
+import Homepage from './Components/Homepage';
 
 function App() {
   return (
     <div>
-      <Header/>
-      {/* <Recommendations/> */}
-
-        <ImageCarousel/>
-        <TopCategories/>
-        <TopCashbackStores/>
+      <Router>
+        <Routes>
+          <Route exact path='/' element={<Homepage />} />
+          <Route exact path='/signup' element={<Signup />} />
+          <Route exact path='/login' element={<Login />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
