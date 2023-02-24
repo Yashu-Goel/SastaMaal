@@ -1,4 +1,4 @@
-span
+.TopCashbackStoresMainConatiner span
 {
     font-size: 25px;
     font-weight: 600;
@@ -14,7 +14,6 @@ span
 {
     display: flex;
     padding: 0 10px;
-    display: flex;
     overflow-x: hidden;
     scroll-behavior: smooth;
     margin: 0 30px;
@@ -23,6 +22,7 @@ span
     border: none;
     width: 60px;
     position: absolute;
+    top: 160px;
     display: flex;
     justify-content: center;
     align-items: center;

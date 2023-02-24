@@ -5,9 +5,7 @@ const TopCashbackStoresCard = (props) => {
     <div className='MainContainer1'>
         
         <div className='ImageContainer'>
-            {/* <div>
-                
-            </div> */}
+            <p>{props.Offer}</p>
         <img src={props.ImageSrc}/>
         </div>
         <div className='CashbackContainer'>

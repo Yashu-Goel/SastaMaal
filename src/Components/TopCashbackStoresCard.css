@@ -11,7 +11,50 @@
     border-radius: 7px;
     transition: transform .2s;
     position: relative;
-
+    border: 1px solid rgba(0, 0, 0, 0.361);
+}
+.MainContainer1 .ImageContainer p
+{
+    position: absolute;
+    top: 0;
+    width: 250px;
+    height: 40px;
+    background-color: #E32636 ;
+    border-radius: 30px;
+    left: -15px;
+    border-bottom-left-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+.MainContainer1 .ImageContainer p::before
+{
+    content: "";
+    position: absolute;
+    top: 41px;
+    width: 15px;
+    height: 30px;
+    left: 0;
+    background-color: #C60C30; /*#af43f1  #8045c6 */
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    z-index: 2;
+}
+.MainContainer1 .ImageContainer p::after{
+    content: "";
+    position: absolute;
+    top: 40px;
+    width: 15px;
+    height: 15px;
+    left: 0px;
+    background-color: #E32636;
+}
+.ImageContainer img
+{
+    margin-top: 70px;
 }
 .CashbackContainer
 {
@@ -24,20 +67,8 @@
     padding: 0 5px;
     border-radius: 5px;
 }
-.ImageContainer div
-{
-    position: absolute;
-    left: 0;
-    top: 0;
-    border-top: 25px solid transparent;
-	border-right: 50px solid #555;
-	border-bottom: 25px solid transparent;
-    width: 80px;
-}
-/* .ImageContainer img
-{
-    margin-top: 80px
-} */
+
+
 .CashbackContainer p{
     font-size: 15px;
 }
