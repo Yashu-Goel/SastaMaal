@@ -4,7 +4,7 @@ import CategoryCard from "./CategoryCard";
 import Data from '../CategoryMockData.json';
 const TopCategories = () => {
   return (
-    <div>
+    <div className="TopCategoriesMainContainer">
       <span>TOP CATEGORIES</span>
       <div className="CategoryCarousel">
         <button

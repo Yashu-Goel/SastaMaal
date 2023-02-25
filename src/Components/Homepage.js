@@ -3,6 +3,7 @@ import ImageCarousel from './ImageCarousel';
 import TopCategories from './TopCategories';
 import TopCashbackStores from './TopCashbackStores';
 import Header from '../Header/Header';
+import ReferFriend from './ReferFriend';
 
 const Homepage = () => {
     return (
@@ -11,6 +12,7 @@ const Homepage = () => {
             <ImageCarousel />
             <TopCategories />
             <TopCashbackStores />
+            <ReferFriend/>
         </div>
     )
 }
