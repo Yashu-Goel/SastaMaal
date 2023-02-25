@@ -1,0 +1,46 @@
+.FooterContainer
+{
+    display: flex;
+    justify-content: space-around;
+    background-color: #F0F8FF;
+}
+.Demo
+{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    color: #0a1c30;
+    margin-top: 40px;
+}
+.FooterImageContainer
+{
+    display: flex;
+    justify-content: center;
+}
+.FooterImageContainer img
+{
+    border-radius: 50%;
+    height: 200px;
+    margin-top: 20px;
+}
+.SocialMedia
+{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+.SocialMedia a
+{
+    padding: 15px;
+    transition: transform .2s;
+    transform: scale(1.9);
+}
+.SocialMedia a:hover
+{
+    transform: scale(2.1);
+}
+.SocialMedia a:visited, .SocialMedia a:link, .SocialMedia a:active
+{
+    color: black;
+}

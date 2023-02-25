@@ -4,6 +4,7 @@ import TopCategories from './TopCategories';
 import TopCashbackStores from './TopCashbackStores';
 import Header from '../Header/Header';
 import ReferFriend from './ReferFriend';
+import Footer from './Footer';
 
 const Homepage = () => {
     return (
@@ -13,6 +14,7 @@ const Homepage = () => {
             <TopCategories />
             <TopCashbackStores />
             <ReferFriend/>
+            <Footer/>
         </div>
     )
 }
