@@ -44,19 +44,41 @@
     margin: 0 auto;
     flex-direction: column;
 }
-.input2[type="submit"]{
-    background-color:greenyellow;
+
+.input2[type="submit"] {
+    background-color: greenyellow;
 }
-.input2[type="submit"]:hover{
-    background-color:green;
+
+.input2[type="submit"]:hover {
+    background-color: green;
     font-weight: bolder;
     color: white;
 }
-.reset2{
+
+.reset2 {
     text-decoration: none;
     color: white;
 }
-.reset2{
+
+.reset2 {
     text-decoration: underline;
     color: whitesmoke;
+}
+
+.error1 {
+    padding: -1px;
+    margin: -6px 0;
+    font-weight: 500;
+    color: #ba3939;
+    background: #ffe0e0;
+    border: 1px solid #a33a3a;
+}
+
+.success1 {
+    padding: -1px;
+    margin: -6px 0;
+    font-weight: 500;
+    color: #2b7515;
+    background: #ecffd6;
+    border: 1px solid #617c42;
 }

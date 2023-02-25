@@ -1,7 +1,12 @@
 import "./TitleBar.css";
-import React from "react";
+import React, { useContext } from "react";
 import Logo from "./Logo.png";
+import { CredentialContext } from "../App.js";
+
 const TitleBar = () => {
+
+  const [, setCredentials] = useContext(CredentialContext);
+
   return (
     <div className="TitleContainer">
       <div>&#x0;</div>
@@ -10,8 +15,8 @@ const TitleBar = () => {
       <div className="Registration">
         <a href="www.google.com" target="_blank" id="earning">Total Earnings: &#8377;1550</a>
         <button>How Does it work?</button>
-        <a href="/login"><button>LogIn</button></a>
-        <a href="/signup"><button>Signup</button></a>
+        <><a href="/login"><button>LogIn</button></a>
+          <a href="/signup"><button>Signup</button></a></>
       </div>
     </div>
   );
