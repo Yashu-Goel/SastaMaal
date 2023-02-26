@@ -1,11 +1,9 @@
 import "./TitleBar.css";
 import React, { useContext } from "react";
 import Logo from "./Logo.png";
-import { CredentialContext } from "../App.js";
 
 const TitleBar = () => {
 
-  const [, setCredentials] = useContext(CredentialContext);
 
   return (
     <div className="TitleContainer">

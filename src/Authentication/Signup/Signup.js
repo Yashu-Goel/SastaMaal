@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { useNavigate } from "react-router-dom";
-import { CredentialContext } from '../../App';
+
 import './Signup.css'
 
 const API_BASE = "http://localhost:5000";
@@ -14,7 +14,6 @@ const Signup = () => {
 
   const [isError, setIsError] = useState(null);
 
-  const [, setCredentials] = useContext(CredentialContext);
 
   const handleErrors = async (res) => {
     if (!res.ok) {
