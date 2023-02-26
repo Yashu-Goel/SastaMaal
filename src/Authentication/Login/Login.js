@@ -2,7 +2,8 @@ import './Login.css';
 import React, { useState, useContext } from 'react'
 import { useNavigate } from "react-router-dom";
 import { CredentialContext } from '../../App';
-import secureLocalStorage from "react-secure-storage";
+// import secureLocalStorage from "react-secure-storage";
+import CryptoJS from "crypto-js";
 const API_BASE = "http://localhost:5000";
 
 const Login = () => {
@@ -43,13 +44,19 @@ const Login = () => {
                 email: email, password: password
             })
         })
+            //no need above code
             .then(handleErrors)
             .then((res) => {
                 setCredentials({
                     email, password
                 })
-                secureLocalStorage.setItem("id", email);
-                secureLocalStorage.setItem("pass", password);
+                const user = { email: email, password: password };
+                let string = JSON.stringify(user);
+                const secret = "hdahg g badhj yuida gdjhag dag jjh";
+
+                let encryp = CryptoJS.AES.encrypt(string, secret).toString();
+
+                localStorage.setItem("user", encryp);
                 navigate("/");
             })
 

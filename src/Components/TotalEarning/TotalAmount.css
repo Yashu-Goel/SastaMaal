@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#teContainer {
+    margin: 0;
+    padding: 0;
+    height: 80vh;
+    width: 60vw;
+    margin: 0 auto;
+    margin-top: 6rem;
+}
+
+#te1Container {
+    display: block;
+    padding: 1.5rem;
+    background-color: beige;
+    border-radius: 20px;
+}
+
+#teLink {
+    margin-bottom: 0.4rem;
+}
+
+#tep {
+    margin-bottom: 0rem;
+}
+
+#teprice {
+    margin-left: 0.1rem;
+    padding-top: 0.5rem;
+    font-weight: bolder;
+}
+
+#owall {
+    display: block;
+    position: relative;
+    top: -1.8rem;
+    right: 1rem;
+}
+
+#waIcon {
+    float: right;
+    font-size: 1.8rem;
+    color: rgb(151, 125, 230);
+}
+
+#temsg {
+    text-align: left;
+    margin-bottom: -1rem;
+    padding: 0.5rem;
+    padding-left: 0rem;
+    font-size: 13px;
+}
+
+#teBottom {
+    margin: auto 0;
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    width: 60vw;
+    gap:1rem;
+}
+
+.tegrid {
+    height: 120px;
+    border: 1px solid black;
+    border-radius: 20px;
+    box-shadow: #d6d0d0 0px 5px 8px 1px;
+    border-radius: 10px;
+    padding: 20px 20px 10px;
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: blue;
+    background: -webkit-linear-gradient(top, #abfafe 0%,#00c7f9 75%);
+} 
+
+@media (max-width: 800px) {
+    #teContainer {
+        margin: 0;
+        padding: 0;
+        width: 90vw;
+        margin: 0 auto;
+        margin-top: 5rem;
+    }
+    #te1Container {
+        display: block;
+        padding: 1rem;
+        background-color: beige;
+        border-radius: 20px;
+    }
+    #teBottom {
+        margin: auto 0;
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+        width: 90vw;
+        gap:1rem;
+        display: flex;
+        flex-direction: column;
+    }
+    .tegrid {
+        height: 80px;
+        border: 1px solid black;
+        border-radius: 20px;
+        box-shadow: #d6d0d0 0px 5px 8px 1px;
+        border-radius: 10px;
+        padding: 1.2rem 1.2rem 1.2rem;
+        width: 100%;
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: #ffffff;
+        background-color: blue;
+        background: -webkit-linear-gradient(top, #abfafe 0%,#00c7f9 75%);
+    } 
+}

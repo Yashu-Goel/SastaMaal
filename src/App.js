@@ -4,6 +4,7 @@ import Login from './Authentication/Login/Login';
 import Signup from './Authentication/Signup/Signup';
 import Homepage from './Components/Homepage';
 import React, { useState } from 'react';
+import TotalAmount from './Components/TotalEarning/TotalAmount';
 export const CredentialContext = React.createContext(null);
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
             <Route exact path='/' element={<Homepage />} />
             <Route exact path='/signup' element={<Signup />} />
             <Route exact path='/login' element={<Login />} />
+            <Route exact path='/myearning' element={<TotalAmount />} />
           </Routes>
         </Router>
       </CredentialContext.Provider>
