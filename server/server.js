@@ -36,15 +36,15 @@ const detailSchema = new mongoose.Schema({
     userId: {
         type: String
     },
-    // orders: [{
-    //     type: String
-    // }],
+    array: [{
+        type: String
+    }],
     amount:{type:Number}
 });
 const Amount = mongoose.model("Amount", detailSchema)
 
 app.post('/login', async (req, res) => {
-    console.log("hello caught here")
+
     const { email, password } = req.body;
 
     const users = await User.findOne({ email: email });
@@ -108,9 +108,29 @@ app.get("/amount", async (req, res) => {
         res.json(amount);
     } else
         return;
+})
 
+app.get("/arrays", async (req, res) => {
+    
+    const { authorization } = req.headers;
+    const [, token] = authorization.split(" ");
+    const [email, password] = token.split(":");
+    const users = await User.findOne({ email: email })
+
+    const decryptedPass = cryptr.decrypt(users.password);
+    if (!users || decryptedPass !== password) {
+        res.status(403);
+        res.json({
+            message: "Invalid Login",
+        })
+        return;
+    }
+    const available = await Amount.findOne({ userId: users._id });
+    if (available !== null) {
+        const { amount,array } = await Amount.findOne({ userId: users._id });
+
+        res.json({amount:amount,array:array});
+    } else
+        return;
 })
 app.listen(5000, (console.log("Port has started at 5000")));
-// app.get('/', (req, res) => {
-//     res.send("Backend started");
-// })

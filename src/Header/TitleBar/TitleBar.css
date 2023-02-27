@@ -15,6 +15,9 @@
     left: 90px;
     z-index: 3;
 }
+.Registration{
+    display: flex;
+}
 .Registration button
 {
     margin: 0px 10px;
@@ -42,7 +45,8 @@
 #earning{
     text-decoration: none;
     color: white;
-    position: absolute;
-    right:330px;
+    margin-right: 1rem;
+    /* position: absolute; */
+    /* right:330px; */
     vertical-align: middle;
 }

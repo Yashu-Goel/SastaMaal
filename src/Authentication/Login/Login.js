@@ -12,7 +12,7 @@ const Login = () => {
     const [password, setPass] = useState("");
     const [isError, setIsError] = useState("");
 
-    const [, setCredentials] = useContext(CredentialContext);
+    const [credentials, setCredentials] = useContext(CredentialContext);
 
     const handleErrors = async (res) => {
         if (!res.ok) {
@@ -50,6 +50,7 @@ const Login = () => {
                 setCredentials({
                     email, password
                 })
+
                 const user = { email: email, password: password };
                 let string = JSON.stringify(user);
                 const secret = "hdahg g badhj yuida gdjhag dag jjh";

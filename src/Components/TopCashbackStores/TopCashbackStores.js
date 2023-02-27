@@ -1,7 +1,7 @@
 import React from 'react'
 import './TopCashbackStores.css'
-import TopCashbackStoresCard from './TopCashbackStoresCard'
-import Data from '../TopCashbackStores.json'
+import TopCashbackStoresCard from '../TopCashbackStoresCard/TopCashbackStoresCard'
+import Data from '../../JsonSamples/TopCashbackStores.json'
 const TopCashbackStores = () => {
   return (
     <div className='TopCashbackStoresMainConatiner'>

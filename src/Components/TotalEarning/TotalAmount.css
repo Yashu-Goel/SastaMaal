@@ -10,12 +10,12 @@
 {
     font-family: 'Poppins', sans-serif;
     position: absolute;
-    top: 70%;
+    top: 40%;
     flex-direction: column;
     background-color: white;
     padding: 20px 60px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    border-radius: 5px;
+    border-radius: 1rem;
     display: flex;
     height: 250px;
     width: 580px;
@@ -71,4 +71,30 @@
 {
     background-color: black;
     color: white;
+}
+#order-container{
+    background-color: #f2f2f2;
+    width: 700px;
+    position: absolute;
+    top: 26rem;
+    margin: 0 auto;
+    border-radius: 1rem;
+    margin-top:1rem;
+}
+#order{
+    text-decoration: none;
+    list-style: none;
+    width: 750px;
+}
+#order-heading{
+    text-align: center;
+}
+#order-link{
+    width: 78%;
+    height: 50px;
+    background-color: antiquewhite;
+    margin: 1rem 0;
+    padding: 0.5rem 1rem;
+    padding-bottom: 0;
+    border-radius: 1rem;
 }

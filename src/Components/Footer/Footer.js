@@ -2,8 +2,8 @@ import React from "react";
 import "./Footer.css";
 import { SiLinkedin } from "react-icons/si";
 import { GoMarkGithub } from "react-icons/go";
-import AllenImg from "./Allen.png"
-import YashuImg from "./Yashu.png";
+import AllenImg from "../Photos/Allen.png"
+import YashuImg from "../Photos/Yashu.png"
 const Footer = () => {
   return (
     <div className="FooterContainer">

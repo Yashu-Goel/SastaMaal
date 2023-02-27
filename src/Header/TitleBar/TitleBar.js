@@ -1,15 +1,15 @@
 import "./TitleBar.css";
 import React, { useContext, useEffect, useState } from "react";
-import Logo from "./Logo.png";
-import { CredentialContext } from "../App";
+import Logo from "../Logo.png";
+import { CredentialContext } from "../../App";
 import CryptoJS from "crypto-js";
 
 const API_BASE = "http://localhost:5000"
 
 const TitleBar = () => {
-
   const [credentials, setCredentials] = useContext(CredentialContext);
   const [amount, setAmount] = useState(0);
+
 
   useEffect(() => {
     const secret = "hdahg g badhj yuida gdjhag dag jjh";
@@ -19,12 +19,12 @@ const TitleBar = () => {
     let data = JSON.parse(encryp);
     const email = data.email;
     const password = data.password;
-    if (email !== null || password !== null)
-    {
+
+    if (email !== null || password !== null) {
       setCredentials({ email, password });
     }
-    else return;
-
+    else
+      return
 
     fetch(API_BASE + "/amount", {
       method: "GET",
@@ -36,11 +36,12 @@ const TitleBar = () => {
       .then((res) => res.json())
       .then((data) => setAmount(data));
 
-  },[amount])
+  }, [amount,credentials])
 
   function Logout() {
     localStorage.removeItem("user");
     setCredentials(null);
+    setAmount(0);
   }
   return (
     <div className="TitleContainer">
@@ -48,7 +49,7 @@ const TitleBar = () => {
       <img src={Logo} alt="logo" />
       <input className="SearchBar" placeholder="What do you want to buy today...?" />
       <div className="Registration">
-        <a href="/myearning" id="earning">Total Earnings: &#8377;{amount}</a>
+        {credentials && <a href="/myearning" id="earning">Total Earnings: &#8377;{amount}</a>}
         <button>How Does it work?</button>
         {!credentials && <a href="/login"><button>LogIn</button></a>}
         {!credentials && <a href="/signup"><button>Signup</button></a>}

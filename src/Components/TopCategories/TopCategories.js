@@ -1,7 +1,7 @@
 import React from "react";
 import "./TopCategories.css";
-import CategoryCard from "./CategoryCard";
-import Data from '../CategoryMockData.json';
+import CategoryCard from "../CategoryCard/CategoryCard";
+import Data from '../../JsonSamples/CategoryMockData';
 const TopCategories = () => {
   return (
     <div className="TopCategoriesMainContainer">

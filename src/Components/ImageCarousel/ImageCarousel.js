@@ -1,8 +1,7 @@
 import React from 'react'
 import './ImageCarousel.css'
-import OfferCard from './OfferCard'
-import Data from '../OfferMockData.json'
-
+import OfferCard from '../OfferCard/OfferCard'
+import Data from '../../JsonSamples/OfferMockData'
 
 const ImageCarousel = () => {
     
