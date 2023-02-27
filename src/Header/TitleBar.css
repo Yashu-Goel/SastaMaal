@@ -13,6 +13,7 @@
     height: 70px;
     position: absolute;
     left: 90px;
+    z-index: 3;
 }
 .Registration button
 {
