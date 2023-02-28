@@ -36,12 +36,11 @@ const TitleBar = () => {
       .then((res) => res.json())
       .then((data) => setAmount(data));
 
-  }, [amount,credentials])
+  }, [amount])
 
   function Logout() {
     localStorage.removeItem("user");
     setCredentials(null);
-    setAmount(0);
   }
   return (
     <div className="TitleContainer">
@@ -50,6 +49,7 @@ const TitleBar = () => {
       <input className="SearchBar" placeholder="What do you want to buy today...?" />
       <div className="Registration">
         {credentials && <a href="/myearning" id="earning">Total Earnings: &#8377;{amount}</a>}
+        {credentials===undefined && <a href="/myearning" id="earning">Loading ...</a>}
         <button>How Does it work?</button>
         {!credentials && <a href="/login"><button>LogIn</button></a>}
         {!credentials && <a href="/signup"><button>Signup</button></a>}

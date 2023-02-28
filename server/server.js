@@ -36,10 +36,10 @@ const detailSchema = new mongoose.Schema({
     userId: {
         type: String
     },
-    array: [{
-        type: String
-    }],
-    amount:{type:Number}
+    array: [
+        { text: String, offerid: String,clickId:Number, currDay:String,status:String}
+    ],
+    amount: { type: Number }
 });
 const Amount = mongoose.model("Amount", detailSchema)
 
@@ -88,7 +88,6 @@ app.post('/register', async (req, res) => {
     });
 })
 app.get("/amount", async (req, res) => {
-
     const { authorization } = req.headers;
     const [, token] = authorization.split(" ");
     const [email, password] = token.split(":");
@@ -106,12 +105,14 @@ app.get("/amount", async (req, res) => {
     if (available !== null) {
         const { amount } = await Amount.findOne({ userId: users._id });
         res.json(amount);
-    } else
-        return;
+    } else if(available === null){
+        const currAmount = new Amount({ userId: users._id, amount: '0'});
+        await currAmount.save();
+    }
 })
 
 app.get("/arrays", async (req, res) => {
-    
+
     const { authorization } = req.headers;
     const [, token] = authorization.split(" ");
     const [email, password] = token.split(":");
@@ -127,10 +128,35 @@ app.get("/arrays", async (req, res) => {
     }
     const available = await Amount.findOne({ userId: users._id });
     if (available !== null) {
-        const { amount,array } = await Amount.findOne({ userId: users._id });
+        const { amount, array } = await Amount.findOne({ userId: users._id });
 
-        res.json({amount:amount,array:array});
+        res.json({ amount: amount, array: array });
     } else
         return;
+})
+
+app.post('/click', async (req, res) => {
+
+    const { store,email, password, id, offerid,currDay } = req.body;
+    const users = await User.findOne({ email: email });
+
+    if (!users) {
+        res.status(403);
+        res.json({
+            message: "Not a user! Please register",
+        })
+        return;
+    }
+    if (cryptr.decrypt(users.password) !== password) {
+        res.status(403);
+        res.json({
+            message: "Invalid Login",
+        })
+        return;
+    }
+
+    const available = await Amount.findOne({ userId: users._id });
+    available.array.unshift({ text: store, offerid: offerid,currDay:currDay,status:"Pending" });
+    await available.save();
 })
 app.listen(5000, (console.log("Port has started at 5000")));

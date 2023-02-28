@@ -55,8 +55,6 @@ const ImageCarousel = () => {
         Discount = {Data[2].Discount}
         Cashback={Data[2].Cashback}
         Color={Data[2].Color}/>
-
-        
         </div>
     </div>
   )

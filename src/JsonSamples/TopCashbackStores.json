@@ -4,14 +4,14 @@
         "ImageSrc": "https://asset20.ckassets.com/resources/image/stores/puma-coupons-1660816104.jpg",
         "Cashback": 5,
         "Offer": "UPTO 40% OFF",
-        "BrandName": "puma"
+        "BrandName": "Puma"
     },
     {
         "id": 2,
         "ImageSrc": "https://asset20.ckassets.com/resources/image/stores/croma-test-1662970725.png",
         "Cashback": 3,
         "Offer": "15% OFF CODE",
-        "BrandName": "croma"
+        "BrandName": "Croma"
 
     },
     {
@@ -19,7 +19,7 @@
         "ImageSrc": "https://asset20.ckassets.com/resources/image/stores/amazon-1602658695.png",
         "Cashback": 8,
         "Offer": "UPTO 10% OFF",
-        "BrandName": "amazon"
+        "BrandName": "Amazon"
 
     },
     {
@@ -27,42 +27,42 @@
         "ImageSrc": "https://asset20.ckassets.com/resources/image/stores/ajio-coupons-1632200353.png",
         "Cashback": 8,
         "Offer": "50%-90% OFF",
-        "BrandName": "ajio"
+        "BrandName": "Ajio"
     },
     {
         "id": 5,
         "ImageSrc": "https://asset20.ckassets.com/resources/image/stores/dell-1667974468.png",
         "Cashback": 6,
         "Offer": "INCREASED CASHBACK",
-        "BrandName": "dell"
+        "BrandName": "Dell"
     },
     {
         "id": 6,
         "ImageSrc": "https://asset20.ckassets.com/resources/image/stores/tatacliq-coupons-1632828732.png",
         "Cashback": 3,
         "Offer": "30%-70% OFF",
-        "BrandName": "tatacliq"
+        "BrandName": "TataCliq"
     },
     {
         "id": 7,
         "ImageSrc": "https://asset20.ckassets.com/resources/image/stores/mama-earth-coupons-1668043816.png",
         "Cashback": 15,
         "Offer": "25% OFF CODE",
-        "BrandName": "mama-earth"
+        "BrandName": "Mama-Earth"
     },
     {
         "id": 8,
         "ImageSrc": "https://asset20.ckassets.com/resources/image/stores/nykaa-test-1658416806.png",
         "Cashback": 5,
         "Offer": "UPTO 50% OFF",
-        "BrandName": "nykaa"
+        "BrandName": "Nykaa"
     },
     {
         "id": 9,
         "ImageSrc": "https://asset20.ckassets.com/resources/image/stores/mcaffeine-coupons-1632376924.png",
         "Cashback": 17,
         "Offer": "\u20B9 200 OFF CODE",
-        "BrandName": "mcaffeine"
+        "BrandName": "Mcaffene"
 
     },
     {
@@ -70,6 +70,6 @@
         "ImageSrc": "https://asset20.ckassets.com/resources/image/stores/lakme-offers-1619520915.png",
         "Cashback": 10,
         "Offer": "BUY 1 GET 1 FREE",
-        "BrandName": "lakme"
+        "BrandName": "Lakme"
     }
 ]

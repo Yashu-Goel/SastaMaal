@@ -57,22 +57,19 @@ const TotalAmount = () => {
                     </div>
                 </div>
                 <div id='order-container'>
-                    {(data.array.length !==0) && <h2 id='order-heading'>ORDER HISTORY</h2>}
-                    {(data.array.length === 0) && <h2 id='order-heading'>No Recent Orders</h2>}
+                    {(data.array.length !== 0) && <h2 id='order-heading'>CLICK HISTORY</h2>}
+                    {(data.array.length === 0) && <h2 id='order-heading'>No Click History</h2>}
                     <ul id='order'>
                         {data.array.map((todo, index) => (
-                            <div key={index}>
-                                <li id='order-link'>{todo}</li>
+                            <div key={index} id='order-link'>
+                                <li id='txt' className='order-links'>Shopped at: {todo.text}</li>
+                                <p id='day' className='order-links'>Clicked on: {todo.currDay}</p>
+                                <button id='pending' className='order-links'>{todo.status}</button>
                             </div>
                         ))}
                     </ul>
                 </div>
             </div>
-            {/* <div id='teBottom'>
-                <div className='tegrid'>My Order Details</div>
-                <div className='tegrid'>Request Payment</div>
-                <div className='tegrid'>Get Help</div>
-            </div> */}
         </div>
     )
 }

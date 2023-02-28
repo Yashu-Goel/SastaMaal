@@ -36,9 +36,9 @@ const ReferFriend = () => {
         </div>
         <div className="FormContainer">
         <form ref={form} onSubmit={sendEmail}>
-        <label>Your Name</label>
+        <label className="rflabel">Your Name</label>
         <input type="text" name="name" placeholder="Enter Your Name" className="InputContainer"/>
-        <label>Your Friend's Email</label>
+        <label className="rflabel">Your Friend's Email</label>
         <input type="email" name="email" className="InputContainer" placeholder="example@xyz.com"/>
         <input type="submit" value="Send"  className="SubmitButton"/>
         </form>

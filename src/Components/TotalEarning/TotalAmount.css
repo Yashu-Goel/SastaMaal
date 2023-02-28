@@ -84,17 +84,44 @@
 #order{
     text-decoration: none;
     list-style: none;
-    width: 750px;
+    width: 700px;
+    padding: 1rem 0;
 }
 #order-heading{
     text-align: center;
 }
 #order-link{
-    width: 78%;
-    height: 50px;
+    height: 60px;
+    padding: 5px;
+    margin: 1rem;
     background-color: antiquewhite;
-    margin: 1rem 0;
-    padding: 0.5rem 1rem;
-    padding-bottom: 0;
     border-radius: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+.order-links{
+    width: 100%;
+}
+#pending{
+    width: 150px;
+    height: 30px;
+    color: #ffffff;
+    font-size: 12px;
+    border-radius: 20px;
+    background: #ffb400;
+    border: none;
+    margin-top: 1rem;
+    margin-right: 2rem;
+}
+#txt{
+    display: block;
+    margin: auto auto;
+    font-size: large;
+    font-weight: bold;
+}
+#day{
+    display: block;
+    margin: auto auto;
+    text-align: justify;
 }
