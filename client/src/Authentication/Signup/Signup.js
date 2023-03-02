@@ -71,7 +71,7 @@ const Signup = () => {
 
   return (
     <div className='container1'>
-      <form method='post1' className='form' onSubmit={submitHandler} >
+      <form method='post' className='form' onSubmit={submitHandler} >
         <h1 class="heading1">Register</h1>
         {(isError !== "") && <p className='error2'>{isError}</p>}
         <input className='input' type="text" placeholder='Enter your name' required onChange={nameHandler} ></input>

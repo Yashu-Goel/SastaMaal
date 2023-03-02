@@ -1,0 +1,108 @@
+
+
+.edit-pop{
+    width: 70vw;
+    max-width: 600px;
+    box-sizing: border-box;
+    height: 100%;
+    margin: 10rem auto;
+    background-color: rgb(248, 219, 157);
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+.edit-form{
+    display: flex;
+    flex-direction: column;
+}
+.edit-form>div>label{
+    font-size: px;
+    padding: 5px;
+    margin: 10px;
+}
+.edit-form>div>input{
+    width: 80%;
+    height: 15px;
+    border-radius: 5px;
+    padding: 7px;
+    margin: 10px;
+}
+.edit-form>input[type='submit']{
+    width: 20vw;
+    max-width: 150px;
+    height: 1.8rem;
+    margin: 10px;
+    color: white;
+    background-color: orange;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+.edit-form>input[type='submit']:hover{
+    cursor: pointer;
+    color: black;
+}
+.success-edit{
+    width: 100%;
+    color: black;
+    margin: 10px;
+    font-weight: bold;
+}
+.success-fail{
+    width: 30%;
+    color:black;
+    margin: 10px;
+    font-weight: bold;
+}
+#backbtn{
+    width: 20vw;
+    max-width: 150px;
+    height: 1.8rem;
+    margin: 10px;
+    color: white;
+    background-color: rgb(20, 216, 20);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+#backbtn:hover{
+    cursor: pointer;
+    color: black;
+    background-color: gray;
+    font: bold;
+}
+/* .popup-box {
+    position: fixed;
+    background: #00000050;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+
+.box {
+    position: relative;
+    width: 70%;
+    margin: 0 auto;
+    height: auto;
+    max-height: 70vh;
+    margin-top: calc(100vh - 85vh - 20px);
+    background: #fff;
+    border-radius: 4px;
+    padding: 20px;
+    border: 1px solid #999;
+    overflow: auto;
+}
+
+.close-icon {
+    content: 'x';
+    cursor: pointer;
+    position: fixed;
+    right: calc(15% - 30px);
+    top: calc(100vh - 85vh - 33px);
+    background: #ededed;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    line-height: 20px;
+    text-align: center;
+    border: 1px solid #999;
+    font-size: 20px;
+} */

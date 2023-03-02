@@ -54,6 +54,7 @@ const TitleBar = () => {
         {!credentials && <a href="/login"><button>LogIn</button></a>}
         {!credentials && <a href="/signup"><button>Signup</button></a>}
         {credentials && <button className='butt bot' onClick={Logout}>Logout</button>}
+        {credentials && <a href="/setting"><button className='butt bot' >Settings</button></a>}
       </div>
     </div>
   );
