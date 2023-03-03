@@ -7,11 +7,15 @@ const API_BASE = "http://localhost:5000"
 
 const TotalAmount = () => {
     const [credentials, setCredentials] = useContext(CredentialContext);
-
     const [data, setData] = useState({
         amount: "0",
         array: []
     })
+    const [show, setShow] = useState(false);
+
+    function withHandler() {
+        setShow(true);
+    }
 
     useEffect(() => {
         const secret = "hdahg g badhj yuida gdjhag dag jjh";
@@ -38,39 +42,73 @@ const TotalAmount = () => {
             .then((res) => res.json())
             .then((data) => setData(data))
 
-    }, [])
+    }, [data])
+
+    const MyModel = () => {
+
+        return (
+            <>
+                <div className='modal-cont'>
+                    <div className='modal-wrapper'>
+                        <h1 id='modal-head'>Withdrawal here</h1>
+                        <form method='post'>
+                            <input type='text'></input>
+                            <input type='password'></input>
+
+                        </form>
+                        <button id='modal-cross' onClick={() => setShow(false)}>x</button>
+                    </div>
+                </div>
+            </>
+        )
+    }
 
     return (
-        <div id='teContainer'>
-            <div className='Background'>
-                <div id='te1Container'>
-                    <div id='teLink'>
-                        <div className='Earning'>
-                            <p id='tep'>Total Earnings</p>
-                            <p id='teprice'><i class="fa fa-rupee"></i>{data.amount}</p>
-                        </div>
-                        <div id='owall'><i class='fas fa-wallet' id='waIcon'></i></div>
-                    </div>
-                    <p id='temsg'>Earnings will show here within 72 hours of your shopping via FreeKaMaal.</p>
-                    <div className='HomePageLink'>
-                        <a href='/'><span>Go to home page</span></a>
-                    </div>
-                </div>
-                <div id='order-container'>
-                    {(data.array.length !== 0) && <h2 id='order-heading'>CLICK HISTORY</h2>}
-                    {(data.array.length === 0) && <h2 id='order-heading'>No Click History</h2>}
-                    <ul id='order'>
-                        {data.array.map((todo, index) => (
-                            <div key={index} id='order-link'>
-                                <li id='txt' className='order-links'>Shopped at: {todo.text}</li>
-                                <p id='day' className='order-links'>Clicked on: {todo.currDay}</p>
-                                <button id='pending' className='order-links'>{todo.status}</button>
+        <>
+            <div id='teContainer'>
+                <div className='Background'>
+                    <div id='te1Container'>
+                        <div id='teLink'>
+                            <div className='Earning'>
+                                <p id='tep'>Total Earnings</p>
+                                <p id='teprice'><i class="fa fa-rupee"></i>{data.amount}</p>
+                                {/* {show && <p id='with-error'>Minnimum sum of Rs. 200 is required for withdrawal or Add more money</p>} */}
                             </div>
-                        ))}
-                    </ul>
+                            <div id='owall'><i class='fas fa-wallet' id='waIcon'></i></div>
+                        </div>
+                        <p id='temsg'>Earnings will show here within 72 hours of your shopping via FreeKaMaal.</p>
+                        <div class='btns-earn'>
+                            {/* <div className='HomePageLink'>
+                            <a href='/add-money' className='btn-add'><span>Add Money</span></a>
+                        </div> */}
+                            <div className='HomePageLink'>
+                                {/*  */}
+                                {/*  */}
+                                {<a href='#' className='btn-with' onClick={withHandler}><span>Withdraw</span></a>}
+                            </div>
+                            <div className='HomePageLink'>
+                                <a href='/payment' className='btn-home'><span>Go to home page</span></a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id='order-container'>
+                        {(data.array.length !== 0) && <h2 id='order-heading'>CLICK HISTORY</h2>}
+                        {(data.array.length === 0) && <h2 id='order-heading'>No Click History</h2>}
+                        <ul id='order'>
+                            {data.array.map((todo, index) => (
+                                <div key={index} id='order-link'>
+                                    <li id='txt' className='order-links'>Shopped at: {todo.text}</li>
+                                    <p id='day' className='order-links'>Clicked on: {todo.currDay}</p>
+                                    <button id='pending' className='order-links'>{todo.status}</button>
+                                </div>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
+            {show && <MyModel />}
+        </>
     )
 }
 

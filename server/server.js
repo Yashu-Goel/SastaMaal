@@ -189,8 +189,8 @@ app.post('/edit-name', async (req, res) => {
         return;
     }
 })
-//support backend remaining
-app.get("/sup", async (req, res) => {
+// support backend remaining
+app.get("/reload", async (req, res) => {
 
     const { authorization } = req.headers;
     const [, token] = authorization.split(" ");

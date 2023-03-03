@@ -67,7 +67,7 @@
     border-radius: 10px;
     color: black;
 }
-.HomePageLink a:hover 
+.HomePageLink a:hover, .btn-with:hover
 {
     background-color: black;
     color: white;
@@ -124,4 +124,44 @@
     display: block;
     margin: auto auto;
     text-align: justify;
+}
+#with-error{
+    color:red;
+    padding: 10px;
+    padding-left: 0px;
+    margin-top: 30px;
+}
+
+.btn-with{
+    margin-right: 10rem;
+}
+.btn-add{
+    margin-right: 16.4rem;
+}
+/* wrapper */
+.modal-wrapper{
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #787878;
+    width: 40%;
+    height: 80%;
+    border-radius: 10px;
+}
+.modal-cont{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(189,189,189,0.5)
+}
+#modal-head{
+    text-align: center;
+}
+#modal-cross{
+    position: absolute;
+    top:0;
+    left:100%
 }
