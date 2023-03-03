@@ -2,7 +2,7 @@ import './TotalAmount.css';
 import React, { useContext, useState, useEffect } from 'react'
 import { CredentialContext } from "../../App";
 import CryptoJS from "crypto-js";
-
+import MyModel from './Modals/Modals';
 const API_BASE = "http://localhost:5000"
 
 const TotalAmount = () => {
@@ -14,7 +14,7 @@ const TotalAmount = () => {
     const [show, setShow] = useState(false);
 
     function withHandler() {
-        setShow(true);
+        setShow(!show);
     }
 
     useEffect(() => {
@@ -44,24 +44,6 @@ const TotalAmount = () => {
 
     }, [data])
 
-    const MyModel = () => {
-
-        return (
-            <>
-                <div className='modal-cont'>
-                    <div className='modal-wrapper'>
-                        <h1 id='modal-head'>Withdrawal here</h1>
-                        <form method='post'>
-                            <input type='text'></input>
-                            <input type='password'></input>
-
-                        </form>
-                        <button id='modal-cross' onClick={() => setShow(false)}>x</button>
-                    </div>
-                </div>
-            </>
-        )
-    }
 
     return (
         <>
@@ -107,7 +89,7 @@ const TotalAmount = () => {
                     </div>
                 </div>
             </div>
-            {show && <MyModel />}
+            {show && <MyModel withHandler={withHandler} amount={data.amount} />}
         </>
     )
 }

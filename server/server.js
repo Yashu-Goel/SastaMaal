@@ -189,7 +189,6 @@ app.post('/edit-name', async (req, res) => {
         return;
     }
 })
-// support backend remaining
 app.get("/reload", async (req, res) => {
 
     const { authorization } = req.headers;
@@ -207,5 +206,29 @@ app.get("/reload", async (req, res) => {
     }
     console.log(users.name + users.email);
     res.json({ name: users.name, email: users.email });
+})
+app.post('/withdraw', async (req, res) => {
+
+    const { email, password,amount,upi } = req.body;
+    console.log(email+password+amount+upi);
+    const users = await User.findOne({ email: email });
+    if(!users){
+        res.status(403);
+        res.json({
+            message: "No User exsists",
+        })
+        return;
+    }
+    const decryptedPass = cryptr.decrypt(users.password);
+    if (decryptedPass !== password) {
+        res.status(403);
+        res.json({
+            message: "invalid Credentials",
+        })
+        return;
+    }
+    const cost = await Amount.findOne({ userId: users._id });
+    cost.amount -= amount;
+    cost.save();
 })
 app.listen(5000, (console.log("Port has started at 5000")));
