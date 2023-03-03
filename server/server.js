@@ -210,7 +210,6 @@ app.get("/reload", async (req, res) => {
 app.post('/withdraw', async (req, res) => {
 
     const { email, password,amount,upi } = req.body;
-    console.log(email+password+amount+upi);
     const users = await User.findOne({ email: email });
     if(!users){
         res.status(403);

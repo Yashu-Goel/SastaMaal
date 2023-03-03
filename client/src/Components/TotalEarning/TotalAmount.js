@@ -69,7 +69,7 @@ const TotalAmount = () => {
                                 {<a href='#' className='btn-with' onClick={withHandler}><span>Withdraw</span></a>}
                             </div>
                             <div className='HomePageLink'>
-                                <a href='/payment' className='btn-home'><span>Go to home page</span></a>
+                                <a href='/' className='btn-home'><span>Go to home page</span></a>
                             </div>
                         </div>
 
