@@ -18,7 +18,7 @@ const TopCashbackStores = () => {
 
   },[])
 
-  
+  console.log('okk');
   return (
     <div className='TopCashbackStoresMainConatiner'>
       <span>TOP CASHBACK STORES</span>
