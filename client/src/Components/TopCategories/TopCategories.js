@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./TopCategories.css";
 import CategoryCard from "../CategoryCard/CategoryCard";
-import Data from '../../JsonSamples/CategoryMockData';
 const TopCategories = () => {
+
+  const [Data, setData]= useState([])
+  //run data before rendering
+  useEffect(() => {
+    fetch("http://localhost:5000/TopCategoriesData",{
+      method: "GET"}).then(response => response.json())
+      .then((OfferData) => {
+        console.log(OfferData);
+        setData(OfferData);
+        console.log(Data);
+      })
+
+  },[])
+
   return (
     <div className="TopCategoriesMainContainer">
       <span>TOP CATEGORIES</span>
@@ -28,16 +41,11 @@ const TopCategories = () => {
           <p>&gt;</p>
         </button>
         <div className="CategoryContainer">
-          <CategoryCard CategoryImage={Data[0].ImageSrc}/>
-          <CategoryCard CategoryImage={Data[1].ImageSrc}/>
-          <CategoryCard CategoryImage={Data[2].ImageSrc}/>
-          <CategoryCard CategoryImage={Data[3].ImageSrc}/>
-          <CategoryCard CategoryImage={Data[4].ImageSrc}/>
-          <CategoryCard CategoryImage={Data[5].ImageSrc}/>
-          <CategoryCard CategoryImage={Data[6].ImageSrc}/>
-          <CategoryCard CategoryImage={Data[7].ImageSrc}/>
-          <CategoryCard CategoryImage={Data[8].ImageSrc}/>
-          <CategoryCard CategoryImage={Data[9].ImageSrc}/>
+        {Data.map((TopCategoriesArray) => {
+          return(
+          <CategoryCard CategoryImage={TopCategoriesArray.ImageSrc}/>
+        )})}
+          
         </div>
       </div>
     </div>

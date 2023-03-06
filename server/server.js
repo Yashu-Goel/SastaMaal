@@ -21,7 +21,8 @@ mongoose.connect(url, {
 
 const userSchema = new mongoose.Schema({
     email: {
-        type: String
+        type: String,
+        required: true
     },
     password: {
         type: String
@@ -42,7 +43,156 @@ const detailSchema = new mongoose.Schema({
     amount: { type: Number }
 });
 const Amount = mongoose.model("Amount", detailSchema)
+//OfferMockData Schema
+const OfferMockDataSchema= new mongoose.Schema({
+    ProductImage:{
+        type: String,
+        required: true,
+        unique: true
+    },
+    BrandImage:{
+        type: String,
+    },
+    Discount:{
+        type: String,
+    },
+    Cashback:{
+        type: String,
+    },
+    Color:{
+        type: String,
+    }
+})
+const OfferMockDataModel = new mongoose.model('offer_mock_data', OfferMockDataSchema);
 
+app.post('/OfferData',async (req,res)=>
+{
+    const {ProductImage, BrandImage, Discount, Cashback, Color}= req.body;
+    if(!ProductImage || !BrandImage|| !Discount|| !Cashback|| !Color)
+    {
+        return res.json({
+            message: "Pls fill all the details"
+        })
+    }
+
+    try {
+        const Data= new OfferMockDataModel({ProductImage, BrandImage, Discount, Cashback, Color});
+        await Data.save();
+        res.json({message: "Success..."})
+    } catch (error) {
+        res.json({error: "unable to enter data "+ error})
+    }
+
+
+})
+//get OfferMockData
+app.get('/OfferData', async (req,res)=>
+{
+    try {
+        const OfferMockData=await OfferMockDataModel.find();
+        res.status(201).send(OfferMockData);
+    } catch (error) {
+        res.status(400).send("Fail "+ error)
+    }
+})
+
+//end
+// TopCashbackStoresData
+
+const TopCashbackStoresSchema= new mongoose.Schema({
+    ImageSrc:{
+        type: String,
+        required: true,
+        unique: true
+    },
+    Cashback:{
+        type: String,
+    },
+    Offer:{
+        type: String,
+    },
+    BrandName:{
+        type: String,
+    }
+})
+const TopCashbackStoresModel = new mongoose.model('top_cashback_stores_data', TopCashbackStoresSchema);
+
+//create TopCashbackStoresData
+
+
+app.post('/TopCashbackStoresData',async (req,res)=>
+{
+    const {ImageSrc,Cashback,Offer,BrandName}= req.body;
+    if(!ImageSrc || !Cashback|| !Offer|| !BrandName)
+    {
+        return res.json({
+            message: "Pls fill all the details"
+        })
+    }
+
+    try {
+        const Data= new TopCashbackStoresModel({ImageSrc,Cashback,Offer,BrandName});
+        await Data.save();
+        res.json({message: "Success..."})
+    } catch (error) {
+        res.json({error: "unable to enter data "+ error})
+    }
+})
+//get TopCashbackStoresData
+app.get('/TopCashbackStoresData', async (req,res)=>
+{
+    try {
+        const TopCashbackStoresData=await TopCashbackStoresModel.find();
+        res.status(201).send(TopCashbackStoresData);
+    } catch (error) {
+        res.status(400).send("Fail "+ error)
+    }
+})
+//end
+
+// Top categories schema
+
+const TopCategoriesSchema= new mongoose.Schema({
+    ImageSrc:{
+        type: String,
+        required: true,
+        unique: true
+    }
+})
+const TopCategoriesModel = new mongoose.model('top_Categories_data', TopCategoriesSchema);
+
+//create Top Categories Model
+
+
+app.post('/TopCategoriesData',async (req,res)=>
+{
+    const {ImageSrc}= req.body;
+    if(!ImageSrc)
+    {
+        return res.json({
+            message: "Pls fill all the details"
+        })
+    }
+
+    try {
+        const Data= new TopCategoriesModel({ImageSrc});
+        await Data.save();
+        res.json({message: "Success..."})
+    } catch (error) {
+        res.json({error: "unable to enter data "+ error})
+    }
+})
+//get top_categories_data
+app.get('/TopCategoriesData', async (req,res)=>
+{
+    try {
+        const TopCategoriesData=await TopCategoriesModel.find();
+        res.status(201).send(TopCategoriesData);
+    } catch (error) {
+        res.status(400).send("Fail "+ error)
+    }
+})
+//
 app.post('/login', async (req, res) => {
 
     const { email, password } = req.body;
