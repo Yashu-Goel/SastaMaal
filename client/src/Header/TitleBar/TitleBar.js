@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import Logo from "../Logo.png";
 import { CredentialContext } from "../../App";
 import CryptoJS from "crypto-js";
-
+import { AiFillSetting } from "react-icons/ai";
 const API_BASE = "http://localhost:5000"
 
 const TitleBar = () => {
@@ -54,7 +54,7 @@ const TitleBar = () => {
         {!credentials && <a href="/login"><button>LogIn</button></a>}
         {!credentials && <a href="/signup"><button>Signup</button></a>}
         {credentials && <button className='butt bot' onClick={Logout}>Logout</button>}
-        {credentials && <a href="/setting"><button className='butt bot' >Settings</button></a>}
+        {credentials && <a href="/setting"><button className='butt bot' id="setting" ><AiFillSetting/></button></a>}
       </div>
     </div>
   );

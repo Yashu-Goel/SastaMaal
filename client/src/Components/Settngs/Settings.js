@@ -3,10 +3,22 @@ import React, { useState, useContext, useEffect } from 'react'
 import './Settings.css';
 import { CredentialContext } from "../../App";
 import CryptoJS from "crypto-js";
+import { AiFillSetting } from "react-icons/ai";
 
 const API_BASE = "http://localhost:5000";
 
 const Settngs = () => {
+
+  const activePage= window.location.pathname;
+  const navLinks = document.querySelectorAll('.setList a')
+  .forEach(link =>
+    {
+      if(link.href.includes(`${activePage}`))
+      {
+        link.classList.add('.listLink')
+      }
+    })
+
   const [credentials, setCredentials] = useContext(CredentialContext);
 
   const [data, setData] = useState({
@@ -42,16 +54,16 @@ const Settngs = () => {
   }, [])
 
   return (
-    <div id='setContainer'>
+    <div className='setContainer'>
 
-      <div className='leftContainer'>
-        <ul id='setUl'>
-          <li className='setList'><a href="/setting" className='listLink'>Account Settings</a></li>
-          <li className='setList'><a href="/myearning" className='listLink'>My Earnings</a></li>
-          <li className='setList'><a href="#" className='listLink'>Payments</a></li>
-          <li className='setList'><a href="#" className='listLink'>Payment History</a></li>
-          <li className='setList'><a href="#" className='listLink'>Refer and Earn</a></li>
-          <li className='setList'><a href="/setting/support" className='listLink' id='support'>Support</a></li>
+      <div className='NavBarContainer'>
+        <ul className='UIConatiner'>
+        <li><a href="/setting"  id='setting1'><AiFillSetting/></a></li>
+        <li><a href="/setting/support"  id='support'>Support</a></li>        
+        <li><a href="#" >Refer and Earn</a></li>
+        <li><a href="#" >Payment History</a></li>
+        <li><a href="#" >Payments</a></li>
+        <li><a href="/myearning" >My Earnings</a></li>        
         </ul>
       </div>
 
@@ -66,18 +78,22 @@ const Settngs = () => {
           <form className='rightContainerDetailsForm'>
             <div className='innerform'>
               <div className='setInput'>
-                <label>Full Name:</label>
+                <label>Name:</label>
 
-                <a href='/setting/edit-name'><i class='fas fa-edit'></i></a>
+                
+                <input type='text' value={data.name}  readOnly='readonly' >
+                  
+                  </input>
+                  <a href='/setting/edit-name'><i class='fas fa-edit'></i></a>
                 <br />
-                <input type='text' value={data.name}  readOnly='readonly' />
               </div>
 
               <div className='setInput'>
                 <label>Email Id:</label>
+                
+                <input type='email' value={data.email.substring(0,2)+"xxxxxxxxx.com"}readOnly='readonly' />
                 <a href='/setting/support'><i class='fas fa-edit'></i></a>
                 <br />
-                <input type='email' value={data.email.substring(0,2)+"xxxxxxxxx.com"}readOnly='readonly' />
               </div>
             </div>
             <br />
@@ -85,7 +101,10 @@ const Settngs = () => {
               <input type='checkbox' defaultChecked></input>
               <label>Receive Emails for promotions And Offers</label>
             </div>
+            <div className='ReloadChanges'>
             <input type='submit' value='Reload Changes' ></input>
+
+            </div>
           </form>
         </div>
       </div>

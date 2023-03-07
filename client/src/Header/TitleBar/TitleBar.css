@@ -50,3 +50,29 @@
     /* right:330px; */
     vertical-align: middle;
 }
+#setting
+{
+    color: white;
+    background-color: #0a1c30;
+    border: none;    
+    font-size: 22px;
+    padding-top: 5px;
+    display: flex;
+
+}
+#setting:hover
+{
+    transition: all linear;
+    animation: rotate 2s linear infinite;
+}
+@keyframes rotate
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(360deg);
+    }
+}
