@@ -6,7 +6,6 @@ const Modal = () => {
 
   return (
     <>
-        <a onClick={() => setShowModal(true)}>Open Modal</a>
         {showModal && <MyModel closeModal={closeModal} />}
     </>
   );

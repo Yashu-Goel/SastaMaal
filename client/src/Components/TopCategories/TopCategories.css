@@ -21,6 +21,7 @@
 }
 .CategoryCarousel .PrevBtn, .CategoryCarousel .NextBtn{
     border: none;
+    position: absolute;
     width: 60px;
     position: absolute;
     display: flex;
@@ -29,6 +30,7 @@
     background-color: rgba(0, 0, 0, 0);
     border-radius: 10px;
     transition: transform .2s;
+    top: 36%;
 }
 .CategoryCarousel .NextBtn:hover,.CategoryCarousel .PrevBtn:hover
 {

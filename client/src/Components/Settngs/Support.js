@@ -19,7 +19,7 @@ const Support = (props) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
-
+    const [closeModal, setCloseModal] = useState(false)
     function onNameChange(e) {
         const { value } = e.target;
         setName(value);
@@ -39,9 +39,9 @@ const Support = (props) => {
             alert("please fill the required fields");
             return;
         }
-
+        setCloseModal(!closeModal)
+        props.onSubmit(closeModal);
         e.preventDefault();
-         console.log('Hello');
         await fetch(API_BASE + "/support", {
             method: "POST",
             headers: {
@@ -59,7 +59,7 @@ const Support = (props) => {
     return (
         <div className="sup-container">
             <h1 className='sup-head'>Contact Form</h1>
-            <form id="contact-form" onSubmit={handleSubmit} method="POST" >
+            <form id="contact-form"  method="POST" >
                 <div className="form-group">
                     <label htmlFor="name">Name</label><br />
                     <input type="text" className="form-control" value={name} onChange={onNameChange} placeholder='name' required />
@@ -74,7 +74,7 @@ const Support = (props) => {
                     <br />
                     <textarea className="form-control" rows="5" placeholder='backend not yet implemented ...' value={message} onChange={onMessageChange} required />
                 </div>
-                <button type="submit" className="sup-btn" onClick={props.closeModal}>Submit</button>
+                <button type="submit" className="sup-btn" onClick={handleSubmit}>Submit</button>
                 {(isError === "Changes Saved Successfully") && <p className='sup-success'>&#9989;{isError}</p>}
             </form>
         </div>
