@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.modal-wrapper1
+{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  backdrop-filter: blur(7px);
+  z-index: 2;
+}
+.modal-container
+{
+  position: absolute;
+  top: 5%;
+  left: 35%;
+  width: 30%;
+  height: 60%;
+  z-index: 2;
+  transform: translate(-50,-50);
+}

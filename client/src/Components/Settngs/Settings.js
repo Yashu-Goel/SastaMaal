@@ -5,6 +5,7 @@ import { CredentialContext } from "../../App";
 import CryptoJS from "crypto-js";
 import { AiFillSetting } from "react-icons/ai";
 import Logo from "../../Header/LogoBlack.png";
+import MyModel from "../Modals/ShowModal";
 const API_BASE = "http://localhost:5000";
 
 const Settngs = () => {
@@ -48,6 +49,12 @@ const Settngs = () => {
       .then((data) => setData(data));
   }, []);
 
+  // Configure Modal
+  const [showModal, setShowModal] = useState(false);
+  const closeModal = (e) => {
+    e.preventDefault();
+    setShowModal(false)
+  };
   return (
     <div className="setContainer">
       <div className="NavBarContainer">
@@ -62,9 +69,10 @@ const Settngs = () => {
             </a>
           </li>
           <li>
-            <a href="/setting/support" id="support">
+            <a id="support" onClick={() => setShowModal(true)}>
               Support
             </a>
+            {showModal && <MyModel closeModal={closeModal} />}
           </li>
           <li>
             <a href="#">Refer and Earn</a>

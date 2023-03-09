@@ -1,5 +1,5 @@
 .sup-container {
-    width: 35%;
+    width: 100%;
     margin: auto auto;
     height: 100%;
     border-radius: 10px;
@@ -10,6 +10,7 @@
     justify-content: center;
     box-sizing: border-box;
 }
+
 .form-group>label{
     font-size: 1rem;
     font-weight: bold;

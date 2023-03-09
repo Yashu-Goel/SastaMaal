@@ -3,7 +3,7 @@ import './Support.css'
 
 const API_BASE = "http://localhost:5000";
 
-const Support = () => {
+const Support = (props) => {
     const handleErrors = async (res) => {
         if (!res.ok) {
             const { message } = await res.json();
@@ -41,7 +41,7 @@ const Support = () => {
         }
 
         e.preventDefault();
-
+         console.log('Hello');
         await fetch(API_BASE + "/support", {
             method: "POST",
             headers: {
@@ -74,7 +74,7 @@ const Support = () => {
                     <br />
                     <textarea className="form-control" rows="5" placeholder='backend not yet implemented ...' value={message} onChange={onMessageChange} required />
                 </div>
-                <button type="submit" className="sup-btn">Submit</button>
+                <button type="submit" className="sup-btn" onClick={props.closeModal}>Submit</button>
                 {(isError === "Changes Saved Successfully") && <p className='sup-success'>&#9989;{isError}</p>}
             </form>
         </div>
