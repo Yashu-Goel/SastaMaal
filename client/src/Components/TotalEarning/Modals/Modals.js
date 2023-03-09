@@ -30,21 +30,25 @@ const MyModel = ({ withHandler, amount }) => {
     }
     function emailHandler(e) {
         setReq("Withdraw Request")
+        setIsError(null);
         const { value } = e.target;
         setEmail(value);
     }
     function amountHandler(e) {
         setReq("Withdraw Request")
+         setIsError(null);
         const { value } = e.target;
         setAmount(value);
     }
     function upiHandler(e) {
         setReq("Withdraw Request")
+         setIsError(null);
         const { value } = e.target;
         setUpi(value);
     }
     function cupiHandler(e) {
         setReq("Withdraw Request")
+         setIsError(null);
         const { value } = e.target;
         setCupi(value);
     }

@@ -44,74 +44,71 @@ const detailSchema = new mongoose.Schema({
 });
 const Amount = mongoose.model("Amount", detailSchema)
 //OfferMockData Schema
-const OfferMockDataSchema= new mongoose.Schema({
-    ProductImage:{
+const OfferMockDataSchema = new mongoose.Schema({
+    ProductImage: {
         type: String,
         required: true,
         unique: true
     },
-    BrandImage:{
+    BrandImage: {
         type: String,
     },
-    Discount:{
+    Discount: {
         type: String,
     },
-    Cashback:{
+    Cashback: {
         type: String,
     },
-    Color:{
+    Color: {
         type: String,
     }
 })
 const OfferMockDataModel = new mongoose.model('offer_mock_data', OfferMockDataSchema);
 
-app.post('/OfferData',async (req,res)=>
-{
-    const {ProductImage, BrandImage, Discount, Cashback, Color}= req.body;
-    if(!ProductImage || !BrandImage|| !Discount|| !Cashback|| !Color)
-    {
+app.post('/OfferData', async (req, res) => {
+    const { ProductImage, BrandImage, Discount, Cashback, Color } = req.body;
+    if (!ProductImage || !BrandImage || !Discount || !Cashback || !Color) {
         return res.json({
             message: "Pls fill all the details"
         })
     }
 
     try {
-        const Data= new OfferMockDataModel({ProductImage, BrandImage, Discount, Cashback, Color});
+        const Data = new OfferMockDataModel({ ProductImage, BrandImage, Discount, Cashback, Color });
         await Data.save();
-        res.json({message: "Success..."})
+        res.json({ message: "Success..." })
     } catch (error) {
-        res.json({error: "unable to enter data "+ error})
+        res.json({ error: "unable to enter data " + error })
     }
 
 
 })
 //get OfferMockData
-app.get('/OfferData', async (req,res)=>
-{
+app.get('/OfferData', async (req, res) => {
     try {
-        const OfferMockData=await OfferMockDataModel.find();
+        const OfferMockData = await OfferMockDataModel.find();
         res.status(201).send(OfferMockData);
     } catch (error) {
-        res.status(400).send("Fail "+ error)
+        res.status(400).send("Fail " + error)
     }
 })
 
 //end
 // TopCashbackStoresData
 
-const TopCashbackStoresSchema= new mongoose.Schema({
-    ImageSrc:{
+const TopCashbackStoresSchema = new mongoose.Schema({
+    ImageSrc: {
         type: String,
         required: true,
         unique: true
     },
-    Cashback:{
+    Cashback: {
         type: String,
     },
-    Offer:{
+    Offer: {
         type: String,
     },
-    BrandName:{
+    BrandName: {
         type: String,
     }
 })
@@ -120,40 +117,37 @@ const TopCashbackStoresModel = new mongoose.model('top_cashback_stores_data', To
 //create TopCashbackStoresData
 
 
-app.post('/TopCashbackStoresData',async (req,res)=>
-{
-    const {ImageSrc,Cashback,Offer,BrandName}= req.body;
-    if(!ImageSrc || !Cashback|| !Offer|| !BrandName)
-    {
+app.post('/TopCashbackStoresData', async (req, res) => {
+    const { ImageSrc, Cashback, Offer, BrandName } = req.body;
+    if (!ImageSrc || !Cashback || !Offer || !BrandName) {
         return res.json({
             message: "Pls fill all the details"
         })
     }
 
     try {
-        const Data= new TopCashbackStoresModel({ImageSrc,Cashback,Offer,BrandName});
+        const Data = new TopCashbackStoresModel({ ImageSrc, Cashback, Offer, BrandName });
         await Data.save();
-        res.json({message: "Success..."})
+        res.json({ message: "Success..." })
     } catch (error) {
-        res.json({error: "unable to enter data "+ error})
+        res.json({ error: "unable to enter data " + error })
     }
 })
 //get TopCashbackStoresData
-app.get('/TopCashbackStoresData', async (req,res)=>
-{
+app.get('/TopCashbackStoresData', async (req, res) => {
     try {
-        const TopCashbackStoresData=await TopCashbackStoresModel.find();
+        const TopCashbackStoresData = await TopCashbackStoresModel.find();
         res.status(201).send(TopCashbackStoresData);
     } catch (error) {
-        res.status(400).send("Fail "+ error)
+        res.status(400).send("Fail " + error)
     }
 })
 //end
 
 // Top categories schema
 
-const TopCategoriesSchema= new mongoose.Schema({
-    ImageSrc:{
+const TopCategoriesSchema = new mongoose.Schema({
+    ImageSrc: {
         type: String,
         required: true,
         unique: true
@@ -164,32 +158,29 @@ const TopCategoriesModel = new mongoose.model('top_Categories_data', TopCategori
 //create Top Categories Model
 
 
-app.post('/TopCategoriesData',async (req,res)=>
-{
-    const {ImageSrc}= req.body;
-    if(!ImageSrc)
-    {
+app.post('/TopCategoriesData', async (req, res) => {
+    const { ImageSrc } = req.body;
+    if (!ImageSrc) {
         return res.json({
             message: "Pls fill all the details"
         })
     }
 
     try {
-        const Data= new TopCategoriesModel({ImageSrc});
+        const Data = new TopCategoriesModel({ ImageSrc });
         await Data.save();
-        res.json({message: "Success..."})
+        res.json({ message: "Success..." })
     } catch (error) {
-        res.json({error: "unable to enter data "+ error})
+        res.json({ error: "unable to enter data " + error })
     }
 })
 //get top_categories_data
-app.get('/TopCategoriesData', async (req,res)=>
-{
+app.get('/TopCategoriesData', async (req, res) => {
     try {
-        const TopCategoriesData=await TopCategoriesModel.find();
+        const TopCategoriesData = await TopCategoriesModel.find();
         res.status(201).send(TopCategoriesData);
     } catch (error) {
-        res.status(400).send("Fail "+ error)
+        res.status(400).send("Fail " + error)
     }
 })
 //
@@ -359,9 +350,9 @@ app.get("/reload", async (req, res) => {
 })
 app.post('/withdraw', async (req, res) => {
 
-    const { email, password,amount,upi } = req.body;
+    const { email, password, amount, upi } = req.body;
     const users = await User.findOne({ email: email });
-    if(!users){
+    if (!users) {
         res.status(403);
         res.json({
             message: "No User exsists",
@@ -379,5 +370,9 @@ app.post('/withdraw', async (req, res) => {
     const cost = await Amount.findOne({ userId: users._id });
     cost.amount -= amount;
     cost.save();
+})
+app.post('/support', (req, res) => {
+    console.log(req.body);
+    res.send("hell");
 })
 app.listen(5000, (console.log("Port has started at 5000")));
