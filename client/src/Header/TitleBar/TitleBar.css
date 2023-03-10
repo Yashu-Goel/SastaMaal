@@ -17,11 +17,12 @@
 }
 .Registration{
     display: flex;
+    align-items: center;
 }
 .Registration button
 {
     margin: 0px 10px;
-    padding: 5px 10px;
+    padding: 7px 10px;
     background-color: white;
     color: #0a1c30;
     font-weight: bold;

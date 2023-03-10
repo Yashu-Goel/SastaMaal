@@ -5,7 +5,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
     margin: 10px 15px 10px 15px;
     border-radius: 7px;
@@ -16,7 +15,7 @@
 .MainContainer1 .ImageContainer p
 {
     position: absolute;
-    top: 0;
+    top: 5px;
     width: 250px;
     height: 40px;
     background-color: #E32636 ;
@@ -55,10 +54,14 @@
 .AnchorContainer
 {
     text-decoration: none;
+    min-height: 230px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .ImageContainer img
 {
-    margin-top: 70px;
+    margin-top: 45px;
 }
 .CashbackContainer
 {
@@ -70,6 +73,8 @@
     max-height: 35px;
     padding: 0 5px;
     border-radius: 5px;
+    padding: 2px;
+    margin: 5px 0;
 }
 
 
