@@ -40,7 +40,10 @@ const detailSchema = new mongoose.Schema({
     array: [
         { text: String, offerid: String, clickId: Number, currDay: String, status: String }
     ],
-    amount: { type: Number }
+    amount: { type: Number },
+    details: [
+        { id: String, date: String, mode: String, amount: String, ref_no: String, by: String, upi_id: String }
+    ]
 });
 const Amount = mongoose.model("Amount", detailSchema)
 //OfferMockData Schema
@@ -345,12 +348,12 @@ app.get("/reload", async (req, res) => {
         })
         return;
     }
-    console.log(users.name + users.email);
     res.json({ name: users.name, email: users.email });
 })
 app.post('/withdraw', async (req, res) => {
 
     const { email, password, amount, upi } = req.body;
+
     const users = await User.findOne({ email: email });
     if (!users) {
         res.status(403);
@@ -363,16 +366,64 @@ app.post('/withdraw', async (req, res) => {
     if (decryptedPass !== password) {
         res.status(403);
         res.json({
-            message: "invalid Credentials",
+            message: "Invalid Credentials",
         })
         return;
     }
     const cost = await Amount.findOne({ userId: users._id });
+
+    if (amount > cost.amount) {
+        res.status(403).json({ message: "Invalid Amount" });
+        return;
+    }
+
+    // refernce num
+    var crypto = require('crypto');
+    function randomValueHex(len) {
+        return crypto.randomBytes(Math.ceil(len / 2))
+            .toString('hex')
+            .slice(0, len).toUpperCase();
+    }
+    var string = randomValueHex(3) + randomValueHex(3) + randomValueHex(3);
+    // date
+    const dat = new Date().toLocaleDateString('en-US', { day: "numeric", year: "numeric", month: "short" });
+    // 
+
+    //id generator
+    const id = Date.now().toString().substring(5);
+    //
+
+    const newPayment = {
+        id: id,
+        date: dat,
+        mode: "UPI",
+        amount: amount,
+        ref_no: string,
+        by: "earnkaro.com",
+        upi_id: upi
+    }
+    cost.details.unshift(newPayment);
     cost.amount -= amount;
     cost.save();
+    res.status(200).json({ message: "Success" });
 })
-app.post('/support', (req, res) => {
-    console.log(req.body);
-    res.send("hell");
+app.get('/fetch-details', async (req, res) => {
+
+    const { authorization } = req.headers;
+    const [, token] = authorization.split(" ");
+    const [email, password] = token.split(":");
+    const users = await User.findOne({ email: email })
+
+    const decryptedPass = cryptr.decrypt(users.password);
+
+    if (!users || decryptedPass !== password) {
+        res.status(403);
+        res.json({
+            message: "Auth Failed",
+        })
+        return;
+    }
+    const { details } = await Amount.findOne({ userId: users._id });
+    res.json(details);
 })
 app.listen(5000, (console.log("Port has started at 5000")));

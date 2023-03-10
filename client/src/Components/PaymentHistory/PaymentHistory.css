@@ -1,0 +1,43 @@
+.payment-container{
+    border: 1px solid black;
+    margin: 1rem auto;
+    margin-top: 2rem;
+    border-radius: 10px;
+    width: 60vw;
+    background-color: #fff;
+    font-family: 'Lato', sans-serif;
+}
+.pay-heading>h1{
+    font-size: 1.5rem;
+    padding: 1rem;
+    border-bottom: 1px solid black;
+}
+
+.sub-pay-main{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    border-bottom: 1px solid black;
+}
+.sub-sub-pay-main>h1{
+    font-size: 0.8rem;
+    padding: 1rem;
+}
+.sub-pay{
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+.sub-sub-pay>h1{
+    font-size: 0.8rem;
+    padding: 1rem;
+    font-weight: 100;
+    overflow-wrap: break-word;
+}
+.sub-pay:hover, .sub-pay-main:hover{
+    background-color: lightgray;
+}
+
+#no-pay-msg{
+    text-align: center;
+    padding: 1rem;
+    font-style: italic;
+}

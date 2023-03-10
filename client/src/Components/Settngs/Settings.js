@@ -1,5 +1,6 @@
-import React, { useState, useContext, useEffect } from "react";
 import "./Settings.css";
+import React, { useState, useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { CredentialContext } from "../../App";
 import CryptoJS from "crypto-js";
 import { AiFillSetting } from "react-icons/ai";
@@ -9,12 +10,6 @@ import Support from "./SuppModal";
 const API_BASE = "http://localhost:5000";
 
 const Settngs = () => {
-  // const activePage = window.location.pathname;
-  // const navLinks = document.querySelectorAll(".setList a").forEach((link) => {
-  //   if (link.href.includes(`${activePage}`)) {
-  //     link.classList.add(".listLink");
-  //   }
-  // });
 
   const [credentials, setCredentials] = useContext(CredentialContext);
 
@@ -60,39 +55,36 @@ const Settngs = () => {
       <div className="setContainer">
         <div className="NavBarContainer">
           <ul className="UIConatiner">
-            <a href="/">
+            <Link to="/">
               <img className="Logo" src={Logo} />
-            </a>
+            </Link>
             <li>
-              <a href="/setting" id="setting1">
+              <Link to="/setting" id="setting1">
                 <AiFillSetting />
-              </a>
+              </Link>
             </li>
             <li>
-              <a id="support" onClick={() => setShowModal(true)}>
+              <Link id="support" onClick={() => setShowModal(true)}>
                 Support
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#">Payment History</a>
+              <Link to="/setting/payment-history">Payment History</Link>
             </li>
             <li>
-              <a href="#">Payments</a>
-            </li>
-            <li>
-              <a href="/myearning">My Earnings</a>
+              <Link to="/myearning">My Earnings</Link>
             </li>
           </ul>
         </div>
 
         <div className="rightContainer">
           <div className="rightContainerTitle">
-            <a href="/setting" className="rightContTitLink">
+            <Link to="/setting" className="rightContTitLink">
               Personal Details
-            </a>
-            <a href="/change-pass" className="rightContTitLink">
+            </Link>
+            <Link to="/change-pass" className="rightContTitLink">
               Change Password
-            </a>
+            </Link>
           </div>
 
           <div className="rightContainerDetails">
@@ -106,9 +98,9 @@ const Settngs = () => {
                     value={data.name}
                     readOnly="readonly"
                   ></input>
-                  <a href="/setting/edit-name">
+                  <Link to="/setting/edit-name">
                     <i class="fas fa-edit"></i>
-                  </a>
+                  </Link>
                   <br />
                 </div>
 
@@ -120,9 +112,9 @@ const Settngs = () => {
                     value={data.email.substring(0, 2) + "xxxxxxxxx.com"}
                     readOnly="readonly"
                   />
-                  <a id="support" onClick={() => setShowModal(true)}>
+                  <Link id="support" onClick={() => setShowModal(true)}>
                     <i class="fas fa-edit"></i>
-                  </a>
+                  </Link>
                   <br />
                 </div>
               </div>
@@ -140,16 +132,6 @@ const Settngs = () => {
       </div>
       {showModal && <Support closeModal={closeModal} />}
     </>
-
   );
 };
 export default Settngs;
-
-// click && <Popup
-//         content={<>
-//           <b>Design your Popup</b>
-//           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-//           <button>Test button</button>
-//         </>}
-//         handleClose={onClickHandler}
-//       />}

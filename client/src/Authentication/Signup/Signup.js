@@ -1,7 +1,8 @@
-import React, { useState, useContext } from 'react'
-import { useNavigate } from "react-router-dom";
-
 import './Signup.css'
+import React, { useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import { useNavigate,Link } from "react-router-dom";
+
 
 const API_BASE = "http://localhost:5000";
 
@@ -11,8 +12,6 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [cpass, setCpass] = useState("");
-
-  const [isError, setIsError] = useState(null);
 
 
   const handleErrors = async (res) => {
@@ -24,30 +23,28 @@ const Signup = () => {
   }
 
   const nameHandler = (e) => {
-    setIsError("")
     const { value } = e.target;
     setName(value);
   }
   const emailHandler = (e) => {
-    setIsError("")
     const { value } = e.target;
     setEmail(value);
   }
   const passHandler = (e) => {
-    setIsError("")
     const { value } = e.target;
     setPass(value);
   }
   const cpassHandler = (e) => {
-    setIsError("")
     const { value } = e.target;
     setCpass(value);
   }
 
   const submitHandler = async (e) => {
+    
     e.preventDefault();
+
     if (pass !== cpass) {
-      setIsError("Password Not Matching");
+      toast.info("Oops! Password Not Matching");
       return;
     }
 
@@ -62,10 +59,13 @@ const Signup = () => {
     })
       .then(handleErrors)
       .then(() => {
-        navigate("/login");
+        toast.success("Register Success .. Redirecting to login page..")
+        setTimeout(() => {
+          navigate("/login");
+        }, 2500);
       })
       .catch((error) => {
-        setIsError(error.message);
+        toast.error(error.message);
       })
   }
 
@@ -73,14 +73,15 @@ const Signup = () => {
     <div className='container1'>
       <form method='post' className='form' onSubmit={submitHandler} >
         <h1 class="heading1">Register</h1>
-        {(isError !== "") && <p className='error2'>{isError}</p>}
+
         <input className='input' type="text" placeholder='Enter your name' required onChange={nameHandler} ></input>
         <input className='input' type="email" placeholder='youremail@gmail.com' required onChange={emailHandler}></input>
         <input className='input' type="password" placeholder='password' required onChange={passHandler} ></input>
         <input className='input' type="password" placeholder='Confirm password' required onChange={cpassHandler} ></input>
         <input className='input' type="submit" value='Signup'></input>
-        <a href="/login" className='reset1'>already a user?</a>
+        <Link to="/login" className='reset1'>already a user?</Link>
       </form>
+      <ToastContainer position='top-center' autoClose={1500} />
     </div>
   )
 }

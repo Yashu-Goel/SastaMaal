@@ -1,5 +1,8 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import './Modals.css'
 
 const API_BASE = "http://localhost:5000"
@@ -23,6 +26,7 @@ const MyModel = ({ withHandler, amount }) => {
         }
         return res.json();
     }
+
     function passHandler(e) {
         setReq("Withdraw Request");
         const { value } = e.target;
@@ -36,31 +40,34 @@ const MyModel = ({ withHandler, amount }) => {
     }
     function amountHandler(e) {
         setReq("Withdraw Request")
-         setIsError(null);
+        setIsError(null);
         const { value } = e.target;
         setAmount(value);
     }
     function upiHandler(e) {
         setReq("Withdraw Request")
-         setIsError(null);
+        setIsError(null);
         const { value } = e.target;
         setUpi(value);
     }
     function cupiHandler(e) {
         setReq("Withdraw Request")
-         setIsError(null);
+        setIsError(null);
         const { value } = e.target;
         setCupi(value);
     }
 
-    const onSubmitHandle = async () => {
-
-        if (email === "" || amoun < 200 || pass === "" || upi === "" || upi !== cupi) {
-            alert("Please fill the details properly");
+    const onSubmitHandle = async (e) => {
+        e.preventDefault();
+        if (upi !== cupi) {
+            toast.info("Upi id mismatch");
             return;
         }
-
-        setReq("Verifying....");
+        if(amount < 200)
+        {
+            toast.error("Minimum amount not reached");
+            return;
+        }
 
         await fetch(API_BASE + "/withdraw", {
             method: "POST",
@@ -73,16 +80,20 @@ const MyModel = ({ withHandler, amount }) => {
         })
             .then(handleErrors)
             .then(() => {
-                navigate("/myearning");
+                toast.success("Withdrawal success !!!");
+                setTimeout(() => {
+                    navigate("/setting/payment-history");
+                }, 2000)
             })
             .catch((error) => {
-                setIsError(error.message);
+                toast.error(error.message);
             })
     }
     return (
         <>
             <div className='modal-cont'>
                 <div className='modal-wrapper'>
+                    <button id='modal-cross' onClick={withHandler}>x</button>
                     <h1 id='modal-head'>Withdrawal here</h1>
                     <form id='modal-form'>
 
@@ -110,7 +121,6 @@ const MyModel = ({ withHandler, amount }) => {
                         </div>
                         <input type='submit' value={req} onClick={onSubmitHandle}></input>
                     </form>
-                    <button id='modal-cross' onClick={withHandler}>x</button>
                     {isError && <p id='mod-error'>&#10060;{isError}</p>}
                 </div>
             </div>

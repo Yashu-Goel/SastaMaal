@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 import TotalAmount from './Components/TotalEarning/TotalAmount';
 import  Settngs  from './Components/Settngs/Settings';
 import Popup from './Components/Settngs/Popup';
-import Support from './Components/Settngs/SuppModal';
+import PaymentHistory from './Components/PaymentHistory/PaymentHistory';
 export const CredentialContext = React.createContext(null);
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
             <Route exact path='/myearning' element={<TotalAmount />} />
             <Route exact path='/setting' element={<Settngs />} />
             <Route exact path='/setting/edit-name' element={<Popup />} />
-            {/* <Route exact path='/setting/support' element={<Support />} /> */}
+            <Route exact path='/setting/payment-history' element={<PaymentHistory />} />
           </Routes>
         </Router>
       </CredentialContext.Provider>

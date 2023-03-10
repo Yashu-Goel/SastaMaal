@@ -1,16 +1,17 @@
 import './Login.css';
 import React, { useState, useContext } from 'react'
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import { CredentialContext } from '../../App';
-// import secureLocalStorage from "react-secure-storage";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import CryptoJS from "crypto-js";
+
 const API_BASE = "http://localhost:5000";
 
 const Login = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPass] = useState("");
-    const [isError, setIsError] = useState("");
 
     const [credentials, setCredentials] = useContext(CredentialContext);
 
@@ -22,13 +23,11 @@ const Login = () => {
         return res.json();
     }
     const passHandler = (e) => {
-        setIsError("");
         const { value } = e.target;
         setPass(value);
     }
 
     const emailHandler = (e) => {
-        setIsError("");
         const { value } = e.target;
         setEmail(value);
     }
@@ -44,7 +43,6 @@ const Login = () => {
                 email: email, password: password
             })
         })
-            //no need above code
             .then(handleErrors)
             .then((res) => {
                 setCredentials({
@@ -58,11 +56,15 @@ const Login = () => {
                 let encryp = CryptoJS.AES.encrypt(string, secret).toString();
 
                 localStorage.setItem("user", encryp);
-                navigate("/");
-            })
 
+                toast.success("Login Success! Redirecting ...");
+                setTimeout(() => {
+                    navigate('/');
+                }, 2000);
+
+            })
             .catch((error) => {
-                setIsError(error.message);
+                toast.error(error.message);
             })
 
     }
@@ -70,14 +72,13 @@ const Login = () => {
         <div className='container2' onSubmit={submiteHanlder}>
             <form method='post' className='form2' >
                 <h1 class="heading2">Login</h1>
-                {(isError != "") && <p className='error1'>{isError}</p>}
-                {(isError == "Login Success!!") && <p className='success1'>{isError}</p>}
                 <input className='input2' type="email" placeholder='youremail@gmail.com' required onChange={emailHandler} ></input>
                 <input className='input2' type="password" placeholder='password' required onChange={passHandler} ></input>
-                <a href="/resetpassword" className='reset2'>forgot password?</a>
+                <Link to="/resetpassword" className='reset2'>forgot password?</Link>
                 <input className='input2' type="submit" value='Login'></input>
-                <a href="/signup" className='reset2'>Register here</a>
+                <Link to="/signup" className='reset2'>Register here</Link>
             </form>
+            <ToastContainer position='top-center' autoClose={1500} />
         </div>
     )
 }

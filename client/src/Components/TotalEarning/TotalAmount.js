@@ -3,10 +3,15 @@ import React, { useContext, useState, useEffect } from 'react'
 import { CredentialContext } from "../../App";
 import CryptoJS from "crypto-js";
 import MyModel from './Modals/Modals';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const API_BASE = "http://localhost:5000"
 
 const TotalAmount = () => {
+
     const [credentials, setCredentials] = useContext(CredentialContext);
+    
     const [data, setData] = useState({
         amount: "0",
         array: []
@@ -14,7 +19,18 @@ const TotalAmount = () => {
     const [show, setShow] = useState(false);
 
     function withHandler() {
-        setShow(!show);
+
+        if (show == true) {
+            setShow(false);
+            return;
+        }
+
+        if (data.amount < 200) {
+            toast.error("₹200 (min. amount required)");
+            return;
+        }
+
+        setShow(true);
     }
 
     useEffect(() => {
@@ -88,6 +104,7 @@ const TotalAmount = () => {
                         </ul>
                     </div>
                 </div>
+                <ToastContainer position='top-center' />
             </div>
             {show && <MyModel withHandler={withHandler} amount={data.amount} />}
         </>
