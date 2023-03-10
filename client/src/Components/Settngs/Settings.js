@@ -74,9 +74,6 @@ const Settngs = () => {
               </a>
             </li>
             <li>
-              <a href="#">Refer and Earn</a>
-            </li>
-            <li>
               <a href="#">Payment History</a>
             </li>
             <li>

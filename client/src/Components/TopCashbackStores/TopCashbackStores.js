@@ -18,7 +18,6 @@ const TopCashbackStores = () => {
 
   },[])
 
-  console.log('okk');
   return (
     <div className='TopCashbackStoresMainConatiner'>
       <span>TOP CASHBACK STORES</span>
@@ -57,6 +56,7 @@ const TopCashbackStores = () => {
           Cashback={TopCashbackStoresArray.Cashback} 
           Offer={TopCashbackStoresArray.Offer}
           BrandName={TopCashbackStoresArray.BrandName}
+          Link={TopCashbackStoresArray.Link}
         />
           );          
         })}
@@ -69,6 +69,7 @@ const TopCashbackStores = () => {
           Cashback={TopCashbackStoresArray.Cashback} 
           Offer={TopCashbackStoresArray.Offer}
           BrandName={TopCashbackStoresArray.BrandName}
+          Link={TopCashbackStoresArray.Link}
         />
           );          
         })}

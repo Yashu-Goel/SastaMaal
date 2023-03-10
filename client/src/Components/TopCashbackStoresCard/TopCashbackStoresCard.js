@@ -1,14 +1,11 @@
 import React, { useContext } from 'react'
 import './TopCashbackStoresCard.css'
-import { CredentialContext } from "../../App";
 import CryptoJS from "crypto-js";
-import { Navigate } from 'react-router-dom';
 const API_BASE = "http://localhost:5000";
 
 const TopCashbackStoresCard = (props) => {
 
     // const [credentials, setCredentials] = useContext(CredentialContext);
-
     let email = null;
     let password = null;
     const secret = "hdahg g badhj yuida gdjhag dag jjh";
@@ -42,9 +39,15 @@ const TopCashbackStoresCard = (props) => {
             })
         })
     }
+
+    const getTime = () =>
+    {
+        let time= new Date().toLocaleTimeString();
+        console.log(time);
+    }
     return (
-        <div className='MainContainer1'>
-            <a href={string ? "https://www.amazon.in/" : "#"} className='AnchorContainer' target={string && '_blank'} rel="noreferrer" onClick={onClickHandler}>
+        <div className='MainContainer1' onClick={getTime}>
+            <a href={string ? props.Link : "#"} className='AnchorContainer' target={string && '_blank'} rel="noreferrer" onClick={onClickHandler}>
                 <div className='ImageContainer'>
                     <p>{props.Offer}</p>
                     <img src={props.ImageSrc} alt='offers' />
