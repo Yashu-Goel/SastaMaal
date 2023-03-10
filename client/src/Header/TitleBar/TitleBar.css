@@ -51,6 +51,11 @@
     /* right:330px; */
     vertical-align: middle;
 }
+#earning:hover
+{
+    text-decoration: underline;
+    transform: scale(1.03);
+}
 #setting
 {
     color: white;
