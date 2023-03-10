@@ -1,20 +1,20 @@
 import React, { useState, useContext, useEffect } from "react";
-// import Popup from './Popup';
 import "./Settings.css";
 import { CredentialContext } from "../../App";
 import CryptoJS from "crypto-js";
 import { AiFillSetting } from "react-icons/ai";
 import Logo from "../../Header/LogoBlack.png";
-import MyModel from "../Modals/ShowModal";
+import Support from "./SuppModal";
+
 const API_BASE = "http://localhost:5000";
 
 const Settngs = () => {
-  const activePage = window.location.pathname;
-  const navLinks = document.querySelectorAll(".setList a").forEach((link) => {
-    if (link.href.includes(`${activePage}`)) {
-      link.classList.add(".listLink");
-    }
-  });
+  // const activePage = window.location.pathname;
+  // const navLinks = document.querySelectorAll(".setList a").forEach((link) => {
+  //   if (link.href.includes(`${activePage}`)) {
+  //     link.classList.add(".listLink");
+  //   }
+  // });
 
   const [credentials, setCredentials] = useContext(CredentialContext);
 
@@ -53,95 +53,97 @@ const Settngs = () => {
   const [showModal, setShowModal] = useState(false);
   const closeModal = (e) => {
     e.preventDefault();
-    setShowModal(false)
+    setShowModal(false);
   };
   return (
-    <div className="setContainer">
-      <div className="NavBarContainer">
-        <ul className="UIConatiner">
-          <a href="/">
-            {" "}
-            <img className="Logo" src={Logo} />
-          </a>
-          <li>
-            <a href="/setting" id="setting1">
-              <AiFillSetting />
+    <>
+      <div className="setContainer">
+        <div className="NavBarContainer">
+          <ul className="UIConatiner">
+            <a href="/">
+              <img className="Logo" src={Logo} />
             </a>
-          </li>
-          <li>
-            <a id="support" onClick={() => setShowModal(true)}>
-              Support
-            </a>
-            {showModal && <MyModel closeModal={closeModal} />}
-          </li>
-          <li>
-            <a href="#">Refer and Earn</a>
-          </li>
-          <li>
-            <a href="#">Payment History</a>
-          </li>
-          <li>
-            <a href="#">Payments</a>
-          </li>
-          <li>
-            <a href="/myearning">My Earnings</a>
-          </li>
-        </ul>
-      </div>
-
-      <div className="rightContainer">
-        <div className="rightContainerTitle">
-          <a href="/setting" className="rightContTitLink">
-            Personal Details
-          </a>
-          <a href="/change-pass" className="rightContTitLink">
-            Change Password
-          </a>
+            <li>
+              <a href="/setting" id="setting1">
+                <AiFillSetting />
+              </a>
+            </li>
+            <li>
+              <a id="support" onClick={() => setShowModal(true)}>
+                Support
+              </a>
+            </li>
+            <li>
+              <a href="#">Refer and Earn</a>
+            </li>
+            <li>
+              <a href="#">Payment History</a>
+            </li>
+            <li>
+              <a href="#">Payments</a>
+            </li>
+            <li>
+              <a href="/myearning">My Earnings</a>
+            </li>
+          </ul>
         </div>
 
-        <div className="rightContainerDetails">
-          <form className="rightContainerDetailsForm">
-            <div className="innerform">
-              <div className="setInput">
-                <label>Name:</label>
+        <div className="rightContainer">
+          <div className="rightContainerTitle">
+            <a href="/setting" className="rightContTitLink">
+              Personal Details
+            </a>
+            <a href="/change-pass" className="rightContTitLink">
+              Change Password
+            </a>
+          </div>
 
-                <input
-                  type="text"
-                  value={data.name}
-                  readOnly="readonly"
-                ></input>
-                <a href="/setting/edit-name">
-                  <i class="fas fa-edit"></i>
-                </a>
-                <br />
+          <div className="rightContainerDetails">
+            <form className="rightContainerDetailsForm">
+              <div className="innerform">
+                <div className="setInput">
+                  <label>Name:</label>
+
+                  <input
+                    type="text"
+                    value={data.name}
+                    readOnly="readonly"
+                  ></input>
+                  <a href="/setting/edit-name">
+                    <i class="fas fa-edit"></i>
+                  </a>
+                  <br />
+                </div>
+
+                <div className="setInput">
+                  <label>Email Id:</label>
+
+                  <input
+                    type="email"
+                    value={data.email.substring(0, 2) + "xxxxxxxxx.com"}
+                    readOnly="readonly"
+                  />
+                  <a id="support" onClick={() => setShowModal(true)}>
+                    <i class="fas fa-edit"></i>
+                  </a>
+                  <br />
+                </div>
               </div>
-
-              <div className="setInput">
-                <label>Email Id:</label>
-
-                <input
-                  type="email"
-                  value={data.email.substring(0, 2) + "xxxxxxxxx.com"}
-                  readOnly="readonly"
-                />
-                <a href="/setting/support">
-                  <i class="fas fa-edit"></i>
-                </a>
-                <br />
+              <br />
+              <div className="formCB">
+                <input type="checkbox" defaultChecked></input>
+                <label>Receive Emails for promotions And Offers</label>
               </div>
-            </div>
-            <br />
-            <div className="formCB">
-              <input type="checkbox" defaultChecked></input>
-              <label>Receive Emails for promotions And Offers</label>
-            </div>
-            <div className="ReloadChanges">
-              <input type="submit" value="Reload Changes"></input>
-            </div>
-          </form>
+              <div className="ReloadChanges">
+                <input type="submit" value="Reload Changes"></input>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+      {showModal && <Support closeModal={closeModal} />}
+    </>
+
   );
 };
 export default Settngs;
