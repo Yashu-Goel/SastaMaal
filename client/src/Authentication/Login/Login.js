@@ -70,6 +70,7 @@ const Login = () => {
     }
     return (
         <div className='container2' onSubmit={submiteHanlder}>
+
             <form method='post' className='form2' >
                 <h1 class="heading2">Login</h1>
                 <input className='input2' type="email" placeholder='youremail@gmail.com' required onChange={emailHandler} ></input>

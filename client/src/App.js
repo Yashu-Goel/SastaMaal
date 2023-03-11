@@ -5,10 +5,11 @@ import Signup from './Authentication/Signup/Signup';
 import Homepage from './Components/Homepage';
 import React, { useState } from 'react';
 import TotalAmount from './Components/TotalEarning/TotalAmount';
-import  Settngs  from './Components/Settngs/Settings';
+import Settngs from './Components/Settngs/Settings';
 import Popup from './Components/Settngs/Popup';
 import PaymentHistory from './Components/PaymentHistory/PaymentHistory';
 import HowDoesItWork from './Components/HowDoesItWork/HowDoesItWork';
+import ResetPass from './Authentication/ResetPass/ResetPass';
 export const CredentialContext = React.createContext(null);
 
 function App() {
@@ -25,8 +26,8 @@ function App() {
             <Route exact path='/setting' element={<Settngs />} />
             <Route exact path='/setting/edit-name' element={<Popup />} />
             <Route exact path='/setting/payment-history' element={<PaymentHistory />} />
-            <Route exact path='/querycard' element={<HowDoesItWork/>} />
-
+            <Route exact path='/querycard' element={<HowDoesItWork />} />
+            <Route exact path='/resetpassword' element={<ResetPass />} />
           </Routes>
         </Router>
       </CredentialContext.Provider>

@@ -32,6 +32,7 @@ const userSchema = new mongoose.Schema({
     }
 });
 const User = mongoose.model("User", userSchema);
+module.exports = User;
 
 const detailSchema = new mongoose.Schema({
     userId: {
@@ -426,4 +427,8 @@ app.get('/fetch-details', async (req, res) => {
     const { details } = await Amount.findOne({ userId: users._id });
     res.json(details);
 })
+const SendMail = require("./Controller/SendMail.js");
+
+app.post("/reset", SendMail);
+
 app.listen(5000, (console.log("Port has started at 5000")));
