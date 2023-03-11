@@ -4,6 +4,7 @@ import Logo from "../Logo.png";
 import { CredentialContext } from "../../App";
 import CryptoJS from "crypto-js";
 import { AiFillSetting } from "react-icons/ai";
+import { Link } from "react-router-dom";
 const API_BASE = "http://localhost:5000"
 
 const TitleBar = () => {
@@ -50,7 +51,7 @@ const TitleBar = () => {
       <div className="Registration">
         {credentials && <a href="/myearning" id="earning">Total Earnings: &#8377;{amount}</a>}
         {credentials===undefined && <a href="/myearning" id="earning">Loading ...</a>}
-        <button>How Does it work?</button>
+        <button id="HowDoesItWorkContainer"><Link to="/querycard">How Does it work?</Link></button>
         {!credentials && <a href="/login"><button>LogIn</button></a>}
         {!credentials && <a href="/signup"><button>Signup</button></a>}
         {credentials && <button className='butt bot' onClick={Logout}>Logout</button>}

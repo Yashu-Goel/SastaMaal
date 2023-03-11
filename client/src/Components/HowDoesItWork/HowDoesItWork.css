@@ -1,0 +1,54 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+#HowDoesItWorkMainContainer
+{
+    padding: 10px;
+    background-color: #F0EDCC;
+    color: #02343F;
+    position: relative;
+}
+#HowDoesItWorkMainContainer h1
+{
+    margin: 20px 10px;
+    text-decoration: underline;
+}
+.List1
+{
+    margin-top: 10px;
+}
+.List1 li
+{
+    display: flex;
+    font-size: 18px;
+    margin: 5px 5px 7px 5px;
+}
+.List1 li p{
+    margin-left: 10px;
+}
+.List1 li span{
+    min-height: 10px;
+}
+
+#button
+{
+    right: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    color: #F0EDCC;
+    background-color: #02343F;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+#button span{
+    color: #F0EDCC;
+    font-size: 16px;
+}
+
+#button span:hover
+{
+    text-decoration: underline;
+}

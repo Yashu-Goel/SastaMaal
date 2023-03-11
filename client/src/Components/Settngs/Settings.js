@@ -6,6 +6,7 @@ import CryptoJS from "crypto-js";
 import { AiFillSetting } from "react-icons/ai";
 import Logo from "../../Header/LogoBlack.png";
 import Support from "./SuppModal";
+import ResetModal from "./ResetModal";
 
 const API_BASE = "http://localhost:5000";
 
@@ -50,6 +51,13 @@ const Settngs = () => {
     e.preventDefault();
     setShowModal(false);
   };
+
+  // Configure Reset Password Modal
+  const [resetModal, setResetModal]= useState(false);
+  const closeResetModal = (e) => {
+    e.preventDefault();
+    setResetModal(false);
+  };
   return (
     <>
       <div className="setContainer">
@@ -58,22 +66,15 @@ const Settngs = () => {
             <Link to="/">
               <img className="Logo" src={Logo} />
             </Link>
-            <li>
               <Link to="/setting" id="setting1">
                 <AiFillSetting />
               </Link>
-            </li>
-            <li>
               <Link id="support" onClick={() => setShowModal(true)}>
                 Support
               </Link>
-            </li>
-            <li>
               <Link to="/setting/payment-history">Payment History</Link>
-            </li>
-            <li>
               <Link to="/myearning">My Earnings</Link>
-            </li>
+              <Link onClick={() => setResetModal(true)}>Reset Password</Link>
           </ul>
         </div>
 
@@ -112,7 +113,7 @@ const Settngs = () => {
                     value={data.email.substring(0, 2) + "xxxxxxxxx.com"}
                     readOnly="readonly"
                   />
-                  <Link id="support" onClick={() => setShowModal(true)}>
+                  <Link id="support">
                     <i class="fas fa-edit"></i>
                   </Link>
                   <br />
@@ -131,6 +132,7 @@ const Settngs = () => {
         </div>
       </div>
       {showModal && <Support closeModal={closeModal} />}
+      {resetModal && <ResetModal closeResetModal={closeResetModal} />}
     </>
   );
 };
