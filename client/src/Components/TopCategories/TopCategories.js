@@ -3,18 +3,17 @@ import "./TopCategories.css";
 import CategoryCard from "../CategoryCard/CategoryCard";
 const TopCategories = () => {
 
-  const [Data, setData]= useState([])
-  //run data before rendering
+  const [Data, setData] = useState([])
+  
   useEffect(() => {
-    fetch("http://localhost:5000/TopCategoriesData",{
-      method: "GET"}).then(response => response.json())
+    fetch("http://localhost:5000/TopCategoriesData", {
+      method: "GET"
+    }).then(response => response.json())
       .then((OfferData) => {
-        console.log(OfferData);
         setData(OfferData);
-        console.log(Data);
       })
 
-  },[])
+  }, [])
 
   return (
     <div className="TopCategoriesMainContainer">
@@ -41,11 +40,12 @@ const TopCategories = () => {
           <p>&gt;</p>
         </button>
         <div className="CategoryContainer">
-        {Data.map((TopCategoriesArray) => {
-          return(
-          <CategoryCard CategoryImage={TopCategoriesArray.ImageSrc}/>
-        )})}
-          
+          {Data.map((TopCategoriesArray) => {
+            return (
+              <CategoryCard CategoryImage={TopCategoriesArray.ImageSrc} />
+            )
+          })}
+
         </div>
       </div>
     </div>

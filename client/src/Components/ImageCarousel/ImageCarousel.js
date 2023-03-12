@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./ImageCarousel.css";
 import OfferCard from "../OfferCard/OfferCard";
-//import Data from "../../JsonSamples/OfferMockData";
 
 const ImageCarousel = () => {
 
   const [Data, setData]= useState([])
-  //run data before rendering
+  
   useEffect(() => {
     fetch("http://localhost:5000/OfferData",{
       method: "GET"}).then(response => response.json())
       .then((OfferData) => {
-        console.log(OfferData);
         setData(OfferData);
-        console.log(Data);
       })
 
   },[])

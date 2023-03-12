@@ -58,6 +58,9 @@ const MyModel = ({ withHandler, amount }) => {
     }
 
     const onSubmitHandle = async (e) => {
+        
+        const string = localStorage.getItem("profile");
+
         e.preventDefault();
         if (upi !== cupi) {
             toast.info("Upi id mismatch");
@@ -72,7 +75,8 @@ const MyModel = ({ withHandler, amount }) => {
         await fetch(API_BASE + "/withdraw", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": `Basic ${string}`
             },
             body: JSON.stringify({
                 amount: amoun, password: pass, email: email, upi: upi

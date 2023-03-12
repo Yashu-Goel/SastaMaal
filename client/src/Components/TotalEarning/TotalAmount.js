@@ -1,24 +1,25 @@
 import './TotalAmount.css';
 import React, { useContext, useState, useEffect } from 'react'
 import { CredentialContext } from "../../App";
-import CryptoJS from "crypto-js";
 import MyModel from './Modals/Modals';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {Link} from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios';
 const API_BASE = "http://localhost:5000"
 
 const TotalAmount = () => {
-
+    const navigate = useNavigate();
     const [credentials, setCredentials] = useContext(CredentialContext);
-    
+
     const [data, setData] = useState({
         amount: "0",
         array: []
     })
     const [show, setShow] = useState(false);
 
-    function withHandler() {
+    function withHandler() 
+    {
 
         if (show == true) {
             setShow(false);
@@ -34,29 +35,27 @@ const TotalAmount = () => {
     }
 
     useEffect(() => {
-        const secret = "hdahg g badhj yuida gdjhag dag jjh";
-        const string = localStorage.getItem("user");
-        if (string === null) return;
-        let encryp = CryptoJS.AES.decrypt(string, secret).toString(CryptoJS.enc.Utf8);
-        let data = JSON.parse(encryp);
-        const email = data.email;
-        const password = data.password;
 
-        if (email !== null || password !== null) {
-            setCredentials({ email, password });
+        const string = localStorage.getItem("profile");
+
+        if (string === null) {
+            toast.error("Session Expired Redirecting to login page....");
+
+            setTimeout(() => {
+                navigate("/login");
+            }, 2500)
         }
-        else
-            return
 
-        fetch(API_BASE + "/arrays", {
-            method: "GET",
+        axios.get(API_BASE + "/arrays", {
             headers: {
                 "Content-Type": "application/json",
-                Authorization: `Basic ${email}:${password}`
+                "Authorization": `Basic ${string}`
             }
         })
-            .then((res) => res.json())
-            .then((data) => setData(data))
+            .then((res) => {
+                setData(res.data);
+            })
+            .catch((error) => console.log("Not loginned"));
 
     }, [data])
 

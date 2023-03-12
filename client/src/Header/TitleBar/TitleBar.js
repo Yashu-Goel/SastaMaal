@@ -1,63 +1,70 @@
 import "./TitleBar.css";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "../Logo.png";
-import { CredentialContext } from "../../App";
-import CryptoJS from "crypto-js";
 import { AiFillSetting } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import axios from "axios"
+import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+
 const API_BASE = "http://localhost:5000"
 
 const TitleBar = () => {
-  const [credentials, setCredentials] = useContext(CredentialContext);
+  
+  const navigate = useNavigate();
+  const [credentials, setCredentials] = useState(false);
   const [amount, setAmount] = useState(0);
 
 
   useEffect(() => {
-    const secret = "hdahg g badhj yuida gdjhag dag jjh";
-    const string = localStorage.getItem("user");
-    if (string === null) return;
-    let encryp = CryptoJS.AES.decrypt(string, secret).toString(CryptoJS.enc.Utf8);
-    let data = JSON.parse(encryp);
-    const email = data.email;
-    const password = data.password;
 
-    if (email !== null || password !== null) {
-      setCredentials({ email, password });
+    const string = localStorage.getItem("profile");
+
+    if (string === null && credentials === true) {
+      toast.error("Session Expired Redirecting to login page....");
+
+      setTimeout(() => {
+        navigate("/login");
+      }, 2500)
     }
-    else
-      return
 
-    fetch(API_BASE + "/amount", {
-      method: "GET",
+    axios.get(API_BASE + "/amount", {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Basic ${email}:${password}`
+        "Authorization": `Basic ${string}`
       }
     })
-      .then((res) => res.json())
-      .then((data) => setAmount(data));
-
-  }, [amount])
+      .then((res) => {
+        setCredentials(true);
+        setAmount(res.data);
+      })
+      .catch((error) => console.log("Not loginned"));
+  })
 
   function Logout() {
-    localStorage.removeItem("user");
-    setCredentials(null);
+    localStorage.removeItem("profile");
+    setCredentials(false);
   }
+
   return (
-    <div className="TitleContainer">
-      <div>&#x0;</div>
-      <img src={Logo} alt="logo" />
-      <input className="SearchBar" placeholder="What do you want to buy today...?" />
-      <div className="Registration">
-        {credentials && <Link to="/myearning" id="earning">Total Earnings:&#8377;{amount}</Link>}
-        {credentials===undefined && <Link to="/myearning" id="earning">Loading ...</Link>}
-        <Link to="/querycard"><button>How Does it work?</button></Link>
-        {!credentials && <Link to='/login'><button>LogIn</button></Link>}
-        {!credentials && <Link to='/signup'><button>Signup</button></Link>}
-        {credentials && <button className='butt bot' onClick={Logout}>Logout</button>}
-        {credentials && <Link to="/setting"> <button className='butt bot' id="setting" ><AiFillSetting/></button></Link>}
+    <>
+      <div className="TitleContainer">
+        <div>&#x0;</div>
+        <img src={Logo} alt="logo" />
+        <input className="SearchBar" placeholder="What do you want to buy today...?" />
+
+        <div className="Registration">
+          {credentials && <Link to="/myearning" id="earning">Total Earnings:&#8377;{amount}</Link>}
+          {credentials === undefined && <Link to="/myearning" id="earning">Loading ...</Link>}
+          <Link to="/querycard"><button>How Does it work?</button></Link>
+          {!credentials && <Link to='/login'><button>LogIn</button></Link>}
+          {!credentials && <Link to='/signup'><button>Signup</button></Link>}
+          {credentials && <button className='butt bot' onClick={Logout}>Logout</button>}
+          {credentials && <Link to="/setting"> <button className='butt bot' id="setting" ><AiFillSetting /></button></Link>}
+        </div>
       </div>
-    </div>
+      <ToastContainer autoClose={2000} />
+    </>
+
   );
 };
 

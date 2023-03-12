@@ -3,7 +3,7 @@ import './SuppModal.css'
 
 const API_BASE = "http://localhost:5000";
 
-const Support = ({closeModal}) => {
+const Support = ({ closeModal }) => {
 
     const handleErrors = async (res) => {
         if (!res.ok) {
@@ -56,35 +56,33 @@ const Support = ({closeModal}) => {
             })
     }
     return (
-        <>
-            <div className='outer-outer-support'>
-                <div className='outer-support'>
-                    <button onClick={closeModal} className='close-button'>x</button>
-                    <div className="sup-container">
-                        <h1 className='sup-head'>Contact Form</h1>
-                        <form id="contact-form" >
-                            <div className="form-group">
-                                <label htmlFor="name">Name</label><br />
-                                <input type="text" className="form-control" value={name} onChange={onNameChange} placeholder='name' required />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="exampleInputEmail1">Email address</label>
-                                <br />
-                                <input type="email" className="form-control" aria-describedby="emailHelp" placeholder='youremail@gmail.com' value={email} onChange={onEmailChange} required />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="message">Message</label>
-                                <br />
-                                <textarea className="form-control" rows="5" placeholder='backend not yet implemented ...' value={message} onChange={onMessageChange} required />
-                            </div>
-                            <button type="submit" className="sup-btn" onClick={handleSubmit}>Submit</button>
-                            {(isError === "Changes Saved Successfully") && <p className='sup-success'>&#9989;{isError}</p>}
-                        </form>
-                    </div>
+        <div>
+            <div className='outer-outer-support'></div>
+            <div className='outer-support'>
+                <button onClick={closeModal} className='close-button'>x</button>
+                <div className="sup-container">
+                    <h1 className='sup-head'>Contact Form</h1>
+                    <form id="contact-form" >
+                        <div className="form-group">
+                            <label htmlFor="name">Name</label><br />
+                            <input type="text" className="form-control" value={name} onChange={onNameChange} placeholder='name' required />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="exampleInputEmail1">Email address</label>
+                            <br />
+                            <input type="email" className="form-control" aria-describedby="emailHelp" placeholder='youremail@gmail.com' value={email} onChange={onEmailChange} required />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="message">Message</label>
+                            <br />
+                            <textarea className="form-control" rows="5" placeholder='backend not yet implemented ...' value={message} onChange={onMessageChange} required />
+                        </div>
+                        <button type="submit" className="sup-btn" onClick={handleSubmit}>Submit</button>
+                        {(isError === "Changes Saved Successfully") && <p className='sup-success'>&#9989;{isError}</p>}
+                    </form>
                 </div>
             </div>
-
-        </>
+        </div>
 
     )
 }

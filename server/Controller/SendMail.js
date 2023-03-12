@@ -1,8 +1,10 @@
-const nodemailer = require('nodemailer');
-const User = require("../server.js");
-const Cryptr = require('cryptr');
+import nodemailer from "nodemailer";
+import User from "../Models/User.js";
+import dotenv from "dotenv"
+
+import Cryptr from "cryptr"
 const cryptr = new Cryptr('myTotallySecretKey');
-const dotenv = require("dotenv");
+
 dotenv.config();
 
 const SendMail = async (req, res) => {
@@ -50,4 +52,4 @@ const SendMail = async (req, res) => {
     });
     return;
 }
-module.exports = SendMail
+export default SendMail

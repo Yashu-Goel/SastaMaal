@@ -1,7 +1,7 @@
 import './PaymentHistory.css'
 import React, { useEffect, useState, useContext } from 'react'
 import { AiFillSetting } from "react-icons/ai";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import Support from "../Settngs/SuppModal.js";
 import { CredentialContext } from "../../App";
@@ -9,34 +9,28 @@ import CryptoJS from "crypto-js";
 
 
 const PaymentHistory = () => {
+  const navigate = useNavigate();
   const [credentials, setCredentials] = useContext(CredentialContext);
   const [showModal, setShowModal] = useState(false);
 
   const [details, setDetails] = useState([]);
 
   const API_BASE = "http://localhost:5000";
+  const string = localStorage.getItem("profile");
+
 
   useEffect(() => {
-
-    const secret = "hdahg g badhj yuida gdjhag dag jjh";
-    const string = localStorage.getItem("user");
-    if (string === null) return;
-    let encryp = CryptoJS.AES.decrypt(string, secret).toString(CryptoJS.enc.Utf8);
-    let data = JSON.parse(encryp);
-    const email = data.email;
-    const password = data.password;
-
-    if (email !== null || password !== null) {
-      setCredentials({ email, password });
+    if (string === null) {
+      alert("Session expired Please login in again...");
+      navigate('/login');
+      return;
     }
-    else
-      return
 
     fetch(API_BASE + "/fetch-details", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Basic ${email}:${password}`
+        Authorization: `Basic ${string}`
       }
     })
       .then((res) => res.json())
@@ -53,7 +47,7 @@ const PaymentHistory = () => {
   return (
     <div>
       <div className="setContainer">
-        <Navbar/>
+        <Navbar />
         {showModal && <Support closeModal={closeModal} />}
 
 

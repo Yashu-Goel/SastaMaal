@@ -3,7 +3,9 @@ import "./HowDoesItWork.css";
 import { Link } from "react-router-dom";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { IoMdOpen } from "react-icons/io";
+
 const HowDoesItWork = () => {
+
   return (
     <div id="HowDoesItWorkMainContainer">
       <h1>How Paisa Bachao Works?</h1>
@@ -23,7 +25,6 @@ const HowDoesItWork = () => {
             the transaction
           </p>
         </li>
-
         <li>
           <span>
             <BsFillArrowRightCircleFill />
@@ -53,7 +54,7 @@ const HowDoesItWork = () => {
           </span>
 
           <p>
-          Go to <Link to="/">Home Page</Link>
+            Go to <Link to="/">Home Page</Link>
 
           </p>
         </li>
@@ -62,7 +63,7 @@ const HowDoesItWork = () => {
             <BsFillArrowRightCircleFill />
           </span>
           <p>
-          Navigate to title bar and click on{" "}
+            Navigate to title bar and click on{" "}
             <Link to="/signup">Signup</Link>
           </p>
         </li>
@@ -83,7 +84,7 @@ const HowDoesItWork = () => {
             <BsFillArrowRightCircleFill />
           </span>
           <p>
-          Go to <Link to="/">Home Page</Link>
+            Go to <Link to="/">Home Page</Link>
           </p>
         </li>
         <li>
@@ -91,7 +92,7 @@ const HowDoesItWork = () => {
             <BsFillArrowRightCircleFill />
           </span>
           <p>
-          Navigate to title bar and click on{" "}
+            Navigate to title bar and click on{" "}
             <Link to="/login">Login</Link>
           </p>
         </li>
@@ -99,10 +100,8 @@ const HowDoesItWork = () => {
           <span>
             <BsFillArrowRightCircleFill />
           </span>
-
           <p>
             Fill your details and click login button
-
           </p>
         </li>
       </ul>
@@ -115,7 +114,7 @@ const HowDoesItWork = () => {
             <BsFillArrowRightCircleFill />
           </span>
           <p>
-          Go to <Link to="/login">Login Page</Link>
+            Go to <Link to="/login">Login Page</Link>
           </p>
         </li>
         <li>
@@ -124,7 +123,7 @@ const HowDoesItWork = () => {
           </span>
 
           <p>
-            Click on Forgot Password 
+            Click on Forgot Password
           </p>
         </li>
       </ul>
@@ -225,7 +224,7 @@ const HowDoesItWork = () => {
           </p>
         </li>
         <p>
-        Every time your referral shops, you will get 10% of their Cashback/Rewards amount as Referral Earnings. Referral earnings will track as ‘Pending Cashback’ and will get Confirmed as soon as your Referral’s Cashback is Confirmed.
+          Every time your referral shops, you will get 10% of their Cashback/Rewards amount as Referral Earnings. Referral earnings will track as ‘Pending Cashback’ and will get Confirmed as soon as your Referral’s Cashback is Confirmed.
         </p>
       </ul>
 
@@ -237,7 +236,7 @@ const HowDoesItWork = () => {
           </span>
 
           <p>
-          Go to <Link to="/setting">Settings</Link>
+            Go to <Link to="/setting">Settings</Link>
           </p>
         </li>
         <li>
@@ -245,7 +244,7 @@ const HowDoesItWork = () => {
             <BsFillArrowRightCircleFill />
           </span>
           <p>
-          Here you will see your Name and Email className 
+            Here you will see your Name and Email className
           </p>
         </li>
         <li>
@@ -253,9 +252,9 @@ const HowDoesItWork = () => {
             <BsFillArrowRightCircleFill />
           </span>
           <p>
-          To change your Name or Email className. Click on <i class="fas fa-edit"> {" "}</i>
-          {" "}
-            <Link/> icon
+            To change your Name or Email className. Click on <i class="fas fa-edit"> {" "}</i>
+            {" "}
+            <Link /> icon
           </p>
         </li>
         <li>
@@ -264,19 +263,19 @@ const HowDoesItWork = () => {
           </span>
 
           <p>
-           Fill the details and click on verify changes
+            Fill the details and click on verify changes
           </p>
         </li>
       </ul>
 
-    <h1>How to see Payment History?</h1>
+      <h1>How to see Payment History?</h1>
       <ul className="List1">
         <li>
           <span>
             <BsFillArrowRightCircleFill />
           </span>
           <p>
-          Go to <Link to="/setting">Settings</Link>
+            Go to <Link to="/setting">Settings</Link>
           </p>
         </li>
         <li>
@@ -285,7 +284,7 @@ const HowDoesItWork = () => {
           </span>
 
           <p>
-          Click on Payment History button on top right corner
+            Click on Payment History button on top right corner
           </p>
         </li>
       </ul>
@@ -299,7 +298,7 @@ const HowDoesItWork = () => {
             <BsFillArrowRightCircleFill />
           </span>
           <p>
-          Go to <Link to="/setting">Settings</Link>
+            Go to <Link to="/setting">Settings</Link>
           </p>
         </li>
         <li>
@@ -307,7 +306,7 @@ const HowDoesItWork = () => {
             <BsFillArrowRightCircleFill />
           </span>
           <p>
-          Click on Support button on top right corner
+            Click on Support button on top right corner
           </p>
         </li>
         <li>
@@ -315,21 +314,21 @@ const HowDoesItWork = () => {
             <BsFillArrowRightCircleFill />
           </span>
           <p>
-          Fill Your Details and Click on Submit Button
+            Fill Your Details and Click on Submit Button
           </p>
         </li>
       </ul>
 
 
-      
-    <h1>How to Connect with Us?</h1>
+
+      <h1>How to Connect with Us?</h1>
       <ul className="List1" >
         <li>
           <span>
             <BsFillArrowRightCircleFill />
           </span>
           <p>
-          Go to <Link to="/">Home Page</Link>
+            Go to <Link to="/">Home Page</Link>
           </p>
         </li>
         <li>
@@ -363,14 +362,14 @@ const HowDoesItWork = () => {
 
 
 
-    <h1>Technology Used: </h1>
+      <h1>Technology Used: </h1>
       <ul className="List1">
         <li>
           <span>
             <BsFillArrowRightCircleFill />
           </span>
           <p>
-            React(Front-end) <span><Link to="https://reactjs.org/"><IoMdOpen/></Link></span>
+            React(Front-end) <span><Link to="https://reactjs.org/"><IoMdOpen /></Link></span>
           </p>
         </li>
 
@@ -379,7 +378,7 @@ const HowDoesItWork = () => {
             <BsFillArrowRightCircleFill />
           </span>
           <p>
-            Node.js and Express.js(Server) <span><Link to="https://expressjs.com/"><IoMdOpen/></Link></span>
+            Node.js and Express.js(Server) <span><Link to="https://expressjs.com/"><IoMdOpen /></Link></span>
           </p>
         </li>
 
@@ -388,7 +387,7 @@ const HowDoesItWork = () => {
             <BsFillArrowRightCircleFill />
           </span>
           <p>
-            MongoDB(Database) <span><Link to="https://www.mongodb.com/"><IoMdOpen/></Link></span>
+            MongoDB(Database) <span><Link to="https://www.mongodb.com/"><IoMdOpen /></Link></span>
           </p>
         </li>
 
@@ -397,7 +396,7 @@ const HowDoesItWork = () => {
             <BsFillArrowRightCircleFill />
           </span>
           <p>
-            Client-Server Architecture <span><Link to="https://www.geeksforgeeks.org/client-server-model/"><IoMdOpen/></Link></span>
+            Client-Server Architecture <span><Link to="https://www.geeksforgeeks.org/client-server-model/"><IoMdOpen /></Link></span>
           </p>
         </li>
 
@@ -406,25 +405,25 @@ const HowDoesItWork = () => {
             <BsFillArrowRightCircleFill />
           </span>
           <p>
-          JWT <span><Link to="https://www.npmjs.com/package/jsonwebtoken"><IoMdOpen/></Link></span>
+            JWT <span><Link to="https://www.npmjs.com/package/jsonwebtoken"><IoMdOpen /></Link></span>
           </p>
         </li>
-        
+
         <li>
           <span>
             <BsFillArrowRightCircleFill />
           </span>
           <p>
-            Encoding and Decoding 
+            Encoding and Decoding
           </p>
         </li>
 
-        
+
 
       </ul>
 
 
-    <h1>Refrences: </h1>
+      <h1>Refrences: </h1>
       <ul className="List1">
         <li>
           <span>
@@ -458,7 +457,7 @@ const HowDoesItWork = () => {
             <BsFillArrowRightCircleFill />
           </span>
           <p>
-             <span><Link to="https://www.geeksforgeeks.org/client-server-model/">Client-Server Architecture</Link></span>
+            <span><Link to="https://www.geeksforgeeks.org/client-server-model/">Client-Server Architecture</Link></span>
           </p>
         </li>
 
@@ -467,7 +466,7 @@ const HowDoesItWork = () => {
             <BsFillArrowRightCircleFill />
           </span>
           <p>
-             <span><Link to="https://www.npmjs.com/">NPM</Link></span>
+            <span><Link to="https://www.npmjs.com/">NPM</Link></span>
           </p>
         </li>
         <li>
@@ -475,7 +474,7 @@ const HowDoesItWork = () => {
             <BsFillArrowRightCircleFill />
           </span>
           <p>
-             <span><Link to="https://stackoverflow.com/">Stack overflow</Link></span>
+            <span><Link to="https://stackoverflow.com/">Stack overflow</Link></span>
           </p>
         </li>
         <li>
@@ -483,16 +482,7 @@ const HowDoesItWork = () => {
             <BsFillArrowRightCircleFill />
           </span>
           <p>
-             <span><Link to="https://www.youtube.com/">YouTube</Link></span>
-          </p>
-        </li>
-
-        <li>
-          <span>
-            <BsFillArrowRightCircleFill />
-          </span>
-          <p>
-             <span><Link to="https://cashkaro.com/">Cash karo</Link></span>
+            <span><Link to="https://www.youtube.com/">YouTube</Link></span>
           </p>
         </li>
 
@@ -501,7 +491,7 @@ const HowDoesItWork = () => {
             <BsFillArrowRightCircleFill />
           </span>
           <p>
-             <span><Link to="https://pouringpounds.com/">Pouring Pounds</Link></span>
+            <span><Link to="https://cashkaro.com/">Cash karo</Link></span>
           </p>
         </li>
 
@@ -510,14 +500,23 @@ const HowDoesItWork = () => {
             <BsFillArrowRightCircleFill />
           </span>
           <p>
-             <span><Link to="https://earnkaro.com/">Earn Karo</Link></span>
+            <span><Link to="https://pouringpounds.com/">Pouring Pounds</Link></span>
+          </p>
+        </li>
+
+        <li>
+          <span>
+            <BsFillArrowRightCircleFill />
+          </span>
+          <p>
+            <span><Link to="https://earnkaro.com/">Earn Karo</Link></span>
           </p>
         </li>
       </ul>
 
 
 
-        <button id="button"><Link to='/'><span>Go to home page </span></Link></button>
+      <button id="button"><Link to='/'><span>Go to home page </span></Link></button>
     </div>
   );
 };

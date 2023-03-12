@@ -5,18 +5,17 @@ import TopCashbackStoresCard from '../TopCashbackStoresCard/TopCashbackStoresCar
 
 const TopCashbackStores = () => {
 
-  const [Data, setData]= useState([])
-  //run data before rendering
+  const [Data, setData] = useState([]);
+
   useEffect(() => {
-    fetch("http://localhost:5000/TopCashbackStoresData",{
-      method: "GET"}).then(response => response.json())
+    fetch("http://localhost:5000/TopCashbackStoresData", {
+      method: "GET"
+    }).then(response => response.json())
       .then((OfferData) => {
-        console.log(OfferData);
         setData(OfferData);
-        console.log(Data);
       })
 
-  },[])
+  }, [])
 
   return (
     <div className='TopCashbackStoresMainConatiner'>
@@ -49,30 +48,30 @@ const TopCashbackStores = () => {
           <p>&gt;</p>
         </button>
         <div className="TopCashbackStoresContainer">
-        {Data.map((TopCashbackStoresArray) => {
-          return(
-          <TopCashbackStoresCard id={TopCashbackStoresArray.id} 
-          ImageSrc={TopCashbackStoresArray.ImageSrc}
-          Cashback={TopCashbackStoresArray.Cashback} 
-          Offer={TopCashbackStoresArray.Offer}
-          BrandName={TopCashbackStoresArray.BrandName}
-          Link={TopCashbackStoresArray.Link}
-        />
-          );          
-        })}
+          {Data.map((TopCashbackStoresArray) => {
+            return (
+              <TopCashbackStoresCard id={TopCashbackStoresArray.id}
+                ImageSrc={TopCashbackStoresArray.ImageSrc}
+                Cashback={TopCashbackStoresArray.Cashback}
+                Offer={TopCashbackStoresArray.Offer}
+                BrandName={TopCashbackStoresArray.BrandName}
+                Link={TopCashbackStoresArray.Link}
+              />
+            );
+          })}
         </div>
         <div className="TopCashbackStoresContainer1">
-        {Data.reverse().map((TopCashbackStoresArray) => {
-          return(
-          <TopCashbackStoresCard id={TopCashbackStoresArray.id} 
-          ImageSrc={TopCashbackStoresArray.ImageSrc}
-          Cashback={TopCashbackStoresArray.Cashback} 
-          Offer={TopCashbackStoresArray.Offer}
-          BrandName={TopCashbackStoresArray.BrandName}
-          Link={TopCashbackStoresArray.Link}
-        />
-          );          
-        })}
+          {Data.reverse().map((TopCashbackStoresArray) => {
+            return (
+              <TopCashbackStoresCard id={TopCashbackStoresArray.id}
+                ImageSrc={TopCashbackStoresArray.ImageSrc}
+                Cashback={TopCashbackStoresArray.Cashback}
+                Offer={TopCashbackStoresArray.Offer}
+                BrandName={TopCashbackStoresArray.BrandName}
+                Link={TopCashbackStoresArray.Link}
+              />
+            );
+          })}
         </div>
       </div>
     </div>

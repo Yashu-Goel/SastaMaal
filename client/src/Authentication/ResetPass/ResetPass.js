@@ -1,15 +1,14 @@
 import './ResetPass.css'
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import { alert } from '@mobiscroll/react';
-import { ToastContainer, toast } from 'react-toastify';
+import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "@mobiscroll/react/dist/css/mobiscroll.min.css";
 
 const API_BASE = "http://localhost:5000";
 
-const ResetPass = () => {
-    const form = useRef();
+const ResetPass = ({closeModal}) => {
     const navigate = useNavigate();
     const [email, setEmail] = useState(null);
 
@@ -26,7 +25,6 @@ const ResetPass = () => {
 
         e.preventDefault();
 
-
         await fetch(API_BASE + "/reset", {
             method: "POST",
             headers: {
@@ -35,12 +33,11 @@ const ResetPass = () => {
             body: JSON.stringify({ email: email })
         })
             .then(handleErrors)
-            .then((res) => {
+            .then(() => {
                 alert({ title: "Email Sent", message: "Check your email for password" });
                 toast.success("Redirecting to login page...", setTimeout(() => {
-                    navigate('/login');
-                }, 5000));
-                return;
+                    window.location.reload(true);
+                }, 3000) )
             })
             .catch((error) => {
                 toast.error(error.message);
@@ -51,16 +48,19 @@ const ResetPass = () => {
     }
 
     return (
-        <div className='outer-reset'>
-            <form ref={form} >
-                <h2>Forgot Password Form</h2>
-                <div className='inner-input'>
-                    <input type='email' placeholder='Enter your email address' required autoSave='on' autoFocus onChange={(e) => setEmail(e.target.value)} ></input>
-                </div>
-                <input type='submit' value='Verify User' onClick={submitHandler}></input>
-            </form>
-            <ToastContainer className='toaster' position='top-center' autoClose={3000} />
+        <div className='outer-outer-reset'>
+            <div className='outer-reset'>
+                <button onClick={closeModal} className='close-button-reset'>x</button>
+                <form>
+                    <h2>Forgot Password Form</h2>
+                    <div className='inner-input'>
+                        <input type='email' placeholder='Enter your email address' required autoSave='on' autoFocus onChange={(e) => setEmail(e.target.value)} ></input>
+                    </div>
+                    <input type='submit' value='Verify User' onClick={submitHandler}></input>
+                </form>
+            </div>
         </div>
+
     )
 }
 

@@ -1,10 +1,22 @@
-const express = require('express');
-const cors = require("cors");
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
-const Cryptr = require('cryptr');
-const cryptr = new Cryptr('myTotallySecretKey');
+import express from "express"
+import cors from "cors"
+import mongoose from "mongoose"
+import dotenv from "dotenv"
+import Cryptr from "cryptr"
+import jwt from "jsonwebtoken";
 
+import get from "./Middlewares/Get.js";
+import Login from "./Middlewares/Login.js"
+import FetchDetails from "./Controller/FetchDetails.js"
+import Register from "./Controller/Register.js"
+import FetchArrays from "./Controller/FetchArrays.js"
+import Withdraw from "./Controller/Withdraw.js"
+import SendMail from "./Controller/SendMail.js"
+
+import User from "./Models/User.js";
+import Amount from "./Models/Amount.js"
+
+const cryptr = new Cryptr('myTotallySecretKey');
 const app = express();
 dotenv.config();
 app.use(express.json());
@@ -19,34 +31,13 @@ mongoose.connect(url, {
     .then(() => console.log("Connected to database successfully"))
     .catch(console.error)
 
-const userSchema = new mongoose.Schema({
-    email: {
-        type: String,
-        required: true
-    },
-    password: {
-        type: String
-    },
-    name: {
-        type: String
-    }
-});
-const User = mongoose.model("User", userSchema);
-module.exports = User;
-
-const detailSchema = new mongoose.Schema({
-    userId: {
-        type: String
-    },
-    array: [
-        { text: String, offerid: String, clickId: Number, currDay: String, status: String }
-    ],
-    amount: { type: Number },
-    details: [
-        { id: String, date: String, mode: String, amount: String, ref_no: String, by: String, upi_id: String }
-    ]
-});
-const Amount = mongoose.model("Amount", detailSchema)
+app.get("/amount", get);
+app.post('/login', Login);
+app.get('/fetch-details', FetchDetails);
+app.post('/register', Register);
+app.get("/arrays", FetchArrays);
+app.post('/withdraw', Withdraw);
+app.post("/reset", SendMail);
 //OfferMockData Schema
 const OfferMockDataSchema = new mongoose.Schema({
     ProductImage: {
@@ -69,24 +60,6 @@ const OfferMockDataSchema = new mongoose.Schema({
 })
 const OfferMockDataModel = new mongoose.model('offer_mock_data', OfferMockDataSchema);
 
-app.post('/OfferData', async (req, res) => {
-    const { ProductImage, BrandImage, Discount, Cashback, Color } = req.body;
-    if (!ProductImage || !BrandImage || !Discount || !Cashback || !Color) {
-        return res.json({
-            message: "Pls fill all the details"
-        })
-    }
-
-    try {
-        const Data = new OfferMockDataModel({ ProductImage, BrandImage, Discount, Cashback, Color });
-        await Data.save();
-        res.json({ message: "Success..." })
-    } catch (error) {
-        res.json({ error: "unable to enter data " + error })
-    }
-
-
-})
 //get OfferMockData
 app.get('/OfferData', async (req, res) => {
     try {
@@ -121,22 +94,6 @@ const TopCashbackStoresModel = new mongoose.model('top_cashback_stores_data', To
 //create TopCashbackStoresData
 
 
-app.post('/TopCashbackStoresData', async (req, res) => {
-    const { ImageSrc, Cashback, Offer, BrandName } = req.body;
-    if (!ImageSrc || !Cashback || !Offer || !BrandName) {
-        return res.json({
-            message: "Pls fill all the details"
-        })
-    }
-
-    try {
-        const Data = new TopCashbackStoresModel({ ImageSrc, Cashback, Offer, BrandName });
-        await Data.save();
-        res.json({ message: "Success..." })
-    } catch (error) {
-        res.json({ error: "unable to enter data " + error })
-    }
-})
 //get TopCashbackStoresData
 app.get('/TopCashbackStoresData', async (req, res) => {
     try {
@@ -159,25 +116,7 @@ const TopCategoriesSchema = new mongoose.Schema({
 })
 const TopCategoriesModel = new mongoose.model('top_Categories_data', TopCategoriesSchema);
 
-//create Top Categories Model
 
-
-app.post('/TopCategoriesData', async (req, res) => {
-    const { ImageSrc } = req.body;
-    if (!ImageSrc) {
-        return res.json({
-            message: "Pls fill all the details"
-        })
-    }
-
-    try {
-        const Data = new TopCategoriesModel({ ImageSrc });
-        await Data.save();
-        res.json({ message: "Success..." })
-    } catch (error) {
-        res.json({ error: "unable to enter data " + error })
-    }
-})
 //get top_categories_data
 app.get('/TopCategoriesData', async (req, res) => {
     try {
@@ -188,247 +127,98 @@ app.get('/TopCategoriesData', async (req, res) => {
     }
 })
 //
-app.post('/login', async (req, res) => {
 
-    const { email, password } = req.body;
+const SUPER_KEY = process.env.TEST;
 
-    const users = await User.findOne({ email: email });
-    if (!users) {
-        res.status(403);
-        res.json({
-            message: "Not a user! Please register",
-        })
-        return;
-    }
-    if (cryptr.decrypt(users.password) !== password) {
-        res.status(403);
-        res.json({
-            message: "Invalid Login",
-        })
-        return;
-    }
-    res.json({
-        message: "Login Success!!",
-    })
-})
 
-app.post('/register', async (req, res) => {
-
-    const { email, password, name } = req.body;
-    const encryptedPass = cryptr.encrypt(password);
-    const users = await User.findOne({ email: email });
-
-    if (users) {
-        res.status(500);
-        res.json({
-            message: "User exists! Please login",
-        })
-        return;
-    }
-
-    const user = new User({ email: email, password: encryptedPass, name: name });
-    await user.save();
-    res.json({
-        message: "Registration Success",
-    });
-})
-app.get("/amount", async (req, res) => {
-    const { authorization } = req.headers;
-    const [, token] = authorization.split(" ");
-    const [email, password] = token.split(":");
-    const users = await User.findOne({ email: email })
-
-    const decryptedPass = cryptr.decrypt(users.password);
-    if (!users || decryptedPass !== password) {
-        res.status(403);
-        res.json({
-            message: "Invalid Login",
-        })
-        return;
-    }
-    const available = await Amount.findOne({ userId: users._id });
-    if (available !== null) {
-        const { amount } = await Amount.findOne({ userId: users._id });
-        res.json(amount);
-    } else if (available === null) {
-        const currAmount = new Amount({ userId: users._id, amount: '0' });
-        await currAmount.save();
-    }
-})
-
-app.get("/arrays", async (req, res) => {
-
-    const { authorization } = req.headers;
-    const [, token] = authorization.split(" ");
-    const [email, password] = token.split(":");
-    const users = await User.findOne({ email: email })
-
-    const decryptedPass = cryptr.decrypt(users.password);
-    if (!users || decryptedPass !== password) {
-        res.status(403);
-        res.json({
-            message: "Invalid Login",
-        })
-        return;
-    }
-    const available = await Amount.findOne({ userId: users._id });
-    if (available !== null) {
-        const { amount, array } = await Amount.findOne({ userId: users._id });
-
-        res.json({ amount: amount, array: array });
-    } else
-        return;
-})
 
 app.post('/click', async (req, res) => {
+    // const { token } = req.body;
+    console.log(req.body.store);
 
-    const { store, email, password, id, offerid, currDay } = req.body;
-    const users = await User.findOne({ email: email });
+    // const verify = jwt.verify(token, SUPER_KEY, (err, data) => {
+    //     if (err) {
+    //         res.status(408).json("Oops Session Expired");
+    //         return;
+    //     } else
+    //         return data;
+    // });
 
-    if (!users) {
-        res.status(403);
-        res.json({
-            message: "Not a user! Please register",
-        })
-        return;
-    }
-    if (cryptr.decrypt(users.password) !== password) {
-        res.status(403);
-        res.json({
-            message: "Invalid Login",
-        })
-        return;
-    }
+    // if (verify === undefined) {
+    //     res.status(500);
+    //     return;
+    // }
 
-    const available = await Amount.findOne({ userId: users._id });
-    available.array.unshift({ text: store, offerid: offerid, currDay: currDay, status: "Pending" });
-    await available.save();
+    // const { email, password } = verify;
+
+    // const { store, offerid, currDay } = req.body;
+
+    // const users = await User.findOne({ email: email });
+
+    // if (!users) {
+    //     res.status(403);
+    //     res.json({
+    //         message: "Not a user! Please register",
+    //     })
+    //     return;
+    // }
+    // if (cryptr.decrypt(users.password) !== password) {
+    //     res.status(403);
+    //     res.json({
+    //         message: "Invalid Login",
+    //     })
+    //     return;
+    // }
+    // const available = await Amount.findOne({ userId: users._id });
+    // available.array.unshift({ text: store, offerid: offerid, currDay: currDay, status: "Pending" });
+    // await available.save();
 })
 
-app.post('/edit-name', async (req, res) => {
+// app.post('/edit-name', async (req, res) => {
 
-    const { email, password, name } = req.body;
+//     const { email, password, name } = req.body;
 
-    const users = await User.findOne({ email: email });
+//     const users = await User.findOne({ email: email });
 
-    if (!users) {
-        res.status(403);
-        res.json({
-            message: "Not a user",
-        })
-        return;
-    }
-    else if (cryptr.decrypt(users.password) !== password) {
-        res.status(403);
-        res.json({
-            message: "Invalid Details",
-        })
-        return;
-    } else {
-        users.name = name;
-        res.status(200);
-        res.json({
-            message: "Changes Saved Successfully",
-        })
-        await users.save();
-        return;
-    }
-})
-app.get("/reload", async (req, res) => {
+//     if (!users) {
+//         res.status(403);
+//         res.json({
+//             message: "Not a user",
+//         })
+//         return;
+//     }
+//     else if (cryptr.decrypt(users.password) !== password) {
+//         res.status(403);
+//         res.json({
+//             message: "Invalid Details",
+//         })
+//         return;
+//     } else {
+//         users.name = name;
+//         res.status(200);
+//         res.json({
+//             message: "Changes Saved Successfully",
+//         })
+//         await users.save();
+//         return;
+//     }
+// })
+// app.get("/reload", async (req, res) => {
 
-    const { authorization } = req.headers;
-    const [, token] = authorization.split(" ");
-    const [email, password] = token.split(":");
-    const users = await User.findOne({ email: email })
+//     const { authorization } = req.headers;
+//     const [, token] = authorization.split(" ");
+//     const [email, password] = token.split(":");
+//     const users = await User.findOne({ email: email })
 
-    const decryptedPass = cryptr.decrypt(users.password);
-    if (!users || decryptedPass !== password) {
-        res.status(403);
-        res.json({
-            message: "Invalid Login",
-        })
-        return;
-    }
-    res.json({ name: users.name, email: users.email });
-})
-app.post('/withdraw', async (req, res) => {
-
-    const { email, password, amount, upi } = req.body;
-
-    const users = await User.findOne({ email: email });
-    if (!users) {
-        res.status(403);
-        res.json({
-            message: "No User exsists",
-        })
-        return;
-    }
-    const decryptedPass = cryptr.decrypt(users.password);
-    if (decryptedPass !== password) {
-        res.status(403);
-        res.json({
-            message: "Invalid Credentials",
-        })
-        return;
-    }
-    const cost = await Amount.findOne({ userId: users._id });
-
-    if (amount > cost.amount) {
-        res.status(403).json({ message: "Invalid Amount" });
-        return;
-    }
-
-    // refernce num
-    var crypto = require('crypto');
-    function randomValueHex(len) {
-        return crypto.randomBytes(Math.ceil(len / 2))
-            .toString('hex')
-            .slice(0, len).toUpperCase();
-    }
-    var string = randomValueHex(3) + randomValueHex(3) + randomValueHex(3);
-    // date
-    const dat = new Date().toLocaleDateString('en-US', { day: "numeric", year: "numeric", month: "short" });
-    // 
-
-    //id generator
-    const id = Date.now().toString().substring(5);
-    //
-
-    const newPayment = {
-        id: id,
-        date: dat,
-        mode: "UPI",
-        amount: amount,
-        ref_no: string,
-        by: "earnkaro.com",
-        upi_id: upi
-    }
-    cost.details.unshift(newPayment);
-    cost.amount -= amount;
-    cost.save();
-    res.status(200).json({ message: "Success" });
-})
-app.get('/fetch-details', async (req, res) => {
-
-    const { authorization } = req.headers;
-    const [, token] = authorization.split(" ");
-    const [email, password] = token.split(":");
-    const users = await User.findOne({ email: email })
-
-    const decryptedPass = cryptr.decrypt(users.password);
-
-    if (!users || decryptedPass !== password) {
-        res.status(403);
-        res.json({
-            message: "Auth Failed",
-        })
-        return;
-    }
-    const { details } = await Amount.findOne({ userId: users._id });
-    res.json(details);
-})
-const SendMail = require("./Controller/SendMail.js");
-
-app.post("/reset", SendMail);
+//     const decryptedPass = cryptr.decrypt(users.password);
+//     if (!users || decryptedPass !== password) {
+//         res.status(403);
+//         res.json({
+//             message: "Invalid Login",
+//         })
+//         return;
+//     }
+//     res.json({ name: users.name, email: users.email });
+// })
 
 app.listen(5000, (console.log("Port has started at 5000")));

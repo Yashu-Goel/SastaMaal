@@ -1,53 +1,65 @@
-import React, { useContext } from 'react'
+import React, { useState } from 'react'
 import './TopCashbackStoresCard.css'
-import CryptoJS from "crypto-js";
-import {Link} from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from "axios"
+import { toast } from 'react-toastify';
 const API_BASE = "http://localhost:5000";
 
 const TopCashbackStoresCard = (props) => {
+    const navigate = useNavigate();
 
-    // const [credentials, setCredentials] = useContext(CredentialContext);
-    let email = null;
-    let password = null;
-    const secret = "hdahg g badhj yuida gdjhag dag jjh";
-    const string = localStorage.getItem("user");
-    if (string !== null) {
-        let encryp = CryptoJS.AES.decrypt(string, secret).toString(CryptoJS.enc.Utf8);
-        let data = JSON.parse(encryp);
-        email = data.email;
-        password = data.password;
-    }
-    var today = new Date();
-    var h = today.getHours();
-    var m = today.getMinutes();
-    const currDay = today.toLocaleDateString("de-DE") + " at " + h + ":" + m + " hrs.";
+    const [credentials, setCredentials] = useState(false);
+    // const []
+
     
+    const string = localStorage.getItem("profile");
     const onClickHandler = async (e) => {
 
         if (string === null) {
-            alert("Please Login or Signup before proceeding to any merchant website");
-            return;
+            toast.error("Oops Session expired. Login again..");
+            navigate("/login");
         }
 
 
-        await fetch(API_BASE + "/click", {
-            method: "POST",
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        const currDay = today.toLocaleDateString("de-DE") + " at " + h + ":" + m + " hrs.";
+
+        // axios.get(API_BASE + "/click", {
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //         "Authorization": `Basic ${string}`
+        //     }
+        // })
+        //     .then((res) => {
+        //         setCredentials(true);
+        //     })
+        //     .catch((error) => toast.error("Session expired"),
+        //         setTimeout(() => {
+        //             navigate("/login");
+        //         }, 2500)
+        //     );
+
+
+        await axios.post(API_BASE + "/click", {
+
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({
-                store:props.BrandName,email: email, password: password, id: props.id, offerid: props.Cashback, currDay:currDay
+            body:({
+                store: props.BrandName, id: props.id, offerid: props.Cashback, currDay: currDay, token: string
             })
         })
+            .then((res) => {
+                toast.success("Your click was recorded successfully...");
+                setCredentials(true);
+            })
+            .catch((error) => toast.error(error.response.data.message));
     }
 
-    const getTime = () =>
-    {
-        let time= new Date().toLocaleTimeString();
-        console.log(time);
-    }
     return (
-        <div className='MainContainer1' onClick={getTime}>
+        <div className='MainContainer1'>
             <Link to={string ? props.Link : "#"} className='AnchorContainer' target={string && '_blank'} rel="noreferrer" onClick={onClickHandler}>
                 <div className='ImageContainer'>
                     <p>{props.Offer}</p>
@@ -62,7 +74,6 @@ const TopCashbackStoresCard = (props) => {
                     <p>Cashback Rates & Terms</p>
                 </div>
             </Link>
-
         </div>
     )
 }
