@@ -4,16 +4,17 @@ import OfferCard from "../OfferCard/OfferCard";
 
 const ImageCarousel = () => {
 
-  const [Data, setData]= useState([])
-  
+  const [Data, setData] = useState([])
+
   useEffect(() => {
-    fetch("http://localhost:5000/OfferData",{
-      method: "GET"}).then(response => response.json())
+    fetch("http://localhost:5000/OfferData", {
+      method: "GET"
+    }).then(response => response.json())
       .then((OfferData) => {
         setData(OfferData);
       })
 
-  },[])
+  }, [])
 
 
   return (
@@ -40,16 +41,16 @@ const ImageCarousel = () => {
       </button>
 
       <div className="ProductContainer">
-        {Data.map((OfferData) => {
-          console.log( OfferData.BrandImage);
-          return(  
+        {Data.map((OfferData, index) => {
+          return (
             <OfferCard
-            ProductImage={OfferData.ProductImage}
-            BrandImage={OfferData.BrandImage}
-            Discount={OfferData.Discount}
-            Cashback={OfferData.Cashback}
-            Color={OfferData.Color}
-          />
+              key={index}
+              ProductImage={OfferData.ProductImage}
+              BrandImage={OfferData.BrandImage}
+              Discount={OfferData.Discount}
+              Cashback={OfferData.Cashback}
+              Color={OfferData.Color}
+            />
           );
         })}
       </div>

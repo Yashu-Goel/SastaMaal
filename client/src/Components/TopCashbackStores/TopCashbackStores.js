@@ -48,9 +48,11 @@ const TopCashbackStores = () => {
           <p>&gt;</p>
         </button>
         <div className="TopCashbackStoresContainer">
-          {Data.map((TopCashbackStoresArray) => {
+          {Data.map((TopCashbackStoresArray, index) => {
             return (
-              <TopCashbackStoresCard id={TopCashbackStoresArray.id}
+              <TopCashbackStoresCard
+                key={index}
+                id={TopCashbackStoresArray.id}
                 ImageSrc={TopCashbackStoresArray.ImageSrc}
                 Cashback={TopCashbackStoresArray.Cashback}
                 Offer={TopCashbackStoresArray.Offer}
@@ -61,9 +63,11 @@ const TopCashbackStores = () => {
           })}
         </div>
         <div className="TopCashbackStoresContainer1">
-          {Data.reverse().map((TopCashbackStoresArray) => {
+          {Data.reverse().map((TopCashbackStoresArray, index) => {
             return (
-              <TopCashbackStoresCard id={TopCashbackStoresArray.id}
+              <TopCashbackStoresCard
+                key={index}
+                id={TopCashbackStoresArray.id}
                 ImageSrc={TopCashbackStoresArray.ImageSrc}
                 Cashback={TopCashbackStoresArray.Cashback}
                 Offer={TopCashbackStoresArray.Offer}

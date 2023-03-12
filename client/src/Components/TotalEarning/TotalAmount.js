@@ -1,16 +1,15 @@
 import './TotalAmount.css';
-import React, { useContext, useState, useEffect } from 'react'
-import { CredentialContext } from "../../App";
+import React, { useState, useEffect } from 'react'
 import MyModel from './Modals/Modals';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
+
 const API_BASE = "http://localhost:5000"
 
 const TotalAmount = () => {
     const navigate = useNavigate();
-    const [credentials, setCredentials] = useContext(CredentialContext);
 
     const [data, setData] = useState({
         amount: "0",
@@ -18,10 +17,9 @@ const TotalAmount = () => {
     })
     const [show, setShow] = useState(false);
 
-    function withHandler() 
-    {
+    function withHandler() {
 
-        if (show == true) {
+        if (show === true) {
             setShow(false);
             return;
         }
@@ -57,7 +55,7 @@ const TotalAmount = () => {
             })
             .catch((error) => console.log("Not loginned"));
 
-    }, [data])
+    })
 
 
     return (
@@ -68,8 +66,7 @@ const TotalAmount = () => {
                         <div id='teLink'>
                             <div className='Earning'>
                                 <p id='tep'>Total Earnings</p>
-                                <p id='teprice'><i class="fa fa-rupee"></i>{data.amount}</p>
-                                {/* {show && <p id='with-error'>Minnimum sum of Rs. 200 is required for withdrawal or Add more money</p>} */}
+                                <p id='teprice'><i class="fa fa-rupee"></i> {data.amount}</p>
                             </div>
                             <div id='owall'><i class='fas fa-wallet' id='waIcon'></i></div>
                         </div>
@@ -99,8 +96,8 @@ const TotalAmount = () => {
                         </ul>
                     </div>
                 </div>
-                <ToastContainer position='top-center' />
             </div>
+            <ToastContainer position='top-center' />
             {show && <MyModel withHandler={withHandler} amount={data.amount} />}
         </>
     )

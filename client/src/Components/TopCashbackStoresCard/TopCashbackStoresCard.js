@@ -8,8 +8,7 @@ const API_BASE = "http://localhost:5000";
 const TopCashbackStoresCard = (props) => {
     const navigate = useNavigate();
 
-    const [credentials, setCredentials] = useState(false);
-    // const []
+    const [, setCredentials] = useState(false);
 
     
     const string = localStorage.getItem("profile");
@@ -20,34 +19,17 @@ const TopCashbackStoresCard = (props) => {
             navigate("/login");
         }
 
-
         var today = new Date();
         var h = today.getHours();
         var m = today.getMinutes();
         const currDay = today.toLocaleDateString("de-DE") + " at " + h + ":" + m + " hrs.";
-
-        // axios.get(API_BASE + "/click", {
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //         "Authorization": `Basic ${string}`
-        //     }
-        // })
-        //     .then((res) => {
-        //         setCredentials(true);
-        //     })
-        //     .catch((error) => toast.error("Session expired"),
-        //         setTimeout(() => {
-        //             navigate("/login");
-        //         }, 2500)
-        //     );
-
 
         await axios.post(API_BASE + "/click", {
 
             headers: {
                 "Content-Type": "application/json"
             },
-            body:({
+            data:({
                 store: props.BrandName, id: props.id, offerid: props.Cashback, currDay: currDay, token: string
             })
         })

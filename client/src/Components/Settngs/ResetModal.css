@@ -1,9 +1,6 @@
-<<<<<<< HEAD
-.outer-outer-support {
-=======
+
 .outer-support {
     border: 1px solid black;
->>>>>>> 777f6e54c5075f73d9d9292fae1dbe647846ca7b
     position: fixed;
     top: 0;
     left: 0;
@@ -94,11 +91,8 @@ button.sup-btn {
     margin-top: 0px;
     margin-left: 16px;
     font-weight: bold;
-<<<<<<< HEAD
 }
 
 #contact-form {
     margin-top: 20px;
-=======
->>>>>>> 777f6e54c5075f73d9d9292fae1dbe647846ca7b
 }

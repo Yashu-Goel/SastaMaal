@@ -4,7 +4,7 @@ import CategoryCard from "../CategoryCard/CategoryCard";
 const TopCategories = () => {
 
   const [Data, setData] = useState([])
-  
+
   useEffect(() => {
     fetch("http://localhost:5000/TopCategoriesData", {
       method: "GET"
@@ -40,9 +40,9 @@ const TopCategories = () => {
           <p>&gt;</p>
         </button>
         <div className="CategoryContainer">
-          {Data.map((TopCategoriesArray) => {
+          {Data.map((TopCategoriesArray, index) => {
             return (
-              <CategoryCard CategoryImage={TopCategoriesArray.ImageSrc} />
+              <CategoryCard key={index} CategoryImage={TopCategoriesArray.ImageSrc} />
             )
           })}
 

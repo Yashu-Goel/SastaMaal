@@ -35,6 +35,7 @@ const Support = ({ closeModal }) => {
         setMessage(value);
     }
     const handleSubmit = async (e) => {
+        
         e.preventDefault();
         if (name === "" || email === "" || message === "") {
             alert("please fill the required fields");

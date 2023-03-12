@@ -1,21 +1,19 @@
 import './PaymentHistory.css'
-import React, { useEffect, useState, useContext } from 'react'
-import { AiFillSetting } from "react-icons/ai";
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import Support from "../Settngs/SuppModal.js";
-import { CredentialContext } from "../../App";
-import CryptoJS from "crypto-js";
 
+const API_BASE = "http://localhost:5000";
 
 const PaymentHistory = () => {
-  const navigate = useNavigate();
-  const [credentials, setCredentials] = useContext(CredentialContext);
-  const [showModal, setShowModal] = useState(false);
 
+  const navigate = useNavigate();
+
+
+  const [showModal, setShowModal] = useState(false);
   const [details, setDetails] = useState([]);
 
-  const API_BASE = "http://localhost:5000";
   const string = localStorage.getItem("profile");
 
 
@@ -36,7 +34,7 @@ const PaymentHistory = () => {
       .then((res) => res.json())
       .then((data) => setDetails(data))
 
-  }, [details])
+  })
 
 
   const closeModal = (e) => {

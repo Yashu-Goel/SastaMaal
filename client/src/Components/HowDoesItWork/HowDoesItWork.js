@@ -55,7 +55,6 @@ const HowDoesItWork = () => {
 
           <p>
             Go to <Link to="/">Home Page</Link>
-
           </p>
         </li>
         <li>
@@ -549,9 +548,6 @@ const HowDoesItWork = () => {
           </p>
         </li>
       </ul>
-
-
-
       <button id="button"><Link to='/'><span>Go to home page </span></Link></button>
     </div>
   );

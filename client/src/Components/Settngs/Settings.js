@@ -1,19 +1,17 @@
 import "./Settings.css";
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { CredentialContext } from "../../App";
-import CryptoJS from "crypto-js";
+import axios from "axios";
 
 
 import Support from "./SuppModal";
 import ResetModal from "./ResetModal";
 import Navbar from "../Navbar/Navbar";
+import { toast } from "@mobiscroll/react";
 
 const API_BASE = "http://localhost:5000";
 
 const Settngs = () => {
-
-  const [credentials, setCredentials] = useContext(CredentialContext);
 
   const [data, setData] = useState({
     name: "",
@@ -21,29 +19,18 @@ const Settngs = () => {
   });
 
   useEffect(() => {
-    const secret = "hdahg g badhj yuida gdjhag dag jjh";
-    const string = localStorage.getItem("user");
+    const string = localStorage.getItem("profile");
     if (string === null) return;
-    let encryp = CryptoJS.AES.decrypt(string, secret).toString(
-      CryptoJS.enc.Utf8
-    );
-    let data = JSON.parse(encryp);
-    const email = data.email;
-    const password = data.password;
 
-    if (email !== null || password !== null) {
-      setCredentials({ email, password });
-    } else return;
-
-    fetch(API_BASE + "/reload", {
-      method: "GET",
+    axios.get(API_BASE + "/reload", {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Basic ${email}:${password}`,
+        Authorization: `Basic ${string}`,
       },
     })
-      .then((res) => res.json())
-      .then((data) => setData(data));
+      .then((res) => setData(res.data))
+      .catch((error) => toast.error(error.responsse.data.messsage));
+
   }, []);
 
   // Configure Modal
@@ -54,7 +41,7 @@ const Settngs = () => {
   };
 
   // Configure Reset Password Modal
-  const [resetModal, setResetModal]= useState(false);
+  const [resetModal, setResetModal] = useState(false);
   const closeResetModal = (e) => {
     e.preventDefault();
     setResetModal(false);
@@ -62,15 +49,12 @@ const Settngs = () => {
   return (
     <>
       <div className="setContainer">
-        <Navbar/>
+        <Navbar />
 
         <div className="rightContainer">
           <div className="rightContainerTitle">
             <Link to="/setting" className="rightContTitLink">
               Personal Details
-            </Link>
-            <Link to="/change-pass" className="rightContTitLink">
-              Change Password
             </Link>
           </div>
 
@@ -79,7 +63,6 @@ const Settngs = () => {
               <div className="innerform">
                 <div className="setInput">
                   <label>Name:</label>
-
                   <input
                     type="text"
                     value={data.name}
