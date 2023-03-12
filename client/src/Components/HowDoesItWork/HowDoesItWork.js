@@ -107,7 +107,7 @@ const HowDoesItWork = () => {
       </ul>
 
 
-      <h1>Unable to log in/getting ‘authentication failed’ error</h1>
+      <h1>Unable to login / Forgot Password?</h1>
       <ul className="List1">
         <li>
           <span>
@@ -124,6 +124,33 @@ const HowDoesItWork = () => {
 
           <p>
             Click on Forgot Password
+          </p>
+        </li>
+        <li>
+          <span>
+            <BsFillArrowRightCircleFill />
+          </span>
+
+          <p>
+            Enter your registered Email ID
+          </p>
+        </li>
+        <li>
+          <span>
+            <BsFillArrowRightCircleFill />
+          </span>
+
+          <p>
+            Your will get the password on your registered email ID
+          </p>
+        </li>
+        <li>
+          <span>
+            <BsFillArrowRightCircleFill />
+          </span>
+
+          <p>
+            Use this password to login.
           </p>
         </li>
       </ul>
@@ -415,6 +442,15 @@ const HowDoesItWork = () => {
           </span>
           <p>
             Encoding and Decoding
+          </p>
+        </li>
+
+        <li>
+          <span>
+            <BsFillArrowRightCircleFill />
+          </span>
+          <p>
+            Encryption
           </p>
         </li>
 

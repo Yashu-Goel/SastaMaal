@@ -1,7 +1,10 @@
 import './PaymentHistory.css'
 import React, { useEffect, useState, useContext } from 'react'
+<<<<<<< HEAD
 import { AiFillSetting } from "react-icons/ai";
 import { Link, useNavigate } from 'react-router-dom';
+=======
+>>>>>>> 777f6e54c5075f73d9d9292fae1dbe647846ca7b
 import Navbar from '../Navbar/Navbar';
 import Support from "../Settngs/SuppModal.js";
 import { CredentialContext } from "../../App";

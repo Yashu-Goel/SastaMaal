@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 .outer-outer-support {
+=======
+.outer-support {
+    border: 1px solid black;
+>>>>>>> 777f6e54c5075f73d9d9292fae1dbe647846ca7b
     position: fixed;
     top: 0;
     left: 0;
@@ -17,7 +22,6 @@
     background-color: #bcbcf4;
     width: 400px;
     border-radius: 10px;
-    border: 2px solid red;
 }
 
 .close-button {
@@ -25,7 +29,7 @@
     left: 100%;
     border-radius: 50px;
     background-color: red;
-    width: 1.2rem;
+    width: 1rem;
     height: 1.2rem;
     color: white;
 }
@@ -60,7 +64,6 @@
     box-sizing: border-box;
     height: 100%;
     padding: 6px;
-
 }
 
 .sup-btn {
@@ -72,7 +75,6 @@
     margin-bottom: 1rem;
     width: 10vw;
     height: 2rem;
-
 }
 
 button.sup-btn {
@@ -92,8 +94,11 @@ button.sup-btn {
     margin-top: 0px;
     margin-left: 16px;
     font-weight: bold;
+<<<<<<< HEAD
 }
 
 #contact-form {
     margin-top: 20px;
+=======
+>>>>>>> 777f6e54c5075f73d9d9292fae1dbe647846ca7b
 }
