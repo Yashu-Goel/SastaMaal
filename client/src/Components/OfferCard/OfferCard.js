@@ -10,7 +10,7 @@ const Offer = (props) => {
         <div className='LeftInnerConatiner'>
             <div className='BrandNameContainer'> <img src={props.BrandImage}></img> </div>
             <div className='OfferContainer'> {props.Discount} Off</div>
-            <div className='CashBackContainer'> Cashback Rs. {props.Cashback}</div>
+            <div className='CashBackContainer'> Cashback <div className='RupeeAdjustment'>&#8377; {props.Cashback}</div></div>
         </div>
     </div>
   )

@@ -49,7 +49,7 @@ const TitleBar = () => {
       <img src={Logo} alt="logo" />
       <input className="SearchBar" placeholder="What do you want to buy today...?" />
       <div className="Registration">
-        {credentials && <Link to="/myearning" id="earning">Total Earnings:&#8377;{amount}</Link>}
+        {credentials && <Link to="/myearning" id="earning">Total Earnings: &#8377;{amount}</Link>}
         {credentials===undefined && <Link to="/myearning" id="earning">Loading ...</Link>}
         <Link to="/querycard"><button>How Does it work?</button></Link>
         {!credentials && <Link to='/login'><button>LogIn</button></Link>}

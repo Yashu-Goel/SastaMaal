@@ -1,7 +1,5 @@
 import './PaymentHistory.css'
 import React, { useEffect, useState, useContext } from 'react'
-import { AiFillSetting } from "react-icons/ai";
-import { Link } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import Support from "../Settngs/SuppModal.js";
 import { CredentialContext } from "../../App";
