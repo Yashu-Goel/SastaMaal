@@ -9,7 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 const API_BASE = "http://localhost:5000"
 
 const TitleBar = () => {
-  
+
   const navigate = useNavigate();
   const [credentials, setCredentials] = useState(false);
   const [amount, setAmount] = useState(0);
@@ -46,15 +46,13 @@ const TitleBar = () => {
   }
 
   return (
-<<<<<<< HEAD
     <>
       <div className="TitleContainer">
         <div>&#x0;</div>
         <img src={Logo} alt="logo" />
         <input className="SearchBar" placeholder="What do you want to buy today...?" />
-
         <div className="Registration">
-          {credentials && <Link to="/myearning" id="earning">Total Earnings:&#8377;{amount}</Link>}
+          {credentials && <Link to="/myearning" id="earning">Total Earnings: &#8377;{amount}</Link>}
           {credentials === undefined && <Link to="/myearning" id="earning">Loading ...</Link>}
           <Link to="/querycard"><button>How Does it work?</button></Link>
           {!credentials && <Link to='/login'><button>LogIn</button></Link>}
@@ -62,25 +60,8 @@ const TitleBar = () => {
           {credentials && <button className='butt bot' onClick={Logout}>Logout</button>}
           {credentials && <Link to="/setting"> <button className='butt bot' id="setting" ><AiFillSetting /></button></Link>}
         </div>
-=======
-    <div className="TitleContainer">
-      <div>&#x0;</div>
-      <img src={Logo} alt="logo" />
-      <input className="SearchBar" placeholder="What do you want to buy today...?" />
-      <div className="Registration">
-        {credentials && <Link to="/myearning" id="earning">Total Earnings: &#8377;{amount}</Link>}
-        {credentials===undefined && <Link to="/myearning" id="earning">Loading ...</Link>}
-        <Link to="/querycard"><button>How Does it work?</button></Link>
-        {!credentials && <Link to='/login'><button>LogIn</button></Link>}
-        {!credentials && <Link to='/signup'><button>Signup</button></Link>}
-        {credentials && <button className='butt bot' onClick={Logout}>Logout</button>}
-        {credentials && <Link to="/setting"> <button className='butt bot' id="setting" ><AiFillSetting/></button></Link>}
->>>>>>> 777f6e54c5075f73d9d9292fae1dbe647846ca7b
-      </div>
-      <ToastContainer autoClose={2000} />
-    </>
+        </div>
+        <ToastContainer autoClose={2000} />
+      </>)};
 
-  );
-};
-
-export default TitleBar;
+      export default TitleBar;
