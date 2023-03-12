@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import './TopCashbackStoresCard.css'
 import CryptoJS from "crypto-js";
+import {Link} from 'react-router-dom'
 const API_BASE = "http://localhost:5000";
 
 const TopCashbackStoresCard = (props) => {
@@ -47,7 +48,7 @@ const TopCashbackStoresCard = (props) => {
     }
     return (
         <div className='MainContainer1' onClick={getTime}>
-            <a href={string ? props.Link : "#"} className='AnchorContainer' target={string && '_blank'} rel="noreferrer" onClick={onClickHandler}>
+            <Link to={string ? props.Link : "#"} className='AnchorContainer' target={string && '_blank'} rel="noreferrer" onClick={onClickHandler}>
                 <div className='ImageContainer'>
                     <p>{props.Offer}</p>
                     <img src={props.ImageSrc} alt='offers' />
@@ -60,7 +61,7 @@ const TopCashbackStoresCard = (props) => {
                 <div className='TermsContainer'>
                     <p>Cashback Rates & Terms</p>
                 </div>
-            </a>
+            </Link>
 
         </div>
     )

@@ -2,7 +2,7 @@ import './PaymentHistory.css'
 import React, { useEffect, useState, useContext } from 'react'
 import { AiFillSetting } from "react-icons/ai";
 import { Link } from 'react-router-dom';
-import Logo from "../../Header/Logo.png";
+import Navbar from '../Navbar/Navbar';
 import Support from "../Settngs/SuppModal.js";
 import { CredentialContext } from "../../App";
 import CryptoJS from "crypto-js";
@@ -53,29 +53,7 @@ const PaymentHistory = () => {
   return (
     <div>
       <div className="setContainer">
-        <div className="NavBarContainer">
-          <ul className="UIConatiner">
-            {/* <Link to="/">
-              <img className="Logo" src={Logo} />
-            </Link> */}
-            <li>
-              <Link to="/myearning" id="setting1">
-                <AiFillSetting />
-              </Link>
-            </li>
-            <li>
-              <Link id="support" onClick={() => setShowModal(true)}>
-                Support
-              </Link>
-            </li>
-            <li>
-              <Link to="/setting/payment-history">Payment History</Link>
-            </li>
-            <li>
-              <Link to="/myearning">My Earnings</Link>
-            </li>
-          </ul>
-        </div>
+        <Navbar/>
         {showModal && <Support closeModal={closeModal} />}
 
 

@@ -3,10 +3,11 @@ import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CredentialContext } from "../../App";
 import CryptoJS from "crypto-js";
-import { AiFillSetting } from "react-icons/ai";
-import Logo from "../../Header/LogoBlack.png";
+
+
 import Support from "./SuppModal";
 import ResetModal from "./ResetModal";
+import Navbar from "../Navbar/Navbar";
 
 const API_BASE = "http://localhost:5000";
 
@@ -61,22 +62,7 @@ const Settngs = () => {
   return (
     <>
       <div className="setContainer">
-        <div className="NavBarContainer">
-          <ul className="UIConatiner">
-            <Link to="/">
-              <img className="Logo" src={Logo} />
-            </Link>
-              <Link to="/setting" id="setting1">
-                <AiFillSetting />
-              </Link>
-              <Link id="support" onClick={() => setShowModal(true)}>
-                Support
-              </Link>
-              <Link to="/setting/payment-history">Payment History</Link>
-              <Link to="/myearning">My Earnings</Link>
-              <Link onClick={() => setResetModal(true)}>Reset Password</Link>
-          </ul>
-        </div>
+        <Navbar/>
 
         <div className="rightContainer">
           <div className="rightContainerTitle">

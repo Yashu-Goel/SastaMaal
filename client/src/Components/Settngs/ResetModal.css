@@ -1,13 +1,14 @@
-.outer-support {
+.outer-support1 {
     border: 1px solid black;
     position: fixed;
     top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 380px;
+    height: 450px;
     background-color: #bcbcf4;
     width: 400px;
     border-radius: 10px;
+    border: 2px solid red;
 }
 
 .outer-outer-support {

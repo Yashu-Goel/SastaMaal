@@ -57,7 +57,7 @@ const ResetModal = ({closeResetModal}) => {
     // }
     return (
         <>
-            <div className='outer-outer-support'>
+            <div className='outer-outer-support1'>
                 <div className='outer-support'>
                     <button onClick={closeResetModal} className='close-button'>x</button>
                     <div className="sup-container">

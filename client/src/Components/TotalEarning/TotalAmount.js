@@ -5,7 +5,7 @@ import CryptoJS from "crypto-js";
 import MyModel from './Modals/Modals';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import {Link} from 'react-router-dom'
 const API_BASE = "http://localhost:5000"
 
 const TotalAmount = () => {
@@ -76,16 +76,12 @@ const TotalAmount = () => {
                         </div>
                         <p id='temsg'>Earnings will show here within 72 hours of your shopping via FreeKaMaal.</p>
                         <div class='btns-earn'>
-                            {/* <div className='HomePageLink'>
-                            <a href='/add-money' className='btn-add'><span>Add Money</span></a>
-                        </div> */}
+
                             <div className='HomePageLink'>
-                                {/*  */}
-                                {/*  */}
-                                {<a href='#' className='btn-with' onClick={withHandler}><span>Withdraw</span></a>}
+                                {<Link to='#' className='btn-with' onClick={withHandler}><span>Withdraw</span></Link>}
                             </div>
                             <div className='HomePageLink'>
-                                <a href='/' className='btn-home'><span>Go to home page</span></a>
+                                <Link to='/' className='btn-home'><span>Go to home page</span></Link>
                             </div>
                         </div>
 

@@ -4,11 +4,12 @@ import { SiLinkedin } from "react-icons/si";
 import { GoMarkGithub } from "react-icons/go";
 import AllenImg from "../Photos/Allen.png"
 import YashuImg from "../Photos/Yashu.png"
+import {Link} from 'react-router-dom'
 const Footer = () => {
   return (
     <div className="FooterContainer">
       <footer>
-      <div className="Demo1">
+      <div className="Demo12">
           <span>Connect with us:</span>
           </div>
         <div className="OuterContainer">
@@ -21,12 +22,12 @@ const Footer = () => {
           </div>
 
           <div className="SocialMedia">
-            <a href="https://www.linkedin.com/in/allen-benny038/" target="_blank">
+            <Link to="https://www.linkedin.com/in/allen-benny038/" target="_blank">
               <SiLinkedin />
-            </a>
-            <a href="https://github.com/allenhack638" target="_blank">
+            </Link>
+            <Link to="https://github.com/allenhack638" target="_blank">
               <GoMarkGithub />
-            </a>
+            </Link>
           </div>
           </div>
           
@@ -39,12 +40,12 @@ const Footer = () => {
           <p>Yashu Goel</p>
           </div>
           <div className="SocialMedia">
-            <a href="https://www.linkedin.com/in/yashu-goel/" target="_blank">
+            <Link to="https://www.linkedin.com/in/yashu-goel/" target="_blank">
               <SiLinkedin />
-            </a>
-            <a href="https://github.com/Yashu-Goel" target="_blank">
+            </Link>
+            <Link to="https://github.com/Yashu-Goel" target="_blank">
               <GoMarkGithub />
-            </a>
+            </Link>
           </div>
           </div>
           
