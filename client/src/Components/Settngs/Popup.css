@@ -1,12 +1,44 @@
+.background
+{
+    border: 2px solid red;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(128, 128, 128, 0.581);
+}
+.outer-outer-pop
+{
+    border: 2px solid rgb(30, 0, 255);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+}
 .edit-pop {
     width: 70vw;
     max-width: 600px;
     box-sizing: border-box;
-    height: 100%;
     margin: 5rem auto;
     background-color: #bcbcf4;
     border-radius: 10px;
     padding: 1.5rem;
+    border: 1px solid black;
+}
+.edit-pop .close-button1 {
+    padding: 1.5px 4px;
+    border-radius: 50%;
+    font-size: 15px;
+    float: right;
+    background-color: red;
+    color: #fff;
+}
+.edit-pop .close-button1:hover {
+    cursor: pointer;
+    background-color:  	#DC143C;
 }
 
 .edit-pop>h2{

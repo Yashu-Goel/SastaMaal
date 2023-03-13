@@ -5,7 +5,12 @@ import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { IoMdOpen } from "react-icons/io";
 
 const HowDoesItWork = () => {
-
+  const Data= [
+    {
+      heading: "How Paisa Bachao Works?",
+      
+    }
+  ]
   return (
     <div id="HowDoesItWorkMainContainer">
       <h1>How Paisa Bachao Works?</h1>

@@ -2,12 +2,9 @@ import "./Settings.css";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
-
-import Support from "./SuppModal";
-import ResetModal from "./ResetModal";
 import Navbar from "../Navbar/Navbar";
 import { toast } from "@mobiscroll/react";
+import Popup from "./Popup";
 
 const API_BASE = "http://localhost:5000";
 
@@ -33,19 +30,15 @@ const Settngs = () => {
 
   }, []);
 
-  // Configure Modal
-  const [showModal, setShowModal] = useState(false);
-  const closeModal = (e) => {
+  const [editNameModal, setEditNameModal] = useState(false);
+
+  const closeEditNameModal = (e) => {
     e.preventDefault();
-    setShowModal(false);
+    setEditNameModal(false);
   };
 
-  // Configure Reset Password Modal
-  const [resetModal, setResetModal] = useState(false);
-  const closeResetModal = (e) => {
-    e.preventDefault();
-    setResetModal(false);
-  };
+
+  
   return (
     <>
       <div className="setContainer">
@@ -68,8 +61,8 @@ const Settngs = () => {
                     value={data.name}
                     readOnly="readonly"
                   ></input>
-                  <Link to="/setting/edit-name">
-                    <i class="fas fa-edit"></i>
+                  <Link>
+                    <i class="fas fa-edit" onClick={() => setEditNameModal(true)}></i>
                   </Link>
                   <br />
                 </div>
@@ -100,9 +93,9 @@ const Settngs = () => {
           </div>
         </div>
       </div>
-      {showModal && <Support closeModal={closeModal} />}
-      {resetModal && <ResetModal closeResetModal={closeResetModal} />}
+      {editNameModal && <Popup closeEditNameModal={closeEditNameModal} />}
+
     </>
-  );
-};
+  )
+  }
 export default Settngs;

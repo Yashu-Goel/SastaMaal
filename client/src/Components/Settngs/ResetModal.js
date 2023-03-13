@@ -1,60 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './ResetModal.css'
 
 const API_BASE = "http://localhost:5000";
 
 const ResetModal = ({closeResetModal}) => {
-
-    // const handleErrors = async (res) => {
-    //     if (!res.ok) {
-    //         const { message } = await res.json();
-    //         throw Error(message);
-    //     } else if (res.ok) {
-    //         const { message } = await res.json();
-    //         throw Error(message);
-    //     }
-    //     return res.json();
-    // }
-
-    // const [isError, setIsError] = useState("");
-    // const [name, setName] = useState("");
-    // const [email, setEmail] = useState("");
-    // const [message, setMessage] = useState("");
-
-    // function onNameChange(e) {
-    //     const { value } = e.target;
-    //     setName(value);
-    // }
-    // function onEmailChange(e) {
-    //     const { value } = e.target;
-    //     setEmail(value);
-    // }
-
-    // function onMessageChange(e) {
-    //     const { value } = e.target;
-    //     setMessage(value);
-    // }
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     if (name === "" || email === "" || message === "") {
-    //         alert("please fill the required fields");
-    //         return;
-    //     }
-    //     fetch(API_BASE + "/support", {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify({
-    //             email: email, message: message, name: name
-    //         })
-    //     })
-    //         .then(handleErrors)
-    //         .then(window.location.reload(true))
-    //         .catch((error) => {
-    //             setIsError(error.message);
-    //         })
-    // }
     return (
         <>
             <div className='outer-outer-support'>
