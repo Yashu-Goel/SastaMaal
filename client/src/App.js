@@ -24,7 +24,6 @@ function App() {
             <Route exact path='/login' element={<Login />} />
             <Route exact path='/myearning' element={<TotalAmount />} />
             <Route exact path='/setting' element={<Settngs />} />
-            <Route exact path='/setting/edit-name' element={<Popup />} />
             <Route exact path='/setting/payment-history' element={<PaymentHistory />} />
             <Route exact path='/querycard' element={<HowDoesItWork />} />
             <Route exact path='/resetpassword' element={<ResetPass />} />
