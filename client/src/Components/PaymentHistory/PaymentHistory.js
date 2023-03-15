@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import Support from "../Settngs/SuppModal.js";
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = "https://calm-ruby-hare-cape.cyclic.app";
 
 const PaymentHistory = () => {
 

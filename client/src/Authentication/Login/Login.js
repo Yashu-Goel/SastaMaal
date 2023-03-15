@@ -4,7 +4,7 @@ import { useNavigate,Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import ResetPass from '../ResetPass/ResetPass';
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = "https://calm-ruby-hare-cape.cyclic.app";
 
 const Login = () => {
     const navigate = useNavigate();

@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 
-const API_BASE = "http://localhost:5000"
+const API_BASE = "https://calm-ruby-hare-cape.cyclic.app"
 
 const TotalAmount = () => {
     const navigate = useNavigate();

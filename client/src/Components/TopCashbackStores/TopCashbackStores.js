@@ -8,7 +8,7 @@ const TopCashbackStores = () => {
   const [Data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/TopCashbackStoresData", {
+    fetch("https://calm-ruby-hare-cape.cyclic.app/TopCashbackStoresData", {
       method: "GET"
     }).then(response => response.json())
       .then((OfferData) => {

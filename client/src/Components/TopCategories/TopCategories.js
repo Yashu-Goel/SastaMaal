@@ -6,7 +6,7 @@ const TopCategories = () => {
   const [Data, setData] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:5000/TopCategoriesData", {
+    fetch("https://calm-ruby-hare-cape.cyclic.app/TopCategoriesData", {
       method: "GET"
     }).then(response => response.json())
       .then((OfferData) => {

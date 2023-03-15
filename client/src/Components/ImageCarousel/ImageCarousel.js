@@ -7,7 +7,7 @@ const ImageCarousel = () => {
   const [Data, setData] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:5000/OfferData", {
+    fetch("https://calm-ruby-hare-cape.cyclic.app/OfferData", {
       method: "GET"
     }).then(response => response.json())
       .then((OfferData) => {

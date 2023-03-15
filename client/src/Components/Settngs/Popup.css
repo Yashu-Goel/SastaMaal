@@ -1,6 +1,5 @@
 .background
 {
-    border: 2px solid red;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -10,13 +9,11 @@
 }
 .outer-outer-pop
 {
-    border: 2px solid rgb(30, 0, 255);
     position: absolute;
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
-
 }
 .edit-pop {
     width: 70vw;

@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import './Modals.css'
 
-const API_BASE = "http://localhost:5000"
+const API_BASE = "https://calm-ruby-hare-cape.cyclic.app"
 
 const MyModel = ({ withHandler, amount }) => {
 
@@ -66,7 +66,7 @@ const MyModel = ({ withHandler, amount }) => {
             toast.info("Upi id mismatch");
             return;
         }
-        if(amount < 200)
+        if(amoun < 200)
         {
             toast.error("Minimum amount not reached");
             return;

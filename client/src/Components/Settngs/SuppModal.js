@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './SuppModal.css'
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = "https://calm-ruby-hare-cape.cyclic.app";
 
 const Support = ({ closeModal }) => {
 

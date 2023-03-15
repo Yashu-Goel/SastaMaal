@@ -23,14 +23,7 @@ dotenv.config();
 app.use(express.json());
 app.use(cors())
 
-mongoose.set("strictQuery", false);
-const url = process.env.CONNECTION_URL;
-mongoose.connect(url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
-    .then(() => console.log("Connected to database successfully"))
-    .catch(console.error)
+
 
 app.get("/amount", get);
 app.post('/login', Login);
@@ -48,4 +41,12 @@ app.get('/TopCategoriesData', TopCategory);
 
 
 
-app.listen(5000, (console.log("Port has started at 5000")));
+app.listen(process.env.PORT, (console.log("Port has started at 5000")));
+mongoose.set("strictQuery", false);
+const url = process.env.CONNECTION_URL;
+mongoose.connect(url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+    .then(() => console.log("Connected to database successfully"))
+    .catch(console.error)
