@@ -105,7 +105,7 @@ const PaymentHistory = () => {
               </div>
 
               <div className='sub-sub-pay'>
-                <h1>{val.amount}</h1>
+                <h1>&#8377; {val.amount}</h1>
               </div>
 
               <div className='sub-sub-pay'>

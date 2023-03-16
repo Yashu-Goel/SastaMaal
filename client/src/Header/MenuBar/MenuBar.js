@@ -16,6 +16,8 @@ const MenuBar = () => {
       console.log(visible);
     }
   }
+
+
   return (
     <div className='TitleBarContainer'>
 

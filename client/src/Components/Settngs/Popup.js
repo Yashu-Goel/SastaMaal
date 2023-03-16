@@ -68,31 +68,31 @@ const Popup = ({ closeEditNameModal }) => {
           <h2>Edit your Name</h2>
           <form method="post" className="edit-form" onSubmit={submitHandler}>
             <div>
-              <label>Enter the new Name:</label>
+              <label>Enter New Name:</label>
               <br />
               <input
                 type="text"
-                placeholder="Enter the new name"
+                placeholder="New name"
                 required
                 onChange={nameHandler}
               />
             </div>
             <div>
-              <label>Enter the email id:</label>
+              <label>Enter Email id:</label>
               <br />
               <input
                 type="email"
-                placeholder="Enter you email id"
+                placeholder="Email id"
                 required
                 onChange={emailHandler}
               />
             </div>
             <div>
-              <label>Enter the password:</label>
+              <label>Enter Password:</label>
               <br />
               <input
                 type="password"
-                placeholder="Enter the password"
+                placeholder="Password"
                 required
                 onChange={passHandler}
               />

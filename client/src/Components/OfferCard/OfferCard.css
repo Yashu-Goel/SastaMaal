@@ -1,15 +1,15 @@
 .MainContainer
 {
     display: flex;
-    margin: 50px 20px 20px 20px;
-    padding: 10px;
+    margin: 5rem 2rem 2rem 2rem;
+    padding: 1rem;
     background-color: #f0dcbe;
-    max-width: 350px;
-    border-radius: 5px;
+    max-width: 35rem;
+    border-radius: 0.5rem;
     font-family: 'Poppins', sans-serif;
     border: 1px solid black;
     user-select: none;
-    min-height: 190px;
+    min-height: 19rem;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 .ImageConatiner
@@ -18,14 +18,14 @@
 }
 .ImageConatiner img
 {
-    max-height: 180px;
-    max-width: 150px;
-    border-radius: 5px;
+    max-height: 18rem;
+    max-width: 15rem;
+    border-radius: .5rem;
     align-items: center;
 }
 .LeftInnerConatiner
 {
-    padding: 20px 10px 0 20px;
+    padding: 2rem 1rem 0 2rem;
 
 }
 .BrandNameContainer
@@ -34,26 +34,26 @@
     justify-content: center;
 }
 .BrandNameContainer img{
-    max-height: 50px;
-    border-radius: 5px;
-    max-width: 180px;
+    max-height: 5rem;
+    border-radius: .5rem;
+    max-width: 18rem;
 }
 
 .LeftInnerConatiner .OfferContainer, .LeftInnerConatiner .CashBackContainer
 {
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: bold;
     text-align: center;
-    margin-top: 10px;
-    min-width: 130px;
+    margin-top: 1rem;
+    min-width: 13rem;
 }
 .OfferContainer
 {
     display: flex;
     justify-content: center;
-    padding-top: 10px;
+    padding-top: 1rem;
 }
 .RupeeAdjustment
 {
-    margin-top: 5px;
+    margin-top: .5rem;
 }

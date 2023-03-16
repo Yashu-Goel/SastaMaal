@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./TopCategories.css";
 import CategoryCard from "../CategoryCard/CategoryCard";
+const API_BASE = "https://calm-ruby-hare-cape.cyclic.app";
+
 const TopCategories = () => {
 
   const [Data, setData] = useState([])
 
   useEffect(() => {
-    fetch("https://calm-ruby-hare-cape.cyclic.app/TopCategoriesData", {
+    fetch(API_BASE+"/TopCategoriesData", {
       method: "GET"
     }).then(response => response.json())
       .then((OfferData) => {
@@ -24,7 +26,7 @@ const TopCategories = () => {
           onClick={() => {
             let Box = document.querySelector(".CategoryContainer");
             let Width = Box.clientWidth;
-            Box.scrollLeft = Box.scrollLeft - Width;
+            Box.scrollLeft = Box.scrollLeft - Width + 45;
           }}
         >
           <p>&lt;</p>
@@ -34,7 +36,7 @@ const TopCategories = () => {
           onClick={() => {
             let Box = document.querySelector(".CategoryContainer");
             let Width = Box.clientWidth;
-            Box.scrollLeft = Box.scrollLeft + Width;
+            Box.scrollLeft = Box.scrollLeft + Width - 45;
           }}
         >
           <p>&gt;</p>

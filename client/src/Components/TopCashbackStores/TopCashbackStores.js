@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './TopCashbackStores.css'
 import TopCashbackStoresCard from '../TopCashbackStoresCard/TopCashbackStoresCard'
+const API_BASE = "https://calm-ruby-hare-cape.cyclic.app";
 
 
 const TopCashbackStores = () => {
@@ -8,7 +9,7 @@ const TopCashbackStores = () => {
   const [Data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("https://calm-ruby-hare-cape.cyclic.app/TopCashbackStoresData", {
+    fetch(API_BASE+"/TopCashbackStoresData", {
       method: "GET"
     }).then(response => response.json())
       .then((OfferData) => {
@@ -26,10 +27,16 @@ const TopCashbackStores = () => {
           onClick={() => {
             let Box = document.querySelector(".TopCashbackStoresContainer");
             let Width = Box.clientWidth;
-            Box.scrollLeft = Box.scrollLeft - Width;
+            let a = 0;
+            if(Width<400)
+            {
+              a=370-Width;
+            }
+            Box.scrollLeft = Box.scrollLeft - Width + a;
+            console.log(Width);
             Box = document.querySelector(".TopCashbackStoresContainer1");
             Width = Box.clientWidth;
-            Box.scrollLeft = Box.scrollLeft - Width;
+            Box.scrollLeft = Box.scrollLeft - Width + a;
           }}
         >
           <p>&lt;</p>
@@ -39,10 +46,17 @@ const TopCashbackStores = () => {
           onClick={() => {
             let Box = document.querySelector(".TopCashbackStoresContainer ");
             let Width = Box.clientWidth;
-            Box.scrollLeft = Box.scrollLeft + Width;
+            let a = 0;
+            if(Width<400)
+            {
+              a=370-Width;
+            }
+            Box.scrollLeft = Box.scrollLeft + Width - a;
+            console.log(Width);
+            console.log(Box.scrollLeft);
             Box = document.querySelector(".TopCashbackStoresContainer1");
             Width = Box.clientWidth;
-            Box.scrollLeft = Box.scrollLeft + Width;
+            Box.scrollLeft = Box.scrollLeft + Width - a; 
           }}
         >
           <p>&gt;</p>

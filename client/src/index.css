@@ -15,7 +15,7 @@ code {
 .overlay {
   display: none;
 }
-
+/* 
 @media (max-width: 1250px) {
   body {
     overflow: hidden;
@@ -40,4 +40,4 @@ code {
     text-align: center;
     font-size: 24px;
   }
-}
+} */

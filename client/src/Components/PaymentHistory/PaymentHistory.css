@@ -2,15 +2,16 @@
     border: 1px solid black;
     margin: 1rem auto;
     margin-top: 2rem;
-    border-radius: 10px;
+    border-radius: 1rem;
     width: 60vw;
     background-color: #fff;
     font-family: 'Lato', sans-serif;
 }
 .pay-heading>h1{
-    font-size: 1.5rem;
-    padding: 1rem;
+    font-size: 2.5rem;
+    padding: 1.6rem;
     border-bottom: 1px solid black;
+    text-align: center;
 }
 
 .sub-pay-main{
@@ -19,16 +20,20 @@
     border-bottom: 1px solid black;
 }
 .sub-sub-pay-main>h1{
-    font-size: 0.8rem;
-    padding: 1rem;
+    font-size: 1.5rem;
+    padding: 1.6rem;
+    text-align: center;
 }
 .sub-pay{
     display: grid;
     grid-template-columns: repeat(7, minmax(0, 1fr));
+    border-bottom: 1px dotted #00000051;
+    font-size: 1.1rem;
+    text-align: center;
 }
 .sub-sub-pay>h1{
-    font-size: 0.8rem;
-    padding: 1rem;
+    font-size: 1.3rem;
+    padding: 1.6rem;
     font-weight: 100;
     overflow-wrap: break-word;
 }
@@ -38,6 +43,22 @@
 
 #no-pay-msg{
     text-align: center;
-    padding: 1rem;
+    padding: 1.6rem;
     font-style: italic;
+}
+@media  screen and (max-width: 1000px) {
+    .payment-container
+    {
+        width: 95%;
+    }
+    .sub-sub-pay-main>h1{
+        padding: .3rem;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    .sub-pay h1{
+        font-size: 1rem;
+        padding: 0.1rem;
+        text-align: center;
+    }
 }

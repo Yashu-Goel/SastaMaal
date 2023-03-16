@@ -20,8 +20,7 @@ const TitleBar = () => {
     const string = localStorage.getItem("profile");
 
     if (string === null && credentials === true) {
-      toast.error("Session Expired Redirecting to login page....");
-
+  
       setTimeout(() => {
         navigate("/login");
       }, 2500)
@@ -44,7 +43,6 @@ const TitleBar = () => {
     localStorage.removeItem("profile");
     setCredentials(false);
   }
-
   return (
     <>
       <div className="TitleContainer">
@@ -60,6 +58,8 @@ const TitleBar = () => {
           {credentials && <button className='butt bot' onClick={Logout}>Logout</button>}
           {credentials && <Link to="/setting"> <button className='butt bot' id="setting" ><AiFillSetting /></button></Link>}
         </div>
+
+
         </div>
         <ToastContainer autoClose={2000} />
       </>)};

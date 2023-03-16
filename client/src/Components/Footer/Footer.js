@@ -14,7 +14,7 @@ const Footer = () => {
           <span>Connect with us:</span>
         </div>
         <div className="OuterContainer">
-          <div>
+          <div className="Yo1">
             <div className="FooterImageContainer">
               <img src={AllenImg} />
             </div>

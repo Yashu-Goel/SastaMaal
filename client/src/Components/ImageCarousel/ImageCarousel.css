@@ -2,11 +2,11 @@
 {
     position: relative;
     overflow: hidden;
-    padding: 20px;
+    padding: 2rem;
 }
 .ProductContainer
 {
-    padding: 0 10px;
+    padding: 0 1rem;
     display: flex;
     overflow-x: hidden;
     scroll-behavior: smooth;
@@ -15,14 +15,14 @@
 .ProductCarousel .PrevBtn, .ProductCarousel .NextBtn
 {
     border: none;
-    width: 60px;
+    width: 6rem;
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0);
-    top: 140px;
-    border-radius: 10px;
+    top: 14rem;
+    border-radius: 1rem;
     transition: transform .2s;
 }
 .ProductCarousel .NextBtn:hover,.ProductCarousel .PrevBtn:hover
@@ -44,6 +44,6 @@
     border-radius: 10px;
     color: #0A1C30;
     cursor: pointer;
-    width: 50px;
-    height: 50px;
+    width: 5rem;
+    height: 5rem;
 }

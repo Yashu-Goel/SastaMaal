@@ -1,13 +1,13 @@
 .MainContainer1
 {
-    min-width: 280px;
-    max-height: 260px;
+    min-width: 31rem;
+    max-height: 26rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-    margin: 10px 15px 10px 15px;
-    border-radius: 7px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0 1rem 2rem, rgba(0, 0, 0, 0.23) 0 6px 6px;
+    margin: 1rem 1.5rem 1rem 1.5rem;
+    border-radius: 0.7rem;
     transition: transform .2s;
     position: relative;
     border: 1px solid rgba(0, 0, 0, 0.361);
@@ -15,12 +15,12 @@
 .MainContainer1 .ImageContainer p
 {
     position: absolute;
-    top: 5px;
-    width: 250px;
-    height: 40px;
-    background-color: #E32636 ;
-    border-radius: 30px;
-    left: -15px;
+    top: 0.5rem;
+    width: 23rem;
+    height: 4rem;
+    background-color: #E32636;
+    border-radius: 3rem;
+    left: -1.5rem;
     border-bottom-left-radius: 0;
     display: flex;
     align-items: center;
@@ -33,35 +33,36 @@
 {
     content: "";
     position: absolute;
-    top: 41px;
-    width: 15px;
-    height: 30px;
+    top: 4.1rem;
+    width: 1.5rem;
+    height: 3rem;
     left: 0;
     background-color: #C60C30; /*#af43f1  #8045c6 */
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
     z-index: 2;
 }
 .MainContainer1 .ImageContainer p::after{
     content: "";
     position: absolute;
-    top: 40px;
-    width: 15px;
-    height: 15px;
-    left: 0px;
+    top: 4rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    left: 0;
     background-color: #E32636;
 }
 .AnchorContainer
 {
     text-decoration: none;
-    min-height: 230px;
+    min-height: 23rem;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 .ImageContainer img
 {
-    margin-top: 45px;
+    margin-top: 4.5rem;
+    height: 10rem;
 }
 .CashbackContainer
 {
@@ -70,20 +71,21 @@
     align-items: center;
     background-color: #f07431;
     color: white;
-    max-height: 35px;
-    padding: 0 5px;
-    border-radius: 5px;
-    padding: 2px;
-    margin: 5px 0;
+    max-height: 3.5rem;
+    padding: 0.5rem;
+    border-radius: .5rem;
+    padding: .5rem;
+    margin: .5rem 0;
 }
 
 
 .CashbackContainer p{
-    font-size: 15px;
+    font-size: 1.8rem;
 }
 .TermsContainer p
 {
     color: #349ff4;
+    font-size: 1.7rem;
 }
 .MainContainer1:hover{
     transform: scale(1.02);
@@ -91,4 +93,9 @@
 .TermsContainer p:hover,.CashbackContainer p:hover{
     text-decoration: underline;
     cursor: pointer;
+}
+@media screen and (max-width: 650px){
+.MainContainer1 .ImageContainer p{
+    width: 30rem;
+}
 }

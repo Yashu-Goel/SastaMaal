@@ -29,7 +29,7 @@ const Navbar = () => {
   };
 
   return (
-    <div class="topnav">
+    <div className="topnav">
       <Link to='/'>Home</Link>
       <Link id="support" onClick={() => setShowModal(true)}>Support</Link>
       <Link to="/setting/payment-history">Payment History</Link>

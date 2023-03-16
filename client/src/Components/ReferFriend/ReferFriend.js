@@ -32,7 +32,7 @@ const ReferFriend = () => {
             <span>Refer Friends & Earn Forever</span>
         </div>
         <div>
-            <p>Get 10% Extra on Every Product💰💰</p>
+            <p>Get 10% Extra on Every Product💰</p>
         </div>
         <div className="FormContainer">
         <form ref={form} onSubmit={sendEmail}>

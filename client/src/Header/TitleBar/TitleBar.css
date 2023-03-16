@@ -3,30 +3,31 @@
     display: flex;
     justify-content: space-between;
     background-color: #0a1c30;
-    height: 73.5px;
+    height: 7.3rem;
     align-items: center;
     color: white;
     width: 100%;
 }
 .TitleContainer img
 {
-    height: 70px;
+    height: 7rem;
     position: absolute;
-    left: 90px;
+    left: 10rem;
     z-index: 3;
 }
 .Registration{
     display: flex;
     align-items: center;
+    font-size: 1.6rem;
 }
 .Registration button
 {
-    margin: 0px 10px;
-    padding: 7px 10px;
+    margin: 0 1rem;
+    padding: 0.7rem 1rem;
     background-color: white;
     color: #0a1c30;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: .5rem;
 }
 .Registration button:hover
 {
@@ -36,12 +37,12 @@
     cursor: pointer;
 }
 .SearchBar{
-    border-radius: 5px;
-    width:28rem;
+    border-radius: 0.5rem;
+    width: 32rem;
     height:1.5rem;
-    padding:5px;
+    padding: 1rem;
     position: absolute;
-    left: 20%;
+    left: 40rem;
 }
 #earning{
     text-decoration: none;
@@ -61,8 +62,8 @@
     color: white;
     background-color: #0a1c30;
     border: none;    
-    font-size: 22px;
-    padding-top: 5px;
+    font-size: 2.2rem;
+    padding-top: 0.5rem;
     display: flex;
 
 }

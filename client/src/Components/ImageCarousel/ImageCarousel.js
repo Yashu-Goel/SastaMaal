@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./ImageCarousel.css";
 import OfferCard from "../OfferCard/OfferCard";
+const API_BASE = "https://calm-ruby-hare-cape.cyclic.app";
 
 const ImageCarousel = () => {
 
   const [Data, setData] = useState([])
 
   useEffect(() => {
-    fetch("https://calm-ruby-hare-cape.cyclic.app/OfferData", {
+    fetch(API_BASE+"/OfferData", {
       method: "GET"
     }).then(response => response.json())
       .then((OfferData) => {
@@ -34,7 +35,7 @@ const ImageCarousel = () => {
         onClick={() => {
           let Box = document.querySelector(".ProductContainer");
           let Width = Box.clientWidth;
-          Box.scrollLeft = Box.scrollLeft + Width;
+          Box.scrollLeft = Box.scrollLeft + Width - 5 ;
         }}
       >
         <p>&gt;</p>

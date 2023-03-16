@@ -57,7 +57,7 @@ const Login = () => {
                 <h1 class="heading2">Login</h1>
                 <input className='input2' type="email" placeholder='youremail@gmail.com' required onChange={(e)=>setEmail(e.target.value)}></input>
                 <input className='input2' type="password" placeholder='password' required onChange={(e)=>setPass(e.target.value)} ></input>
-                <Link className='reset2' onClick={clickHandler}>forgot password?</Link>
+                <Link className='reset2' onClick={clickHandler}><span>forgot password?</span></Link>
                 <input className='input2' type="submit" value='Login'></input>
                 <Link to="/signup" className='reset2'>Register here</Link>
             </form>

@@ -5,17 +5,17 @@
     right: 0;
     bottom: 0;
     background-color: rgba(189, 189, 189, 0.7);
-
+    font-size: 1.6rem;
 }
 
 .close-button-reset {
     position: absolute;
     left: 100%;
     top:0%;
-    border-radius: 50px;
+    border-radius: 5rem;
     background-color: red;
-    width: 1rem;
-    height: 1.2rem;
+    width: 1.6rem;
+    height: 2rem;
     color: white;
 }
 
@@ -30,33 +30,33 @@
     transform: translate(-50%, -50%);
     background-color: #9c9cec;
     width: 55vw;
-    max-width: 400px;
+    max-width: 40rem;
     margin: 2rem auto;
-    padding: 1rem 0;
+    padding: 1.6rem 0;
     text-align: center;
-    border-radius: 1rem;
+    border-radius: 1.6rem;
     border: 1px solid black;
 }
 
 .outer-reset>form>h2 {
-    font-size: 1.5rem;
+    font-size: 2rem;
     padding: 1rem;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .inner-input>input {
     width: 80%;
-    padding: 10px;
-    border-radius: 0.5rem;
-    font-size: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: 1.6rem;
 }
 
 .outer-reset>form>input[type="submit"] {
-    margin: 1rem;
+    margin: 1.6rem;
     width: 30%;
     height: 2rem;
     background-color: rgb(13, 203, 13);
-    border-radius: 1rem;
+    border-radius: 1.6rem;
     color: white;
     font-weight: bold;
 }

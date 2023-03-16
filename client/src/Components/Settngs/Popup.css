@@ -6,6 +6,7 @@
     right: 0;
     left: 0;
     background-color: rgba(128, 128, 128, 0.581);
+
 }
 .outer-outer-pop
 {
@@ -16,19 +17,20 @@
     left: 0;
 }
 .edit-pop {
-    width: 70vw;
-    max-width: 600px;
+    width: 45rem;
+    max-width: 60rem;
     box-sizing: border-box;
-    margin: 5rem auto;
+    margin: 16rem auto;
     background-color: #bcbcf4;
-    border-radius: 10px;
+    border-radius: 1rem;
     padding: 1.5rem;
     border: 1px solid black;
+    font-size: 1.5rem;
 }
 .edit-pop .close-button1 {
     padding: 1.5px 4px;
     border-radius: 50%;
-    font-size: 15px;
+    font-size: 1.5rem;
     float: right;
     background-color: red;
     color: #fff;
@@ -47,32 +49,33 @@
 .edit-form {
     display: flex;
     flex-direction: column;
+    margin-top: 1rem;
+    font-size: 1.55rem;
 }
 
 .edit-form>div>label {
     font-size: px;
-    padding: 5px;
-    margin: 10px;
+    padding: .5rem;
+    margin: 1rem;
 
 }
 
 .edit-form>div>input {
     width: 80%;
     height: 15px;
-    border-radius: 5px;
-    padding: 7px;
-    margin: 10px;
+    border-radius: .5rem;
+    padding: .7rem;
+    margin: 1rem;
 }
 
 .edit-form>input[type='submit'] {
-    width: 20vw;
-    max-width: 150px;
-    height: 1.8rem;
-    margin: 10px;
+    width: 14rem;
+    height: 2.5rem;
+    margin: 1rem;
     color: white;
     background-color: orange;
-    border-radius: 5px;
-    font-size: 1rem;
+    border-radius: .5rem;
+    font-size: 1.6rem;
 }
 
 .edit-form>input[type='submit']:hover {
@@ -83,26 +86,26 @@
 .success-edit {
     width: 100%;
     color: black;
-    margin: 10px;
+    margin: 1rem;
     font-weight: bold;
 }
 
 .success-fail {
     width: 30%;
     color: black;
-    margin: 10px;
+    margin: 1rem;
     font-weight: bold;
 }
 
 #backbtn {
     width: 20vw;
-    max-width: 150px;
-    height: 1.8rem;
-    margin: 10px;
+    max-width: 15rem;
+    height: 2.2rem;
+    margin: 1rem;
     color: white;
     background-color: rgb(20, 216, 20);
-    border-radius: 5px;
-    font-size: 1rem;
+    border-radius: .5rem;
+    font-size: 1.6rem;
 }
 
 #backbtn:hover {
@@ -110,4 +113,10 @@
     color: black;
     background-color: gray;
     font: bold;
+}
+@media screen and (max-width: 850px)
+{
+    .edit-pop{
+        width: 95%;
+    }
 }
